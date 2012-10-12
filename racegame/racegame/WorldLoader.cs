@@ -8,16 +8,21 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace racegame
 {
-    class tile {
+    struct Tile {
        // int x, y;
-        public Texture2D texture = null;
-        //render options, 
+        //int Width, Height;
+        public Texture2D Texture;
+        //render options ?
+        //..
     }
 
     class WorldLoader {
-        public tile[, ] world;
-        public int horizontalTiles, verticalTiles;        
+        World CurentWorld;  
         public ContentManager Content; // werkt misschien niet?
+
+        public WorldLoader(ContentManager Content) {
+            this.Content = Content;
+        }
 
         public Texture2D GetTextureByRGB(Color data) {
             /*switch(data.R){
@@ -26,22 +31,58 @@ namespace racegame
             
             }*/
 
-            return Content.Load<Texture2D>(data.R.ToString()); //roodintensiteit van 255 -> "255"
+            return Content.Load<Texture2D>(data.R.ToString()); //roodintensiteit van 255 -> "255"(.png)
         }
-
-        public void Load(Texture2D mapData) {
-            Color[, ] colorCodes = new Color[mapData.Width, mapData.Height];
-
-            for (int x = 0; x < mapData.Width; x++)
-                for (int y = 0; y < mapData.Height; y++) {
-                    world[x, y].texture = GetTextureByRGB(colorCodes[x, y]);
-                }
-
+        /* onpractisch
+        //wrapper voor load(), in principe is constructor niet nodig
+        public WorldLoader(Texture2D mapData) {
+            Load(mapData);
         }
-        public void renderAll() {//tijdelijk, wereld zou eigen class moeten hebben ipl in world loader te zitten    
+        */
+        //
+        public World Load(Texture2D mapData) {
+            CurentWorld = new World(mapData.Width, mapData.Height);
+            Color[] colorCodes = new Color[mapData.Width*mapData.Height];
+            mapData.GetData(colorCodes);
+
             for (int x = 0; x < mapData.Width; x++)
                 for (int y = 0; y < mapData.Height; y++)
+                    CurentWorld.tiles[x, y].Texture = GetTextureByRGB(colorCodes[x + y*CurentWorld.horizontalTiles]);
+
+            return CurentWorld;
         }
 
+
+    }
+
+    class World {
+        public Tile[, ] tiles; //2-dimensionale array van de tiles(op dit moment alleen nog maar een wrapper voor Texture2D...)
+        public int horizontalTiles, verticalTiles; //x tiles horizontaal, y tiles verticaal
+        public const int TileWidth = 32; //je wilt niet oppeens van 32*32 tiles naar 64*64 tiles gaan
+        public const int TileHeight = 32;
+
+        public World(int tilesX, int tilesY) {
+            horizontalTiles = tilesX;
+            verticalTiles = tilesY;
+
+            tiles = new Tile[horizontalTiles, verticalTiles];
+            tiles.Initialize();
+        }
+
+        //renderd de textures van de tiles op het scherm, 
+        public void render(GraphicsDevice graphicsDevice) {
+            SpriteBatch spriteBatch = new SpriteBatch(graphicsDevice);
+
+            spriteBatch.Begin();
+
+            for (int x = 0; x < horizontalTiles; x++)
+                for (int y = 0; y < verticalTiles; y++)
+                    spriteBatch.Draw(tiles[x, y].Texture,
+                                     new Rectangle(x * TileWidth, y * TileHeight, TileWidth, TileHeight),
+                                     Color.White);
+
+            spriteBatch.End();
+
+        }
     }
 }

@@ -21,6 +21,8 @@ namespace racegame
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        WorldLoader worldLoader;
+        World world;
 
         public Game1()
         {
@@ -36,7 +38,12 @@ namespace racegame
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+
+            //graphics.PreferredBackBufferWidth = 800;
+            //graphics.PreferredBackBufferHeight = 600;
+            graphics.PreferredBackBufferWidth = 1000;
+            graphics.PreferredBackBufferHeight = 1000;
+
 
             base.Initialize();
         }
@@ -50,7 +57,9 @@ namespace racegame
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            worldLoader = new WorldLoader(Content);
+            world = worldLoader.Load(Content.Load<Texture2D>("map1"));
+
         }
 
         /// <summary>
@@ -86,7 +95,7 @@ namespace racegame
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            world.render(GraphicsDevice);
 
             base.Draw(gameTime);
         }
