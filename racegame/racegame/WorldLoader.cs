@@ -8,6 +8,24 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace racegame
 {
+    enum TileCollision
+    {
+        /// <summary>
+        /// Used for normal 'road' tiles
+        /// </summary>
+        Passable = 0,
+
+        /// <summary>
+        /// Bladiebla
+        /// </summary>
+        Impassable = 1,
+
+        /// <summary>
+        /// Cars will slow down when they enter a grass tile.
+        /// </summary>
+        Grass = 2,
+    }
+
     struct Tile
     {
        // int x, y;
