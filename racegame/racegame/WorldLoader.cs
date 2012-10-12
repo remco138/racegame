@@ -8,7 +8,8 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace racegame
 {
-    struct Tile {
+    struct Tile
+    {
        // int x, y;
         //int Width, Height;
         public Texture2D Texture;
@@ -16,15 +17,18 @@ namespace racegame
         //..
     }
 
-    class WorldLoader {
+    class WorldLoader 
+    {
         World CurentWorld;  
         public ContentManager Content; // werkt misschien niet?
 
-        public WorldLoader(ContentManager Content) {
+        public WorldLoader(ContentManager Content)
+        {
             this.Content = Content;
         }
 
-        public Texture2D GetTextureByRGB(Color data) {
+        public Texture2D GetTextureByRGB(Color data) 
+        {
             /*switch(data.R){
                 case 255:
                     return Content.Load<Texture2D>("grass");
@@ -33,14 +37,9 @@ namespace racegame
 
             return Content.Load<Texture2D>(data.R.ToString()); //roodintensiteit van 255 -> "255"(.png)
         }
-        /* onpractisch
-        //wrapper voor load(), in principe is constructor niet nodig
-        public WorldLoader(Texture2D mapData) {
-            Load(mapData);
-        }
-        */
-        //
-        public World Load(Texture2D mapData) {
+
+        public World Load(Texture2D mapData) 
+        {
             CurentWorld = new World(mapData.Width, mapData.Height);
             Color[] colorCodes = new Color[mapData.Width*mapData.Height];
             mapData.GetData(colorCodes);
@@ -55,13 +54,15 @@ namespace racegame
 
     }
 
-    class World {
+    class World
+    {
         public Tile[, ] tiles; //2-dimensionale array van de tiles(op dit moment alleen nog maar een wrapper voor Texture2D...)
         public int horizontalTiles, verticalTiles; //x tiles horizontaal, y tiles verticaal
         public const int TileWidth = 32; //je wilt niet oppeens van 32*32 tiles naar 64*64 tiles gaan
         public const int TileHeight = 32;
 
-        public World(int tilesX, int tilesY) {
+        public World(int tilesX, int tilesY)
+        {
             horizontalTiles = tilesX;
             verticalTiles = tilesY;
 
@@ -70,7 +71,8 @@ namespace racegame
         }
 
         //renderd de textures van de tiles op het scherm, 
-        public void render(GraphicsDevice graphicsDevice) {
+        public void render(GraphicsDevice graphicsDevice) 
+        {
             SpriteBatch spriteBatch = new SpriteBatch(graphicsDevice);
 
             spriteBatch.Begin();
@@ -85,4 +87,8 @@ namespace racegame
 
         }
     }
+    /*
+    *
+    * comment voor ome rutger :delegate
+    */
 }
