@@ -27,6 +27,10 @@ namespace racegame
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreferredBackBufferWidth = 800;
+            graphics.PreferredBackBufferHeight = 600;
+
+
             Content.RootDirectory = "Content";
         }
 
@@ -39,10 +43,6 @@ namespace racegame
         protected override void Initialize()
         {
 
-            //graphics.PreferredBackBufferWidth = 800;
-            //graphics.PreferredBackBufferHeight = 600;
-            graphics.PreferredBackBufferWidth = 1000;
-            graphics.PreferredBackBufferHeight = 1000;
 
 
             base.Initialize();
