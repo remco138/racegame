@@ -97,9 +97,9 @@ namespace racegame
 
             for (int x = 0; x < horizontalTiles; x++)
                 for (int y = 0; y < verticalTiles; y++)
-                    spriteBatch.Draw(tiles[x, y].Texture,
-                                     new Rectangle(x * TileWidth, y * TileHeight, TileWidth, TileHeight),
-                                     Color.White);
+                    spriteBatch.Draw(tiles[x, y].Texture,   //de texture van de tile
+                                     new Rectangle(x * TileWidth, y * TileHeight, TileWidth, TileHeight), //de recthoek waarin de texture in word geplaats/gerekt
+                                     Color.White); //kleur
 
             spriteBatch.End();
 

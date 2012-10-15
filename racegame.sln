@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "racegame", "racegame\racegame\racegame.csproj", "{8EBABBA0-86D8-4EE1-9F6F-AF9A9B7EAE6B}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "racegameContent", "racegame\racegameContent\racegameContent.contentproj", "{6E136D61-BE3C-43D7-AABC-FE0505A2A55C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "racegameContent", "racegame\racegameContent\racegameContent.contentproj", "{6E136D61-BE3C-43D7-AABC-FE0505A2A55C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -21,8 +21,11 @@ namespace racegame
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        KeyboardState keyboardState;
+
         WorldLoader worldLoader;
         World world;
+        List<MovableObject> worldObjects;
 
         public Game1()
         {
@@ -42,9 +45,6 @@ namespace racegame
         /// </summary>
         protected override void Initialize()
         {
-
-
-
             base.Initialize();
         }
 
@@ -54,11 +54,17 @@ namespace racegame
         /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             worldLoader = new WorldLoader(Content);
             world = worldLoader.Load(Content.Load<Texture2D>("map1"));
+
+            worldObjects = new List<MovableObject>()
+            {
+                new MovableObject(new Vector2(0.0f,0.5f), Content.Load<Texture2D>("Crosshair"), new Vector2(5.0f,5.0f)),
+                new MovableObject(new Vector2(5.0f,0.5f), Content.Load<Texture2D>("Crosshair"), new Vector2(15.0f,15.0f)),
+                new Car(new Vector2(10.0f, 10.0f), Content.Load<Texture2D>("Crosshair"), 100, 100, 0, 1000.0f, 500.0f) { velocity = new Vector2(0.2f, 0.2f) }
+            };   
 
         }
 
@@ -71,6 +77,16 @@ namespace racegame
             // TODO: Unload any non ContentManager content here
         }
 
+        private void GetInput()
+        {
+            keyboardState = Keyboard.GetState();
+
+            if (keyboardState.IsKeyDown(Keys.A))
+            {
+
+            }
+        }
+
         /// <summary>
         /// Allows the game to run logic such as updating the world,
         /// checking for collisions, gathering input, and playing audio.
@@ -78,10 +94,12 @@ namespace racegame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
+            GetInput();
 
+            foreach (MovableObject obj in worldObjects) { obj.Update(); }
+
+            // Allows the game to exit
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape)) this.Exit();
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -93,9 +111,16 @@ namespace racegame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.DeepPink);
 
             world.render(GraphicsDevice);
+
+            spriteBatch.Begin();
+            foreach (MovableObject obj in worldObjects)
+            {
+                obj.Draw(spriteBatch);
+            }
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
