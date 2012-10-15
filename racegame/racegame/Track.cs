@@ -63,6 +63,8 @@ namespace racegame
             // 
             //      - Leest de trackTexture in en laad aan de hand van de (kleur)-codes de verschillende objecten in. (bv een rode pixel = de start positie van een Car)   
             //
+            this.Content = Content;
+
             tiles = new Tile[trackTexture.Width, trackTexture.Height];
 
             // Load tiles into the tiles array
@@ -82,8 +84,6 @@ namespace racegame
                 new MovableObject(new Vector2(5.0f,0.5f), Content.Load<Texture2D>("Crosshair"), new Vector2(15.0f,15.0f)),
                 new Car(new Vector2(10.0f, 10.0f), Content.Load<Texture2D>("Crosshair"), 100, 100, 0, 1000.0f, 500.0f, this) { velocity = new Vector2(0.2f, 0.2f) }
             };
-
-            this.Content = Content;
         }
 
         public Tile LoadTile(Color tileColor, int x, int y)

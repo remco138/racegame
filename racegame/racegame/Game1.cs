@@ -62,6 +62,7 @@ namespace racegame
         protected override void Update(GameTime gameTime)
         {
             GetInput();
+            currentTrack.Update();
 
             // Allows the game to exit
             if (Keyboard.GetState().IsKeyDown(Keys.Escape)) this.Exit();
@@ -83,7 +84,9 @@ namespace racegame
         {
             GraphicsDevice.Clear(Color.DeepPink);
 
+            spriteBatch.Begin();
             currentTrack.Draw(spriteBatch);
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
