@@ -31,7 +31,6 @@ namespace racegame
             graphics.PreferredBackBufferWidth = 800;
             graphics.PreferredBackBufferHeight = 600;
 
-
             Content.RootDirectory = "Content";
         }
 
@@ -46,25 +45,27 @@ namespace racegame
             base.Initialize();
         }
 
-        /// <summary>
-        /// LoadContent will be called once per game and is the place to load
-        /// all of your content.
-        /// </summary>
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            trackLoader = new TrackLoader(Content);
-            currentTrack = trackLoader.Load(Content.Load<Texture2D>("map1"));
+            currentTrack = new Track(Content.Load<Texture2D>("map1"), Content);
         }
-
-        /// <summary>
-        /// UnloadContent will be called once per game and is the place to unload
-        /// all content.
-        /// </summary>
         protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
+        }
+
+
+
+
+        protected override void Update(GameTime gameTime)
+        {
+            GetInput();
+
+            // Allows the game to exit
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape)) this.Exit();
+            base.Update(gameTime);
         }
 
         private void GetInput()
@@ -77,31 +78,12 @@ namespace racegame
             }
         }
 
-        /// <summary>
-        /// Allows the game to run logic such as updating the world,
-        /// checking for collisions, gathering input, and playing audio.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        protected override void Update(GameTime gameTime)
-        {
-            GetInput();
 
-            // Allows the game to exit
-            if (Keyboard.GetState().IsKeyDown(Keys.Escape)) this.Exit();
-            // TODO: Add your update logic here
-
-            base.Update(gameTime);
-        }
-
-        /// <summary>
-        /// This is called when the game should draw itself.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.DeepPink);
 
-            currentTrack.Draw(GraphicsDevice);
+            currentTrack.Draw(spriteBatch);
 
             base.Draw(gameTime);
         }

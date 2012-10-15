@@ -16,6 +16,9 @@ namespace racegame
         protected Vector2 position;
         protected Texture2D texture; // Or Animation?
 
+        /// <summary>
+        /// This is the bounding rectangle of the object located somehwere on the Track.
+        /// </summary>
         public Rectangle BoundingRectangle
         {
             get
@@ -90,7 +93,9 @@ namespace racegame
         private bool isOnGrass;
         private bool isOnRoad;
 
-        public Car(Vector2 position, Texture2D texture, int health, int fuel, int nitro, float maxSpeed, float accelerationSpeed)
+        Track track;
+
+        public Car(Vector2 position, Texture2D texture, int health, int fuel, int nitro, float maxSpeed, float accelerationSpeed, Track track)
             : base(position, texture, new Vector2(0.0f, 0.0f))
         {
             this.health = health;
@@ -99,6 +104,8 @@ namespace racegame
 
             this.maxSpeed = maxSpeed;
             this.accelerationSpeed = accelerationSpeed;
+
+            this.track = track;
         }
 
         public override void Update()
@@ -117,25 +124,40 @@ namespace racegame
 
         public void HandleCollisions()
         {
-            //vorm (de grootst mogelijke) vierhoek om de auto waarin alle tiles die collision kunnen veroorzaken in voorkomen
-            //omdat ik lui ben en niet moeilijk wil doen met pythagoras, gewoon de langste zijde als omtrek voor alle zijden gebruiken
-            //dit voorkomt dat je ALLE tiles checkt voor collision met de auto
-            int maxSize = 0;
-            //ipl van onhandige if/else, ternary operator!
-            maxSize = (BoundingRectangle.Width > BoundingRectangle.Height) ? BoundingRectangle.Width : BoundingRectangle.Height;
-            //niet alleen afronden van float naar int, ook moet er afgerond worden op buitenste 32 (of 16 of andere mogelijke tileSizes)
-            int innerX = ((int)this.position.X - ((int)this.position.X % 32)) / 32; //tileSize moet hier staan, hoe staticObject deze waarde moet weten...
-            int innerY = ((int)this.position.Y - ((int)this.position.X % 32)) / 32;     //x waarde van 33 =>  33 - (33 % 32) == 33 - 1 == 32; 32 / 32 = precies 1 tile!
+            // 1. Haal de car-Rectangle op. Deze is op te halen via het veld: BoundingRectangle
+            // 2. Zoek uit met welke tiles de Car in contact komt.
+            // 3. Loop door deze tiles heen en controleer vervolgens welke collision-type deze tile heeft
+            //      3b. Is deze tile passable?
+            //      3c. Is deze tile NIET passable? dan is er een collision.
+            //
 
-            int outerX = ((int)this.position.X + (32 - (int)this.position.X % 32)) / 32; //x waarde van 66 => 66 + (32 - (66 % 32)) == 66 + (32 - 2) == 96; 96 / 32 = precies 3 tiles :D
-            int outerY = ((int)this.position.Y + (32 - (int)this.position.X % 32)) / 32;
+            // this.BoundingRectangle wordt gebruikt om de tiles rondom de auto te vinden. 
 
-            Rectangle boundingBox = new Rectangle(innerX, innerY, outerX - innerX, outerY - innerY);
+            int xLeftTile = (int)Math.Floor((float)BoundingRectangle.Left / Tile.Width);
+            int xRightTile = (int)Math.Ceiling((float)BoundingRectangle.Right / Tile.Width) - 1;
+            int yTopTile = (int)Math.Floor((float)BoundingRectangle.Top / Tile.Height);
+            int yBottomTile = (int)Math.Ceiling((float)BoundingRectangle.Bottom / Tile.Height) - 1;
 
-            for(int x = innerX; x < outerX; x++)
-                for(int y = innerY; y < outerY; y++)
-                    if(boundingBox.Intersects(Track.tiles[x][y]) && // en andersom?
-                        Console.WriteLine("Collision!");
+            // Loop door de verticale tiles
+            for(int y = yTopTile; y <= yBottomTile; ++y)
+            {
+                // En door de horizontale tiles
+                for(int x= xLeftTile; x <= xRightTile; ++x)
+                {
+                    TileCollision collision = track.GetCollisionOfTile(x, y); // Haal collision-type op van de current Tile
+
+                    if(collision != TileCollision.Passable)
+                    {
+                        // Een impassable object!
+                    }
+                    else if(collision == TileCollision.Grass)
+                    {
+                        // Slow down on grass?
+                    }
+
+                }
+
+            }
         }
     }
 }

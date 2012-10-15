@@ -31,8 +31,10 @@ namespace racegame
         public Texture2D Texture;
         public TileCollision Collision;
 
-        public const int TileWidth = 32;
-        public const int TileHeight = 32;
+        public const int Width = 32;
+        public const int Height = 32;
+
+        public static readonly Vector2 Size = new Vector2(Width, Height);
 
         public Tile(Texture2D texture, TileCollision collision)
         {
@@ -43,8 +45,12 @@ namespace racegame
 
     class Track
     {
-        public Tile[, ] tiles; //2-dimensionale array van de tiles(op dit moment alleen nog maar een wrapper voor Texture2D...)
-        public int horizontalTiles, verticalTiles; //x tiles horizontaal, y tiles verticaal
+        public Tile[,] tiles; //2-dimensionale array van de tiles(op dit moment alleen nog maar een wrapper voor Texture2D...)
+
+        public int Width { get { return tiles.GetLength(0); } }
+        public int Height { get { return tiles.GetLength(1); }  }
+        public int WidthInPixels { get { return Width * Tile.Width; } }
+        public int HeightInPixels { get { return Height * Tile.Height; } }
 
         List<MovableObject> worldObjects;
 
@@ -62,7 +68,7 @@ namespace racegame
             {
                 new MovableObject(new Vector2(0.0f,0.5f), Content.Load<Texture2D>("Crosshair"), new Vector2(5.0f,5.0f)),
                 new MovableObject(new Vector2(5.0f,0.5f), Content.Load<Texture2D>("Crosshair"), new Vector2(15.0f,15.0f)),
-                new Car(new Vector2(10.0f, 10.0f), Content.Load<Texture2D>("Crosshair"), 100, 100, 0, 1000.0f, 500.0f) { velocity = new Vector2(0.2f, 0.2f) }
+                new Car(new Vector2(10.0f, 10.0f), Content.Load<Texture2D>("Crosshair"), 100, 100, 0, 1000.0f, 500.0f, this) { velocity = new Vector2(0.2f, 0.2f) }
             }; 
         }
 
@@ -85,11 +91,17 @@ namespace racegame
         {
             // Draw all the tiles
             //
-            for (int x = 0; x < horizontalTiles; x++)
-                for (int y = 0; y < verticalTiles; y++)
+            for (int x = 0; x < Width; x++)
+            {
+                for (int y = 0; y < Height; y++)
+                {
+                    Vector2 position = new Vector2(x, y) * Tile.Size;
+
                     spriteBatch.Draw(tiles[x, y].Texture,   //de texture van de tile
-                                     new Rectangle(x * Tile.TileWidth, y * Tile.TileHeight, Tile.TileWidth, Tile.TileHeight), //de recthoek waarin de texture in word geplaats/gerekt
+                                     position, 
                                      Color.White);
+                }
+            }
 
             // Draw all the objects
             //
@@ -97,6 +109,20 @@ namespace racegame
             {
                 obj.Draw(spriteBatch);
             }
+        }
+
+        /// <summary>
+        /// This method takes an X and Y and returns the Collision Type of the tile.
+        /// </summary>
+        public TileCollision GetCollisionOfTile(int x, int y)
+        {
+            // Prevent escaping past the level boundaries.
+            if (x < 0 || x >= Width)
+            {
+                return TileCollision.Impassable;
+            }
+
+            return tiles[x, y].Collision;
         }
     }
 
