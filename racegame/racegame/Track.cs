@@ -54,6 +54,8 @@ namespace racegame
 
         List<MovableObject> worldObjects;
 
+        ContentManager Content;
+
         public Track(Texture2D trackTexture, ContentManager Content)
         {
             //
@@ -63,13 +65,56 @@ namespace racegame
             //
             tiles = new Tile[trackTexture.Width, trackTexture.Height];
 
+            // Load tiles into the tiles array
+            for (int i = 0; i < Width; i++)
+            {
+                for (int j = 0; j < Height; j++)
+                {
+                    Color currentColor = GetPixelColor(trackTexture, i, j);
+                    tiles[i, j] = LoadTile(currentColor, i, j); // Zoek uit wat voor Tile dit is en zet deze in de tiles[] array.
+                }
+            }
+
             // Maak een aantal test-objecten aan. (dit is nu nog handmatig, kan later gedaan worden door de trackTexture uit te lezen)
             worldObjects = new List<MovableObject>()
             {
                 new MovableObject(new Vector2(0.0f,0.5f), Content.Load<Texture2D>("Crosshair"), new Vector2(5.0f,5.0f)),
                 new MovableObject(new Vector2(5.0f,0.5f), Content.Load<Texture2D>("Crosshair"), new Vector2(15.0f,15.0f)),
                 new Car(new Vector2(10.0f, 10.0f), Content.Load<Texture2D>("Crosshair"), 100, 100, 0, 1000.0f, 500.0f, this) { velocity = new Vector2(0.2f, 0.2f) }
-            }; 
+            };
+
+            this.Content = Content;
+        }
+
+        public Tile LoadTile(Color tileColor, int x, int y)
+        {
+            if(tileColor.Equals(new Color(255, 000, 000)))
+            {
+                // Rood = bv. gras
+                return new Tile(Content.Load<Texture2D>("Grass"), TileCollision.Grass);
+            }
+            else if (tileColor.Equals(new Color(000, 000, 000)))
+            {
+                // zwart = de track
+                return new Tile(Content.Load<Texture2D>("Road"), TileCollision.Passable);
+            }
+            else
+            {
+                throw new NotSupportedException(String.Format("Unsupported tole Color {0} at position {1}, {2}.", tileColor, x, y));
+            }
+        }
+                 
+        /// <summary>
+        /// Returns the color of the pixel located at the given x and y.
+        /// </summary>
+        public Color GetPixelColor(Texture2D texture, int x, int y)
+        {
+            Rectangle sourceRectangle = new Rectangle(x, y, 1, 1); // Make new rectangle with 1 pixel in width and height.
+            Color[] retrievedColor = new Color[1];
+
+            texture.GetData<Color>(0, sourceRectangle, retrievedColor, 0, 1);
+
+            return retrievedColor[0]; // Return the color that was found
         }
 
         public void Update()
