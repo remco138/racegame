@@ -22,10 +22,8 @@ namespace racegame
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         KeyboardState keyboardState;
-
-        WorldLoader worldLoader;
-        World world;
-        List<MovableObject> worldObjects;
+ 
+        Track currentTrack;
 
         public Game1()
         {
@@ -56,16 +54,8 @@ namespace racegame
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            worldLoader = new WorldLoader(Content);
-            world = worldLoader.Load(Content.Load<Texture2D>("map1"));
-
-            worldObjects = new List<MovableObject>()
-            {
-                new MovableObject(new Vector2(0.0f,0.5f), Content.Load<Texture2D>("Crosshair"), new Vector2(5.0f,5.0f)),
-                new MovableObject(new Vector2(5.0f,0.5f), Content.Load<Texture2D>("Crosshair"), new Vector2(15.0f,15.0f)),
-                new Car(new Vector2(10.0f, 10.0f), Content.Load<Texture2D>("Crosshair"), 100, 100, 0, 1000.0f, 500.0f) { velocity = new Vector2(0.2f, 0.2f) }
-            };   
-
+            trackLoader = new TrackLoader(Content);
+            currentTrack = trackLoader.Load(Content.Load<Texture2D>("map1"));
         }
 
         /// <summary>
@@ -96,8 +86,6 @@ namespace racegame
         {
             GetInput();
 
-            foreach (MovableObject obj in worldObjects) { obj.Update(); }
-
             // Allows the game to exit
             if (Keyboard.GetState().IsKeyDown(Keys.Escape)) this.Exit();
             // TODO: Add your update logic here
@@ -113,14 +101,7 @@ namespace racegame
         {
             GraphicsDevice.Clear(Color.DeepPink);
 
-            world.render(GraphicsDevice);
-
-            spriteBatch.Begin();
-            foreach (MovableObject obj in worldObjects)
-            {
-                obj.Draw(spriteBatch);
-            }
-            spriteBatch.End();
+            currentTrack.Draw(GraphicsDevice);
 
             base.Draw(gameTime);
         }

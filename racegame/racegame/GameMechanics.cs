@@ -134,7 +134,7 @@ namespace racegame
 
             for(int x = innerX; x < outerX; x++)
                 for(int y = innerY; y < outerY; y++)
-                    if(boundingBox.Intersects(World.tiles[x][y]) && // en andersom?
+                    if(boundingBox.Intersects(Track.tiles[x][y]) && // en andersom?
                         Console.WriteLine("Collision!");
         }
     }
