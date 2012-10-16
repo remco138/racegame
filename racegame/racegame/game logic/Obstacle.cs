@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace racegame
 {
-    class Obstacle 
+    class Obstacle
     {
         protected Vector2 position;
         protected Texture2D texture; // Or Animation?
