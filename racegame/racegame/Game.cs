@@ -17,29 +17,30 @@ namespace racegame
     /// <summary>
     /// This is the main type for your game
     /// </summary>
-    public class Game1 : Microsoft.Xna.Framework.Game
+    public class Game : Microsoft.Xna.Framework.Game
     {
+        #region Variables
+
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         KeyboardState keyboardState;
  
         Track currentTrack;
 
-        public Game1()
+        #endregion
+
+
+        #region Loading
+
+        public Game()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 800;
-            graphics.PreferredBackBufferHeight = 600;
+            graphics.PreferredBackBufferWidth = 1280;
+            graphics.PreferredBackBufferHeight = 800;
 
             Content.RootDirectory = "Content";
         }
 
-        /// <summary>
-        /// Allows the game to perform any initialization it needs to before starting to run.
-        /// This is where it can query for any required services and load any non-graphic
-        /// related content.  Calling base.Initialize will enumerate through any components
-        /// and initialize them as well.
-        /// </summary>
         protected override void Initialize()
         {
             base.Initialize();
@@ -51,13 +52,11 @@ namespace racegame
 
             currentTrack = new Track(Content.Load<Texture2D>("map1"), Content);
         }
-        protected override void UnloadContent()
-        {
-            // TODO: Unload any non ContentManager content here
-        }
+
+        #endregion
 
 
-
+        #region Update & Draw
 
         protected override void Update(GameTime gameTime)
         {
@@ -79,7 +78,6 @@ namespace racegame
             }
         }
 
-
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.DeepPink);
@@ -90,5 +88,7 @@ namespace racegame
 
             base.Draw(gameTime);
         }
+
+        #endregion
     }
 }

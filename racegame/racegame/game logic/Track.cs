@@ -8,42 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace racegame
 {
-    enum TileCollision
-    {
-        /// <summary>
-        /// Used for normal 'road' tiles
-        /// </summary>
-        Passable = 0,
-
-        /// <summary>
-        /// Bladiebla
-        /// </summary>
-        Impassable = 1,
-
-        /// <summary>
-        /// Cars will slow down when they enter a grass tile.
-        /// </summary>
-        Grass = 2,
-    }
-
-    struct Tile
-    {
-        public Texture2D Texture;
-        public TileCollision Collision;
-
-        public const int Width = 32;
-        public const int Height = 32;
-
-        public static readonly Vector2 Size = new Vector2(Width, Height);
-
-        public Tile(Texture2D texture, TileCollision collision)
-        {
-            Texture = texture;
-            Collision = collision;
-        }
-    }
-
-    class Track
+     class Track
     {
         public Tile[,] tiles; //2-dimensionale array van de tiles(op dit moment alleen nog maar een wrapper voor Texture2D...)
 
@@ -96,7 +61,7 @@ namespace racegame
             else if (tileColor.Equals(new Color(000, 000, 000)))
             {
                 // zwart = de track
-                return new Tile(Content.Load<Texture2D>("Road"), TileCollision.Passable);
+                return new Tile(Content.Load<Texture2D>("Road"), TileCollision.Road);
             }
             else
             {
@@ -164,7 +129,7 @@ namespace racegame
             // Prevent escaping past the level boundaries.
             if (x < 0 || x >= Width)
             {
-                return TileCollision.Impassable;
+                return TileCollision.Solid;
             }
 
             return tiles[x, y].Collision;

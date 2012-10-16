@@ -11,76 +11,6 @@ using Microsoft.Xna.Framework.Media;
 
 namespace racegame
 {
-    class StaticObject
-    {
-        protected Vector2 position;
-        protected Texture2D texture; // Or Animation?
-
-        /// <summary>
-        /// This is the bounding rectangle of the object located somehwere on the Track.
-        /// </summary>
-        public Rectangle BoundingRectangle
-        {
-            get
-            {
-                // Need to figure out what to do with rotated Objects (like a car for example)
-                return new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
-            }
-        }
-
-        public StaticObject(Vector2 position, Texture2D texture)
-        {
-            this.position = position;
-            this.texture = texture;
-        }
-
-        public virtual void Draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Draw(texture, position, Color.White);
-        }
-    }
-
-    class MovableObject : StaticObject
-    {
-        public Vector2 velocity;
-        public Vector2 LastPosition
-        {
-            get;
-            protected set;
-        }
-
-        public MovableObject(Vector2 position, Texture2D texture, Vector2 velocity)
-            : base(position, texture)
-        {
-            this.velocity = velocity;
-            LastPosition = new Vector2(0.0f, 0.0f);
-        }
-
-        public virtual void Update()
-        {
-            CalculateMovement();
-        }
-
-        protected virtual void CalculateMovement()
-        {
-            LastPosition = position;
-            position += velocity;
-        }
-
-        public void reverseVelocity()
-        {
-            velocity = -velocity;
-        }
-        public void reverseVelocityX()
-        {
-            velocity.X = -velocity.X;
-        }
-        public void reverseVelocityY()
-        {
-            velocity.Y = -velocity.Y;
-        }
-    }
-
     class Car : MovableObject
     {
         private int health;
@@ -139,18 +69,18 @@ namespace racegame
             int yBottomTile = (int)Math.Ceiling((float)BoundingRectangle.Bottom / Tile.Height) - 1;
 
             // Loop door de verticale tiles
-            for(int y = yTopTile; y <= yBottomTile; ++y)
+            for (int y = yTopTile; y <= yBottomTile; ++y)
             {
                 // En door de horizontale tiles
-                for(int x= xLeftTile; x <= xRightTile; ++x)
+                for (int x = xLeftTile; x <= xRightTile; ++x)
                 {
                     TileCollision collision = track.GetCollisionOfTile(x, y); // Haal collision-type op van de current Tile
 
-                    if(collision != TileCollision.Passable)
+                    if (collision != TileCollision.Passable)
                     {
-                        // Een impassable object!
+                        // Een Solid object!
                     }
-                    else if(collision == TileCollision.Grass)
+                    else if (collision == TileCollision.Grass)
                     {
                         // Slow down on grass?
                     }
