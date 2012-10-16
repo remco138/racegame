@@ -1,4 +1,7 @@
-Content\map1.xnb
 Content\Crosshair.xnb
-Content\Grass.xnb
-Content\Road.xnb
+Content\Tiles\Grass.xnb
+Content\Tiles\Road.xnb
+Content\Tracks\1.xnb
+Content\Tiles\Solid.xnb
+Content\Tiles\Water.xnb
+Content\Car.xnb

@@ -42,7 +42,32 @@ namespace racegame
         {
             base.Update();
 
+            GetInput();
+
             HandleCollisions();
+        }
+
+        public void GetInput()
+        {
+            KeyboardState keyboardState = Keyboard.GetState();
+
+            if (keyboardState.IsKeyDown(Keys.Up))
+            {
+                velocity = new Vector2(0.0f, -2.0f);
+            }
+            if (keyboardState.IsKeyDown(Keys.Down))
+            {
+                velocity = new Vector2(0.0f, 2.0f);
+            }
+            if (keyboardState.IsKeyDown(Keys.Left))
+            {
+                velocity = new Vector2(-2.0f, 0.0f);
+            }
+            if (keyboardState.IsKeyDown(Keys.Right))
+            {
+                velocity = new Vector2(2.0f, 0.0f);
+            }
+            
         }
 
         protected override void CalculateMovement()
@@ -76,15 +101,21 @@ namespace racegame
                 {
                     TileCollision collision = track.GetCollisionOfTile(x, y); // Haal collision-type op van de current Tile
 
-                    if (collision != TileCollision.Passable)
+                    switch (collision)
                     {
-                        // Een Solid object!
-                    }
-                    else if (collision == TileCollision.Grass)
-                    {
-                        // Slow down on grass?
-                    }
+                        case TileCollision.Road:
+                            break;
 
+                        case TileCollision.Grass:
+                            break;
+
+                        case TileCollision.Solid:
+
+                            break;
+
+                        case TileCollision.Pitstop:
+                            break;
+                    }
                 }
 
             }

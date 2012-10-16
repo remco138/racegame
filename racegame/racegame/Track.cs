@@ -45,27 +45,37 @@ namespace racegame
             // Maak een aantal test-objecten aan. (dit is nu nog handmatig, kan later gedaan worden door de trackTexture uit te lezen)
             worldObjects = new List<MovableObject>()
             {
-                new MovableObject(new Vector2(0.0f,0.5f), Content.Load<Texture2D>("Crosshair"), new Vector2(5.0f,5.0f)),
-                new MovableObject(new Vector2(5.0f,0.5f), Content.Load<Texture2D>("Crosshair"), new Vector2(15.0f,15.0f)),
-                new Car(new Vector2(10.0f, 10.0f), Content.Load<Texture2D>("Crosshair"), 100, 100, 0, 1000.0f, 500.0f, this) { velocity = new Vector2(0.2f, 0.2f) }
+                //new MovableObject(new Vector2(0.0f,0.5f), Content.Load<Texture2D>("Crosshair"), new Vector2(5.0f,5.0f)),
+                //new MovableObject(new Vector2(5.0f,0.5f), Content.Load<Texture2D>("Crosshair"), new Vector2(15.0f,15.0f)),
+                new Car(new Vector2(10.0f, 10.0f), Content.Load<Texture2D>("Car"), 100, 100, 0, 1000.0f, 500.0f, this) { velocity = new Vector2(0.2f, 0.2f) }
             };
         }
 
         public Tile LoadTile(Color tileColor, int x, int y)
         {
-            if(tileColor.Equals(new Color(255, 000, 000)))
+            if(tileColor.Equals(new Color(195, 195, 195)))
             {
-                // Rood = bv. gras
-                return new Tile(Content.Load<Texture2D>("Grass"), TileCollision.Grass);
+                // Grey = the road
+                return new Tile(Content.Load<Texture2D>("Tiles/Road"), TileCollision.Road);
             }
-            else if (tileColor.Equals(new Color(000, 000, 000)))
+            else if (tileColor.Equals(new Color(000, 255, 000)))
             {
-                // zwart = de track
-                return new Tile(Content.Load<Texture2D>("Road"), TileCollision.Road);
+                // Green = Grass
+                return new Tile(Content.Load<Texture2D>("Tiles/Grass"), TileCollision.Grass);
+            }
+            else if (tileColor.Equals(new Color(000, 162, 232)))
+            {
+                // Blue = Water
+                return new Tile(Content.Load<Texture2D>("Tiles/Water"), TileCollision.Water);
+            }
+            else if(tileColor.Equals(new Color(163,073,164)))
+            {
+                return new Tile(Content.Load<Texture2D>("Tiles/Solid"), TileCollision.Solid);
             }
             else
             {
-                throw new NotSupportedException(String.Format("Unsupported tole Color {0} at position {1}, {2}.", tileColor, x, y));
+                //throw new NotSupportedException(String.Format("Unsupported tole Color {0} at position {1}, {2}.", tileColor, x, y));
+                return new Tile(Content.Load<Texture2D>("Tiles/Road"), TileCollision.Road);
             }
         }
                  
@@ -87,7 +97,7 @@ namespace racegame
             //
             // Hier voeren we het volgende uit:
             //
-            //      - Check op collisions
+            //      - Check of de auto een powerup aanraakt.
             //      - Update de objecten (zoals bv. cars, powerups etc.)
             //
 
@@ -127,7 +137,8 @@ namespace racegame
         public TileCollision GetCollisionOfTile(int x, int y)
         {
             // Prevent escaping past the level boundaries.
-            if (x < 0 || x >= Width)
+            if ((x < 0 || x >= Width) ||
+                (y < 0 || y >= Height))
             {
                 return TileCollision.Solid;
             }

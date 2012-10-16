@@ -50,7 +50,7 @@ namespace racegame
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            currentTrack = new Track(Content.Load<Texture2D>("map1"), Content);
+            currentTrack = new Track(Content.Load<Texture2D>("Tracks/1"), Content);
         }
 
         #endregion
