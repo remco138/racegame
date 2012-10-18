@@ -53,19 +53,19 @@ namespace racegame
 
             if (keyboardState.IsKeyDown(Keys.Up))
             {
-                velocity = new Vector2(0.0f, -2.0f);
+                Velocity = new Vector2(0.0f, -2.0f);
             }
             if (keyboardState.IsKeyDown(Keys.Down))
             {
-                velocity = new Vector2(0.0f, 2.0f);
+                Velocity = new Vector2(0.0f, 2.0f);
             }
             if (keyboardState.IsKeyDown(Keys.Left))
             {
-                velocity = new Vector2(-2.0f, 0.0f);
+                Velocity = new Vector2(-2.0f, 0.0f);
             }
             if (keyboardState.IsKeyDown(Keys.Right))
             {
-                velocity = new Vector2(2.0f, 0.0f);
+                Velocity = new Vector2(2.0f, 0.0f);
             }
             
         }

@@ -13,7 +13,12 @@ namespace racegame
 {
     class MovableObject : Obstacle
     {
-        public Vector2 velocity;
+        public float Speed;
+        public float Acceleraion;
+        public float MaxAcceleration;
+        public float Rotation; //doe hier dingen mee
+
+        public Vector2 Velocity;
         public Vector2 LastPosition
         {
             get;
@@ -23,10 +28,15 @@ namespace racegame
         public MovableObject(Vector2 position, Texture2D texture, Vector2 velocity)
             : base(position, texture)
         {
-            this.velocity = velocity;
+            this.Velocity = velocity;
             LastPosition = new Vector2(0.0f, 0.0f);
         }
 
+        private float GetAcceleration(float speed)
+        {
+            //return acceleratie gebasseerd op huidige speed, later... eerst altijd 1, oftewel lineare speed
+            return (Acceleraion < MaxAcceleration) ? 1 : 0;
+        }
         public virtual void Update()
         {
             CalculateMovement();
@@ -34,21 +44,30 @@ namespace racegame
 
         protected virtual void CalculateMovement()
         {
+            Speed += 5*GetAcceleration(Speed); // rekening houden met gametime?
+
+            //speed naar coordinaten, gejat van elo..
+            Velocity = new Vector2((float)(Speed * Math.Cos(Rotation)),
+            (float)(Speed * Math.Sin(Rotation)));
+
             LastPosition = position;
-            position += velocity;
+            position += Velocity;
         }
+
+
+        
 
         public void reverseVelocity()
         {
-            velocity = -velocity;
+            Velocity = -Velocity;
         }
         public void reverseVelocityX()
         {
-            velocity.X = -velocity.X;
+            Velocity.X = -Velocity.X;
         }
         public void reverseVelocityY()
         {
-            velocity.Y = -velocity.Y;
+            Velocity.Y = -Velocity.Y;
         }
     }
 }

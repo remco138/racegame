@@ -43,12 +43,7 @@ namespace racegame
             }
 
             // Maak een aantal test-objecten aan. (dit is nu nog handmatig, kan later gedaan worden door de trackTexture uit te lezen)
-            worldObjects = new List<MovableObject>()
-            {
-                //new MovableObject(new Vector2(0.0f,0.5f), Content.Load<Texture2D>("Crosshair"), new Vector2(5.0f,5.0f)),
-                //new MovableObject(new Vector2(5.0f,0.5f), Content.Load<Texture2D>("Crosshair"), new Vector2(15.0f,15.0f)),
-                new Car(new Vector2(10.0f, 10.0f), Content.Load<Texture2D>("Car"), 100, 100, 0, 1000.0f, 500.0f, this) { velocity = new Vector2(0.2f, 0.2f) }
-            };
+            worldObjects = new List<MovableObject>();
         }
 
         public Tile LoadTile(Color tileColor, int x, int y)
