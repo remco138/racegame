@@ -55,6 +55,7 @@ namespace racegame
             //new MovableObject(new Vector2(0.0f,0.5f), Content.Load<Texture2D>("Crosshair"), new Vector2(5.0f,5.0f)),
             //new MovableObject(new Vector2(5.0f,0.5f), Content.Load<Texture2D>("Crosshair"), new Vector2(15.0f,15.0f)),
             car = new Car(new Vector2(10.0f, 10.0f), Content.Load<Texture2D>("Car"), 100, 100, 0, 1000.0f, 500.0f, currentTrack) { Velocity = new Vector2(0.2f, 0.2f) };
+            currentTrack.AddObject(car);
         }
 
         #endregion

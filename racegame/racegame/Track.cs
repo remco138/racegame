@@ -73,7 +73,12 @@ namespace racegame
                 return new Tile(Content.Load<Texture2D>("Tiles/Road"), TileCollision.Road);
             }
         }
-                 
+         
+     public void AddObject(MovableObject Object){
+         worldObjects.Add(Object);
+     }
+        
+
         /// <summary>
         /// Returns the color of the pixel located at the given x and y.
         /// </summary>
