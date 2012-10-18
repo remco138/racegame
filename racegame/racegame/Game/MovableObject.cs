@@ -14,8 +14,6 @@ namespace racegame
     class MovableObject : Obstacle
     {
         public float Speed;
-        public float Acceleraion;
-        public float MaxAcceleration;
         public float Rotation; //doe hier dingen mee
 
         public Vector2 Velocity;
@@ -41,14 +39,15 @@ namespace racegame
         {
             LastPosition = position;
             position += Velocity;
+            Velocity.X = Velocity.Y = 0;
         }
 
-
+        
         
 
         public void reverseVelocity()
         {
-            Velocity = -Velocity;
+            Velocity = Vector2.Negate(Velocity);
         }
         public void reverseVelocityX()
         {
