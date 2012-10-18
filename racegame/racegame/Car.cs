@@ -47,13 +47,24 @@ namespace racegame
             HandleCollisions();
         }
 
+        private float GetAcceleration(float speed)
+        {
+            //return acceleratie gebasseerd op huidige speed, later... eerst altijd 1, oftewel lineare speed
+            // return (Acceleraion < MaxAcceleration) ? 1 : 0;
+            return 1;
+        }
+
         public void GetInput()
         {
             KeyboardState keyboardState = Keyboard.GetState();
 
             if (keyboardState.IsKeyDown(Keys.Up))
             {
-                Velocity = new Vector2(0.0f, -2.0f);
+                Speed += 5 * GetAcceleration(Speed); // rekening houden met gametime?
+
+                //speed naar coordinaten, gejat van elo..
+                Velocity = new Vector2((float)(Speed * Math.Cos(Rotation)),
+                (float)(Speed * Math.Sin(Rotation)));
             }
             if (keyboardState.IsKeyDown(Keys.Down))
             {

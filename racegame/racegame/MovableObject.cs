@@ -32,11 +32,6 @@ namespace racegame
             LastPosition = new Vector2(0.0f, 0.0f);
         }
 
-        private float GetAcceleration(float speed)
-        {
-            //return acceleratie gebasseerd op huidige speed, later... eerst altijd 1, oftewel lineare speed
-            return (Acceleraion < MaxAcceleration) ? 1 : 0;
-        }
         public virtual void Update()
         {
             CalculateMovement();
@@ -44,12 +39,6 @@ namespace racegame
 
         protected virtual void CalculateMovement()
         {
-            Speed += 5*GetAcceleration(Speed); // rekening houden met gametime?
-
-            //speed naar coordinaten, gejat van elo..
-            Velocity = new Vector2((float)(Speed * Math.Cos(Rotation)),
-            (float)(Speed * Math.Sin(Rotation)));
-
             LastPosition = position;
             position += Velocity;
         }
