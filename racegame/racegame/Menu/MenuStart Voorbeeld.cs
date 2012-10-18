@@ -7,13 +7,13 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.GamerServices;
 
 
-namespace GameProject
+namespace racegame
 {
     class MenuStart : Menu
     {
         private Button start, opties, afsluiten;
 
-        public MenuStart(ContentManager Content, String background, Game1 game, GraphicsDeviceManager graphics)
+        public MenuStart(ContentManager Content, String background, Game game, GraphicsDeviceManager graphics)
             : base(Content, background, game, graphics)
         {
             start = new Button(Content, "Start", "Menu/Buttons/start", button_Start);
@@ -31,7 +31,6 @@ namespace GameProject
         private void button_Start(object sender, EventArgs e)
         {
             Console.WriteLine("start");
-            game.isRunning = true;
         }
 
         private void button_Opties(object sender, EventArgs e)

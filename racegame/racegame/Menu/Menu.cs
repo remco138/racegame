@@ -9,11 +9,11 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-namespace GameProject
+namespace racegame
 {
     class Menu
     {
-        protected Game1 game;
+        protected Game game;
 
         int previousWindowWidth = 0, previousWindowHeight = 0;
 
@@ -30,14 +30,14 @@ namespace GameProject
 
         public bool enabled;
 
-        public Menu(ContentManager Content, Game1 game, GraphicsDeviceManager graphics)
+        public Menu(ContentManager Content, Game game, GraphicsDeviceManager graphics)
             : base()
         {
             this.game = game;
             this.background = null;
             this.enabled = true;
         }
-        public Menu(ContentManager Content, String background, Game1 game, GraphicsDeviceManager graphics)
+        public Menu(ContentManager Content, String background, Game game, GraphicsDeviceManager graphics)
             : this(Content, game, graphics)
         {
             if (background != null)
@@ -85,7 +85,7 @@ namespace GameProject
         }
 
         /// <summary>
-        /// Gets called whenever the window is resized in Game1.cs
+        /// Gets called whenever the window is resized in Game.cs
         /// </summary>
         public void repositionMenu(int windowWidth, int windowHeight)
         {
