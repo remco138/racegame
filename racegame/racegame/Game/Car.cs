@@ -165,6 +165,10 @@ namespace racegame
 
                         case TileCollision.Pitstop:
                             break;
+                        case TileCollision.Water:
+                            this.position = new Vector2(950, 650);
+                            break;
+
                     }
                 }
 
