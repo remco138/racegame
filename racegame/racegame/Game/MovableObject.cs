@@ -48,6 +48,11 @@ namespace racegame
             this.position = position;
             this.texture = texture;
         }
+        public Obstacle(Rectangle rectangle)
+        {
+            this.position = new Vector2(rectangle.X, rectangle.Y);
+            this.texture = null; // Maak hier nieuwe texture2D aan met de width en height van de retangle.
+        }
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
