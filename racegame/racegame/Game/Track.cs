@@ -74,7 +74,8 @@ namespace racegame
             }
         }
          
-     public void AddObject(MovableObject Object){
+     public void AddObject(MovableObject Object)
+     {
          worldObjects.Add(Object);
      }
         
@@ -92,7 +93,7 @@ namespace racegame
             return retrievedColor[0]; // Return the color that was found
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             //
             // Hier voeren we het volgende uit:
@@ -103,7 +104,7 @@ namespace racegame
 
             foreach (MovableObject obj in worldObjects)
             { 
-                obj.Update(); 
+                obj.Update(gameTime); 
             }
         }
 

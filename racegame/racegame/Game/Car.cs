@@ -40,73 +40,39 @@ namespace racegame
             this.acceleration = acceleration;
 
             this.track = track;
+
         }
 
-        public override void Update()
+        public override void Update(GameTime gameTime)
         {
 
-            base.Update();
+            base.Update(gameTime);
 
-            GetInput();
+            GetInput(gameTime);
 
+            //Setup the Movement increment.
+            int aMove = (int)(500 * gameTime.ElapsedGameTime.TotalSeconds);
+
+            this.position.X += (float)(aMove * Math.Cos(Rotation));
+            this.position.Y += (float)(aMove * Math.Sin(Rotation));
+            
             HandleCollisions();
         }
 
-        private float GetAcceleration(float speed)
-        {
-            //return acceleratie gebasseerd op huidige speed, later... eerst altijd 1, oftewel lineare speed
-            return (speed < 50) ? 0.05f * speed : 0;
-            //return speed*1.1f;
-        }
-
-        public void GetInput()
+        public void GetInput(GameTime gameTime)
         {
             KeyboardState keyboardState = Keyboard.GetState();
-
-            if (keyboardState.IsKeyDown(Keys.Up))
+            if (keyboardState.IsKeyDown(Keys.Up) || keyboardState.IsKeyDown(Keys.Left))
             {
-                if(Speed == 0) {Speed = 1; goingForward = true;}
-                Speed += 0.5f * GetAcceleration(Speed); // tweak deze shit
-
-                //speed naar coordinaten, gejat van elo..
-                Velocity = new Vector2((float)(Speed * Math.Cos(Rotation)),
-                (float)(Speed * Math.Sin(Rotation)));
-
+                Rotation -= (float)(1 * 3.0f * gameTime.ElapsedGameTime.TotalSeconds);
+                
             }
-            else if (keyboardState.IsKeyDown(Keys.Down) )
+            else if (keyboardState.IsKeyDown(Keys.Down) || keyboardState.IsKeyDown(Keys.Right))
             {
-                if(Speed == 0) {Speed = 1; goingForward = false;};
-                Speed += 0.7f * (Speed*0.05f); // tweak deze shit
-
-                //speed naar coordinaten, gejat van elo..
-                Velocity -= new Vector2((float)(Speed * Math.Cos(Rotation)),
-                (float)(Speed * Math.Sin(Rotation)));
-                return;
-            }
-            else if (Speed != 0)
-            {
-                Speed -= 0.5f * 0.1f * Speed;
-                Velocity = new Vector2((float)(Speed * Math.Cos(Rotation)),
-                (float)(Speed * Math.Sin(Rotation)));
-                if(goingForward == false) Velocity = Vector2.Negate(Velocity);
-                if (Speed < 0.1) {Speed = 0; goingForward = false;}
-            }
-
-
-            if (keyboardState.IsKeyDown(Keys.Left))
-            {
-                Rotation -= 0.05f;
-                return;
-            }
-            if (keyboardState.IsKeyDown(Keys.Right))
-            {
-                Rotation += 0.05f;
-                return;
+                Rotation += (float)(1 * 3.0f * gameTime.ElapsedGameTime.TotalSeconds);  
             }
             if(keyboardState.IsKeyDown(Keys.Space))
             {
-                //mega zombie remmen
-                Speed = 0;
             }
 
         }
