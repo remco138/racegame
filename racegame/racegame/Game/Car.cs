@@ -22,6 +22,7 @@ namespace racegame
         private float maxSpeed;
         private float acceleration;
         private float maxAcceleration;
+        private float maxDecceleration;
         private bool goingForward;
 
         private bool isOnGrass;
@@ -41,6 +42,9 @@ namespace racegame
 
             this.track = track;
 
+            maxAcceleration = 200;
+            maxDecceleration = -100;
+
         }
 
         public override void Update(GameTime gameTime)
@@ -51,7 +55,7 @@ namespace racegame
             GetInput(gameTime);
 
             //Setup the Movement increment.
-            int aMove = (int)(500 * gameTime.ElapsedGameTime.TotalSeconds);
+            int aMove = (int)(acceleration * gameTime.ElapsedGameTime.TotalSeconds);
 
             this.position.X += (float)(aMove * Math.Cos(Rotation));
             this.position.Y += (float)(aMove * Math.Sin(Rotation));
@@ -62,19 +66,26 @@ namespace racegame
         public void GetInput(GameTime gameTime)
         {
             KeyboardState keyboardState = Keyboard.GetState();
-            if (keyboardState.IsKeyDown(Keys.Up) || keyboardState.IsKeyDown(Keys.Left))
+            if (keyboardState.IsKeyDown(Keys.Up))
+            {
+                if (acceleration <= maxAcceleration) { acceleration += 5; }                                            
+            }
+            else if(keyboardState.IsKeyDown(Keys.Down))
+            {
+                if (acceleration >= maxDecceleration) { acceleration -= 5; }
+            }
+            if (keyboardState.IsKeyDown(Keys.Left))
             {
                 Rotation -= (float)(1 * 3.0f * gameTime.ElapsedGameTime.TotalSeconds);
-                
             }
-            else if (keyboardState.IsKeyDown(Keys.Down) || keyboardState.IsKeyDown(Keys.Right))
+
+            else if(keyboardState.IsKeyDown(Keys.Right))
             {
-                Rotation += (float)(1 * 3.0f * gameTime.ElapsedGameTime.TotalSeconds);  
+                Rotation += (float)(1 * 3.0f * gameTime.ElapsedGameTime.TotalSeconds);
             }
             if(keyboardState.IsKeyDown(Keys.Space))
             {
             }
-
         }
 
         protected override void CalculateMovement()
@@ -111,9 +122,11 @@ namespace racegame
                     switch (collision)
                     {
                         case TileCollision.Road:
+                            
                             break;
 
                         case TileCollision.Grass:
+
                             break;
 
                         case TileCollision.Solid:
