@@ -59,7 +59,34 @@ namespace racegame
 
             this.position.X += (float)(aMove * Math.Cos(Rotation));
             this.position.Y += (float)(aMove * Math.Sin(Rotation));
-            
+           
+            if (isOnGrass)
+            {
+                maxAcceleration = 100;
+                maxDecceleration = -50;
+                if (acceleration > 0)
+                {
+                    acceleration -= 2;
+                }
+                else if (acceleration < 0)
+                {
+                    acceleration += 2;
+                }
+            }
+            else if (isOnRoad)
+            {
+                maxAcceleration = 200;
+                maxDecceleration = -100;
+                if (acceleration > 0)
+                {
+                    acceleration--;
+                }
+                else if (acceleration < 0)
+                {
+                    acceleration++;
+                }
+            }
+
             HandleCollisions();
         }
 
@@ -122,15 +149,18 @@ namespace racegame
                     switch (collision)
                     {
                         case TileCollision.Road:
-                            
+                            isOnRoad = true;
+                            isOnGrass = false;
                             break;
 
                         case TileCollision.Grass:
-
+                            isOnGrass = true;
+                            isOnRoad = false;
                             break;
 
                         case TileCollision.Solid:
-
+                            isOnGrass = true;
+                            isOnRoad = false;
                             break;
 
                         case TileCollision.Pitstop:

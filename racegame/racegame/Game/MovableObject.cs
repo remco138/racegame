@@ -107,7 +107,7 @@ namespace racegame
             //base.Draw(spriteBatch);
             //spriteBatch.Draw(texture, position, Rectangle.Empty ,Color.White, Rotation, new Vector2(0.0f,0.0f), new Vector2(1.0f,1.0f),SpriteEffects.None, 1.0f);
             spriteBatch.Draw(texture, this.Rectangle,
-                new Rectangle(0,0, Width,Width), Color.White, Rotation, new Vector2((int)(Width/2), (int)(Height/2)),
+                new Rectangle(0,0, Width,Height), Color.White, Rotation, new Vector2((int)(Width/2), (int)(Height/2)),
                 SpriteEffects.None, 0 );
 
         }
