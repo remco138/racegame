@@ -16,6 +16,7 @@ namespace racegame
         private int health;
         private float fuel;
         private int nitro;
+        private int player;
 
         private float maxSpeed;
         private float acceleration;
@@ -29,14 +30,17 @@ namespace racegame
         private int lapsDriven;
         private int currentCheckpoint;
 
+        private bool sideLine;
+
         Track track;
 
-        public Car(Vector2 position, Texture2D texture, int health, float fuel, int nitro, float maxSpeed, float acceleration, Track track)
+        public Car(Vector2 position, Texture2D texture, int health, float fuel, int nitro, float maxSpeed, float acceleration, Track track, int player)
             : base(position, texture, new Vector2(0.0f, 0.0f))
         {
             this.health = health;
             this.fuel = fuel;
             this.nitro = nitro;
+            this.player = player;
 
             this.maxSpeed = maxSpeed;
             this.acceleration = acceleration;
@@ -46,6 +50,7 @@ namespace racegame
             maxAcceleration = 200;
             maxDecceleration = -100;
 
+            Rotation = 600;
         }
 
         public void Update(GameTime gameTime, List<Obstacle> checkpoints, Obstacle finish)
@@ -83,25 +88,53 @@ namespace racegame
         public void GetInput(GameTime gameTime)
         {
             KeyboardState keyboardState = Keyboard.GetState();
-            if (keyboardState.IsKeyDown(Keys.Up))
+            if (this.player == 1)
             {
-                if (acceleration <= maxAcceleration) { acceleration += 5; }                                            
-            }
-            else if(keyboardState.IsKeyDown(Keys.Down))
-            {
-                if (acceleration >= maxDecceleration) { acceleration -= 5; }
-            }
-            if (keyboardState.IsKeyDown(Keys.Left))
-            {
-                Rotation -= (float)(1 * 3.0f * gameTime.ElapsedGameTime.TotalSeconds);
-            }
+                if (keyboardState.IsKeyDown(Keys.Up))
+                {
+                    if (acceleration <= maxAcceleration) { acceleration += 5; }
+                }
+                else if (keyboardState.IsKeyDown(Keys.Down))
+                {
+                    if (acceleration >= maxDecceleration) { acceleration -= 5; }
+                }
 
-            else if(keyboardState.IsKeyDown(Keys.Right))
-            {
-                Rotation += (float)(1 * 3.0f * gameTime.ElapsedGameTime.TotalSeconds);
+                if (keyboardState.IsKeyDown(Keys.Left) && (acceleration > 0 || acceleration < 0))
+                {
+                    Rotation -= (float)(1 * 3.0f * gameTime.ElapsedGameTime.TotalSeconds);
+                }
+
+                else if (keyboardState.IsKeyDown(Keys.Right) && (acceleration > 0 || acceleration < 0))
+                {
+                    Rotation += (float)(1 * 3.0f * gameTime.ElapsedGameTime.TotalSeconds);
+                }
+                if (keyboardState.IsKeyDown(Keys.Space))
+                {
+                }
             }
-            if(keyboardState.IsKeyDown(Keys.Space))
+            else if (this.player == 2)
             {
+                if (keyboardState.IsKeyDown(Keys.W))
+                {
+                    if (acceleration <= maxAcceleration) { acceleration += 5; }
+                }
+                else if (keyboardState.IsKeyDown(Keys.S))
+                {
+                    if (acceleration >= maxDecceleration) { acceleration -= 5; }
+                }
+
+                if (keyboardState.IsKeyDown(Keys.A) && (acceleration > 0 || acceleration < 0))
+                {
+                    Rotation -= (float)(1 * 3.0f * gameTime.ElapsedGameTime.TotalSeconds);
+                }
+
+                else if (keyboardState.IsKeyDown(Keys.D) && (acceleration > 0 || acceleration < 0))
+                {
+                    Rotation += (float)(1 * 3.0f * gameTime.ElapsedGameTime.TotalSeconds);
+                }
+                if (keyboardState.IsKeyDown(Keys.Space))
+                {
+                }
             }
         }
 
@@ -183,8 +216,16 @@ namespace racegame
                             break;
 
                         case TileCollision.Solid:
-                            isOnRoad = false;
-                            isOnGrass = true;
+                            if (acceleration > 60)
+                            {
+                                acceleration -= 50;
+                            }
+                            else if (acceleration < 60)
+                            {
+                                acceleration += 50;
+                            }
+                            
+
 
                             break;
 
