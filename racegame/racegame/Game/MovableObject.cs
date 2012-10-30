@@ -31,7 +31,7 @@ namespace racegame
         }
 
         /// <summary>
-        /// This is the Rectangle with the added adjustements fix the origin of rotating (used for the collision).
+        /// This is the Rectangle with the added adjustements fix the origin of rotating (used for the collision)
         /// </summary>
         public Rectangle RealBoundingRectangle
         {
