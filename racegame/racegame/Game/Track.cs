@@ -18,6 +18,8 @@ namespace racegame
         public int HeightInPixels { get { return Height * Tile.Height; } }
 
         List<MovableObject> worldObjects;
+        List<Obstacle> checkpoints;
+
 
         ContentManager Content;
 
@@ -37,8 +39,8 @@ namespace racegame
             {
                 for (int j = 0; j < Height; j++)
                 {
-                    Color currentColor = GetPixelColor(trackTexture, i, j);
-                    tiles[i, j] = LoadTile(currentColor, i, j); // Zoek uit wat voor Tile dit is en zet deze in de tiles[] array.
+                    
+                    tiles[i, j] = LoadTile(trackTexture, i, j); // Zoek uit wat voor Tile dit is en zet deze in de tiles[] array.
                 }
             }
 
@@ -46,27 +48,86 @@ namespace racegame
             worldObjects = new List<MovableObject>();
         }
 
-        public Tile LoadTile(Color tileColor, int x, int y)
+        public Tile LoadTile(Texture2D trackTexture, int x, int y)
         {
-            if(tileColor.Equals(new Color(195, 195, 195)))
+             Color currentColor = GetPixelColor(trackTexture, x, y);
+
+            if(currentColor.Equals(new Color(195, 195, 195)))
             {
                 // Grey = the road
                 return new Tile(Content.Load<Texture2D>("Tiles/Road"), TileCollision.Road);
             }
-            else if (tileColor.Equals(new Color(000, 255, 000)))
+            else if (currentColor.Equals(new Color(000, 255, 000)))
             {
                 // Green = Grass
                 return new Tile(Content.Load<Texture2D>("Tiles/Grass"), TileCollision.Grass);
             }
-            else if (tileColor.Equals(new Color(000, 162, 232)))
+            else if (currentColor.Equals(new Color(000, 162, 232)))
             {
                 // Blue = Water
                 return new Tile(Content.Load<Texture2D>("Tiles/Water"), TileCollision.Water);
             }
-            else if(tileColor.Equals(new Color(163,073,164)))
+            else if(currentColor.Equals(new Color(163,073,164)))
             {
                 return new Tile(Content.Load<Texture2D>("Tiles/Solid"), TileCollision.Solid);
             }
+            else if (currentColor.Equals(new Color(255, 255, 255)))
+            {
+                //
+                //check if this tile is already included in the checkpoints list
+                //
+               
+
+
+                Color rightTileColor = GetPixelColor(trackTexture, x + 1, y);
+                Color bottomTileColor = GetPixelColor(trackTexture, x, y + 1);
+
+                Point endCheckpointTile = Point.Zero;
+
+                //
+                // Check if the end of the checkpoint is to the right.
+                //
+                if (rightTileColor.Equals(currentColor))
+                {
+                    for (int checkpointDepth = 1; checkpointDepth < (this.Width - x); checkpointDepth++)
+                    {
+                        int currentTileX = x + checkpointDepth;
+
+                        if (!GetPixelColor(trackTexture, currentTileX, y).Equals(currentColor))
+                        {
+                            endCheckpointTile = new Point(currentTileX, y);
+                        }
+                    }
+                }
+
+                if (bottomTileColor.Equals(currentColor))
+                {
+                    for (int checkpointDepth = 1; checkpointDepth < (this.Height - y); checkpointDepth++)
+                    {
+                        int currentTileY = y + checkpointDepth;
+
+                        if (!GetPixelColor(trackTexture, currentTileY, y).Equals(currentColor))
+                        {
+                            endCheckpointTile = new Point(x, currentTileY);
+                        }
+                    }
+                }
+
+                // Make the Checkpoint Object and add it to the CheckPoints-List.
+                int widthEndTileInPixels = x - endCheckpointTile.X;
+                int heightEndTileInPixels = y - endCheckpointTile.Y;
+
+                Obstacle checkpoint = new Obstacle(new Rectangle(x * Tile.Width, y * Tile.Height, widthEndTileInPixels * Tile.Width, heightEndTileInPixels * Tile.Height));
+                //checkpoints.Add(checkpoint);
+                
+                //
+                // Maak heir het Checkpoint Object aan & de range van deze tiles opslaan zodat dit bij de volgende keer wordt overgeslagen
+                //
+
+                return new Tile(Content.Load<Texture2D>("Tiles/Checkpoint"), TileCollision.Checkpoint);
+            }
+
+
             else
             {
                 //throw new NotSupportedException(String.Format("Unsupported tole Color {0} at position {1}, {2}.", tileColor, x, y));
@@ -74,10 +135,10 @@ namespace racegame
             }
         }
          
-     public void AddObject(MovableObject Object)
-     {
-         worldObjects.Add(Object);
-     }
+         public void AddObject(MovableObject Object)
+         {
+             worldObjects.Add(Object);
+         }
         
 
         /// <summary>

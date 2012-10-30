@@ -82,8 +82,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="Car.png">
       <Name>Car</Name>
+=======
+    <Compile Include="Tiles\Checkpoint.png">
+      <Name>Checkpoint</Name>
+>>>>>>> 002690e7fc9c424fc0338e7646ba6761d211589a
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

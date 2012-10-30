@@ -28,6 +28,9 @@ namespace racegame
         private bool isOnGrass;
         private bool isOnRoad;
 
+        private int lapsDriven;
+        private int currentCheckpoint;
+
         Track track;
 
         public Car(Vector2 position, Texture2D texture, int health, int fuel, int nitro, float maxSpeed, float acceleration, Track track)
