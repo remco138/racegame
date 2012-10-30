@@ -146,21 +146,26 @@ namespace racegame
                 {
                     TileCollision collision = track.GetCollisionOfTile(x, y); // Haal collision-type op van de current Tile
 
+                    Console.WriteLine(collision);
+
                     switch (collision)
                     {
+
                         case TileCollision.Road:
-                            isOnRoad = true;
                             isOnGrass = false;
+                            isOnRoad = true;
+
                             break;
 
                         case TileCollision.Grass:
-                            isOnGrass = true;
                             isOnRoad = false;
+                            isOnGrass = true;
                             break;
 
                         case TileCollision.Solid:
-                            isOnGrass = true;
                             isOnRoad = false;
+                            isOnGrass = true;
+
                             break;
 
                         case TileCollision.Pitstop:
