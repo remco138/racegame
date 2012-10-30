@@ -28,7 +28,8 @@ namespace racegame
         private bool isOnRoad;
 
         private int lapsDriven;
-        private int currentCheckpoint;
+        private int checkpointsSurpassed;
+        private Obstacle lastCheckpoint; //index of List<Obstacle> checkpoint in track
 
         private bool sideLine;
 
@@ -71,15 +72,19 @@ namespace racegame
             {
                 bool isTouching = BoundingRectangle.Intersects(checkpoint.BoundingRectangle);
 
-                if (isTouching)
+                if (isTouching && lastCheckpoint != checkpoint)
                 {
-                    Console.WriteLine("dgdfgdfgdf");
+                    lastCheckpoint = checkpoint;
+                    checkpointsSurpassed++;
+                    Console.WriteLine("We just drove over checkpoint No.:" + checkpointsSurpassed);
                 }
             }
 
-            if(BoundingRectangle.Intersects(finish.BoundingRectangle))
+            if (BoundingRectangle.Intersects(finish.BoundingRectangle) && checkpointsSurpassed >= checkpoints.Count() && checkpointsSurpassed != 0)
             {
-                Console.WriteLine("!!!");
+                lapsDriven++;
+                checkpointsSurpassed = 0;
+                Console.WriteLine("Laps driven: " + lapsDriven);
             }
         }
 
