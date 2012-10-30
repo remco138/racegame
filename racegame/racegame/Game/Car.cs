@@ -16,7 +16,7 @@ namespace racegame
 
 
         private int health;
-        private int fuel;
+        private float fuel;
         private int nitro;
 
         private float maxSpeed;
@@ -33,7 +33,7 @@ namespace racegame
 
         Track track;
 
-        public Car(Vector2 position, Texture2D texture, int health, int fuel, int nitro, float maxSpeed, float acceleration, Track track)
+        public Car(Vector2 position, Texture2D texture, int health, float fuel, int nitro, float maxSpeed, float acceleration, Track track)
             : base(position, texture, new Vector2(0.0f, 0.0f))
         {
             this.health = health;
@@ -52,7 +52,13 @@ namespace racegame
 
         public override void Update(GameTime gameTime)
         {
+            if (acceleration > 5 || acceleration < -5)
+            {
+                fuel = fuel - 0.05f;
+            }
 
+            Console.WriteLine("fuel = " + fuel);
+            Console.WriteLine("acc = " + acceleration);
             base.Update(gameTime);
 
             GetInput(gameTime);
@@ -148,8 +154,6 @@ namespace racegame
                 for (int x = xLeftTile; x <= xRightTile; ++x)
                 {
                     TileCollision collision = track.GetCollisionOfTile(x, y); // Haal collision-type op van de current Tile
-
-                    Console.WriteLine(collision);
 
                     switch (collision)
                     {
