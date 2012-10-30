@@ -13,8 +13,6 @@ namespace racegame
 {
     class Car : MovableObject
     {
-
-
         private int health;
         private float fuel;
         private int nitro;
@@ -177,6 +175,8 @@ namespace racegame
 
                         case TileCollision.Pitstop:
                             break;
+
+
                         case TileCollision.Water:
                             this.position = new Vector2(950, 650);
                             break;
