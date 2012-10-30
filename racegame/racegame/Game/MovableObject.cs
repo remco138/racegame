@@ -83,11 +83,11 @@ namespace racegame
             protected set;
         }
 
-        public MovableObject(Vector2 position, Texture2D texture, Vector2 velocity)
+        public MovableObject(Vector2 position, Texture2D texture)
             : base(position, texture)
         {
-            this.Velocity = velocity;
-            LastPosition = new Vector2(0.0f, 0.0f);
+            Velocity = Vector2.Zero;
+            LastPosition = Vector2.Zero;
         }
 
         public virtual void Update(GameTime gameTime)
@@ -97,13 +97,10 @@ namespace racegame
 
         protected virtual void CalculateMovement()
         {
-            LastPosition = position;
-            position += Velocity;
-            Velocity.X = Velocity.Y = 0;
         }
 
         
-        
+       
 
         public void reverseVelocity()
         {

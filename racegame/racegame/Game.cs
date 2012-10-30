@@ -53,13 +53,11 @@ namespace racegame
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             currentTrack = new Track(Content.Load<Texture2D>("Tracks/1"), Content);
-            //new MovableObject(new Vector2(0.0f,0.5f), Content.Load<Texture2D>("Crosshair"), new Vector2(5.0f,5.0f)),
-            //new MovableObject(new Vector2(5.0f,0.5f), Content.Load<Texture2D>("Crosshair"), new Vector2(15.0f,15.0f)),
-            car = new Car(new Vector2(950.0f, 600.0f), Content.Load<Texture2D>("Car"), 100, 100, 0, 1000.0f, 0.0f, currentTrack, 1) { Velocity = new Vector2(0.0f, 0.0f) };
+
+            car = new Car(new Vector2(950.0f, 600.0f), Content.Load<Texture2D>("Car"), 100, 100, 0, 1000.0f, currentTrack, 1);
             currentTrack.AddCar(car);
-            car2 = new Car(new Vector2(950.0f, 650.0f), Content.Load<Texture2D>("Car2"), 100, 100, 0, 1000.0f, 0.0f, currentTrack, 2) { Velocity = new Vector2(0.0f, 0.0f) };
+            car2 = new Car(new Vector2(950.0f, 650.0f), Content.Load<Texture2D>("Car2"), 100, 100, 0, 1000.0f, currentTrack, 2);
             currentTrack.AddCar(car2);
-            
         }
 
         #endregion

@@ -18,6 +18,7 @@ namespace racegame
         Grass,
         Dirt,
         Water,
+        Strip,
         Checkpoint,
         Pitstop,
         StartFinish

@@ -34,8 +34,8 @@ namespace racegame
 
         Track track;
 
-        public Car(Vector2 position, Texture2D texture, int health, float fuel, int nitro, float maxSpeed, float acceleration, Track track, int player)
-            : base(position, texture, new Vector2(0.0f, 0.0f))
+        public Car(Vector2 position, Texture2D texture, int health, float fuel, int nitro, float maxSpeed, Track track, int player)
+            : base(position, texture)
         {
             this.health = health;
             this.fuel = fuel;
@@ -43,7 +43,6 @@ namespace racegame
             this.player = player;
 
             this.maxSpeed = maxSpeed;
-            this.acceleration = acceleration;
 
             this.track = track;
 
@@ -75,7 +74,6 @@ namespace racegame
                 if (isTouching)
                 {
                     Console.WriteLine("dgdfgdfgdf");
-
                 }
             }
 
@@ -215,7 +213,7 @@ namespace racegame
                             isOnGrass = true;
                             break;
 
-                        case TileCollision.Solid:
+                        case TileCollision.Strip:
                             if (acceleration > 60)
                             {
                                 acceleration -= 50;
@@ -224,9 +222,6 @@ namespace racegame
                             {
                                 acceleration += 50;
                             }
-                            
-
-
                             break;
 
                         case TileCollision.Pitstop:

@@ -73,7 +73,7 @@ namespace racegame
             }
             else if (currentColor.Equals(new Color(163, 073, 164)))
             {
-                return new Tile(Content.Load<Texture2D>("Tiles/Solid"), TileCollision.Solid);
+                return new Tile(Content.Load<Texture2D>("Tiles/Strip"), TileCollision.Strip);
             }
             else if (currentColor.Equals(new Color(0, 0, 0)))
             {
@@ -118,8 +118,10 @@ namespace racegame
 
                 return new Tile(Content.Load<Texture2D>("Tiles/Checkpoint"), TileCollision.Checkpoint);
             }
-
-
+            else if(currentColor.Equals(new Color(136, 0, 21)))
+            {
+                return new Tile(Content.Load<Texture2D>("Tiles/Solid"), TileCollision.Solid);
+            }
             else
             {
                 //throw new NotSupportedException(String.Format("Unsupported tole Color {0} at position {1}, {2}.", tileColor, x, y));
