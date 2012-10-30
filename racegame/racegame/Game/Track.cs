@@ -19,7 +19,7 @@ namespace racegame
         public int HeightInPixels { get { return Height * Tile.Height; } }
 
         List<Car> cars;
-        List<MovableObject> worldObjects;
+        List<Powerup> powerups;
         List<Obstacle> checkpoints;
         Obstacle finish;
 
@@ -35,6 +35,7 @@ namespace racegame
             this.Content = Content;
             cars = new List<Car>();
             checkpoints = new List<Obstacle>();
+            powerups = new List<Powerup>();
 
             tiles = new Tile[trackTexture.Width, trackTexture.Height];
             this.trackTexture = trackTexture;
@@ -44,7 +45,6 @@ namespace racegame
             {
                 for (int j = 0; j < Height; j++)
                 {
-
                     tiles[i, j] = LoadTile(trackTexture, i, j); // Zoek uit wat voor Tile dit is en zet deze in de tiles[] array.
                 }
             }
@@ -71,12 +71,22 @@ namespace racegame
                 // Blue = Water
                 return new Tile(Content.Load<Texture2D>("Tiles/Water"), TileCollision.Water);
             }
+            else if (currentColor.Equals(new Color(185, 122, 87)))
+            {
+                // Beige = Powerup
+                powerups.Add(new Powerup(PowerupType.fuel, new Vector2(x * Tile.Width, y * Tile.Height), Content.Load<Texture2D>("Tiles/Powerup"), false, false));
+
+                return new Tile(Content.Load<Texture2D>("Tiles/Road"), TileCollision.Road);
+            }
             else if (currentColor.Equals(new Color(163, 073, 164)))
             {
+                // Purple = Strip
                 return new Tile(Content.Load<Texture2D>("Tiles/Strip"), TileCollision.Strip);
             }
             else if (currentColor.Equals(new Color(0, 0, 0)))
             {
+                // Black = Finish / Start
+
                 if (finish != null && finish.BoundingRectangle.Contains(new Point(x * Tile.Width, y * Tile.Height)))
                     return new Tile(Content.Load<Texture2D>("Tiles/Checkpoint"), TileCollision.Checkpoint);
 
@@ -91,7 +101,8 @@ namespace racegame
             }
             else if (currentColor.Equals(new Color(255, 255, 255)))
             {
-                //
+                // White = Checkpoint
+
                 //check if this tile is already included in the checkpoints list
                 //
                 foreach (Obstacle iterator in checkpoints)
@@ -118,8 +129,10 @@ namespace racegame
 
                 return new Tile(Content.Load<Texture2D>("Tiles/Checkpoint"), TileCollision.Checkpoint);
             }
-            else if(currentColor.Equals(new Color(136, 0, 21)))
+            else if (currentColor.Equals(new Color(136, 0, 21)))
             {
+                // Red = Wall / Solid
+
                 return new Tile(Content.Load<Texture2D>("Tiles/Solid"), TileCollision.Solid);
             }
             else
@@ -163,10 +176,6 @@ namespace racegame
             cars.Add(car);
         }
 
-        public void AddObject(MovableObject Object)
-        {
-            worldObjects.Add(Object);
-        }
 
 
         /// <summary>
@@ -189,21 +198,36 @@ namespace racegame
         public void Update(GameTime gameTime)
         {
             //
-            // Hier voeren we het volgende uit:
+            // Check the following in Update:
             //
-            //      - Check of de auto een powerup aanraakt.
-            //      - Update de objecten (zoals bv. cars, powerups etc.)
-            //
+            //      - For each car do the following:
+            //          1. update the cars
+            //          2. check for collision between cars & powerups
+            //      - Update all the powerups (used for the respawn timer)
 
             foreach (Car car in cars)
             {
                 car.Update(gameTime, checkpoints, finish);
-
+                
+                // Check if car has collided with a powerup
+                foreach(Powerup powerup in powerups)
+                {
+                    if (powerup.isActive)
+                    {
+                        if (car.BoundingRectangle.Intersects(powerup.BoundingRectangle))
+                        {
+                            Console.WriteLine("Picked up fuel powerup");
+                            car.increaseFuel(20);
+                            powerup.isActive = false;
+                        }
+                    }
+                }
             }
 
-            // Check for collisions between car & checkpoints
-
-
+            foreach (Powerup powerup in powerups)
+            {
+                powerup.Update(gameTime);
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -224,9 +248,13 @@ namespace racegame
 
             // Draw all the objects
             //
-            foreach (MovableObject obj in cars)
+            foreach (Car car in cars)
             {
-                obj.Draw(spriteBatch);
+                car.Draw(spriteBatch);
+            }
+            foreach (Powerup powerup in powerups)
+            {
+                powerup.Draw(spriteBatch);
             }
         }
 

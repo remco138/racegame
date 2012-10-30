@@ -22,16 +22,13 @@ namespace racegame
         private float acceleration;
         private float maxAcceleration;
         private float maxDecceleration;
-        private bool goingForward;
 
         private bool isOnGrass;
         private bool isOnRoad;
 
-        private int lapsDriven;
+        public int lapsDriven;
         private int checkpointsSurpassed;
         private Obstacle lastCheckpoint; //index of List<Obstacle> checkpoint in track
-
-        private bool sideLine;
 
         Track track;
 
@@ -68,6 +65,7 @@ namespace racegame
 
             HandleCollisions();
 
+            // Check for Checkpoint collision
             foreach (Obstacle checkpoint in checkpoints)
             {
                 bool isTouching = BoundingRectangle.Intersects(checkpoint.BoundingRectangle);
@@ -76,10 +74,11 @@ namespace racegame
                 {
                     lastCheckpoint = checkpoint;
                     checkpointsSurpassed++;
-                    Console.WriteLine("We just drove over checkpoint No.:" + checkpointsSurpassed);
+                    Console.WriteLine("A car just drove over checkpoint No.:" + checkpointsSurpassed);
                 }
             }
 
+            // Check for finish collision
             if (BoundingRectangle.Intersects(finish.BoundingRectangle) && checkpointsSurpassed >= checkpoints.Count() && checkpointsSurpassed != 0)
             {
                 lapsDriven++;
@@ -219,13 +218,25 @@ namespace racegame
                             break;
 
                         case TileCollision.Strip:
-                            if (acceleration > 60)
+
+                            KeyboardState keyboardState = Keyboard.GetState();
+                            if (keyboardState.IsKeyDown(Keys.Up))
                             {
-                                acceleration -= 50;
+                                if (acceleration > 60)
+                                {
+                                    acceleration -= 50;
+                                }
+                                else if (acceleration < 60)
+                                {
+                                    acceleration += 50;
+                                }
                             }
-                            else if (acceleration < 60)
+                            if (keyboardState.IsKeyDown(Keys.Down))
                             {
-                                acceleration += 50;
+                                if (acceleration < 0)
+                                {
+                                    acceleration = 05;
+                                }
                             }
                             break;
 
@@ -241,6 +252,11 @@ namespace racegame
                 }
 
             }
+        }
+
+        public void increaseFuel(int amount)
+        {
+            fuel += amount;
         }
     }
 }

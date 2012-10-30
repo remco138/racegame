@@ -73,7 +73,6 @@ namespace racegame
 
     class MovableObject : Obstacle
     {
-        public float Speed;
         public float Rotation; //doe hier dingen mee
 
         public Vector2 Velocity;
@@ -97,6 +96,7 @@ namespace racegame
 
         protected virtual void CalculateMovement()
         {
+
         }
 
         
