@@ -48,53 +48,36 @@ namespace racegame
 
         }
 
-        public override void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, List<Obstacle> checkpoints, Obstacle finish)
         {
+            base.Update(gameTime);
+
             if (acceleration > 5 || acceleration < -5)
             {
                 fuel = fuel - 0.05f;
             }
 
-            Console.WriteLine("fuel = " + fuel);
-            Console.WriteLine("acc = " + acceleration);
-            base.Update(gameTime);
+            CalculateMovement(gameTime);
 
             GetInput(gameTime);
 
-            //Setup the Movement increment.
-            int aMove = (int)(acceleration * gameTime.ElapsedGameTime.TotalSeconds);
-
-            this.position.X += (float)(aMove * Math.Cos(Rotation));
-            this.position.Y += (float)(aMove * Math.Sin(Rotation));
-           
-            if (isOnGrass)
-            {
-                maxAcceleration = 100;
-                maxDecceleration = -50;
-                if (acceleration > 0)
-                {
-                    acceleration -= 2;
-                }
-                else if (acceleration < 0)
-                {
-                    acceleration += 2;
-                }
-            }
-            else if (isOnRoad)
-            {
-                maxAcceleration = 200;
-                maxDecceleration = -100;
-                if (acceleration > 0)
-                {
-                    acceleration--;
-                }
-                else if (acceleration < 0)
-                {
-                    acceleration++;
-                }
-            }
-
             HandleCollisions();
+
+            foreach (Obstacle checkpoint in checkpoints)
+            {
+                bool isTouching = BoundingRectangle.Intersects(checkpoint.BoundingRectangle);
+
+                if (isTouching)
+                {
+                    Console.WriteLine("dgdfgdfgdf");
+
+                }
+            }
+
+            if(BoundingRectangle.Intersects(finish.BoundingRectangle))
+            {
+                Console.WriteLine("!!!");
+            }
         }
 
         public void GetInput(GameTime gameTime)
@@ -122,9 +105,41 @@ namespace racegame
             }
         }
 
-        protected override void CalculateMovement()
+        protected void CalculateMovement(GameTime gameTime)
         {
             // Use a smooth-curve for acceleration & deceleration of the car
+            //Setup the Movement increment.
+            int aMove = (int)(acceleration * gameTime.ElapsedGameTime.TotalSeconds);
+
+            this.position.X += (float)(aMove * Math.Cos(Rotation));
+            this.position.Y += (float)(aMove * Math.Sin(Rotation));
+
+            if (isOnGrass)
+            {
+                maxAcceleration = 100;
+                maxDecceleration = -50;
+                if (acceleration > 0)
+                {
+                    acceleration -= 2;
+                }
+                else if (acceleration < 0)
+                {
+                    acceleration += 2;
+                }
+            }
+            else if (isOnRoad)
+            {
+                maxAcceleration = 200;
+                maxDecceleration = -100;
+                if (acceleration > 0)
+                {
+                    acceleration--;
+                }
+                else if (acceleration < 0)
+                {
+                    acceleration++;
+                }
+            }
 
             base.CalculateMovement();
         }

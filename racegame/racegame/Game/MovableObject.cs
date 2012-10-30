@@ -15,8 +15,8 @@ namespace racegame
     {
         protected Vector2 position;
         protected Texture2D texture; // Or Animation?
-        public int Width { get { return texture.Width; } }
-        public int Height { get { return texture.Height; } }
+        public int Width;
+        public int Height;
 
         /// <summary>
         /// This is the bounding rectangle of the object located somehwere on the Track.
@@ -26,7 +26,7 @@ namespace racegame
             get
             {
                 // Need to figure out what to do with rotated Objects (like a car for example)
-                return new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
+                return new Rectangle((int)position.X, (int)position.Y, Width, Height);
             }
         }
 
@@ -52,11 +52,17 @@ namespace racegame
         {
             this.position = position;
             this.texture = texture;
+
+            Width = texture.Width;
+            Height = texture.Height;
         }
         public Obstacle(Rectangle rectangle)
         {
             this.position = new Vector2(rectangle.X, rectangle.Y);
             this.texture = null; // Maak hier nieuwe texture2D aan met de width en height van de retangle.
+
+            Width = rectangle.Width;
+            Height = rectangle.Height;
         }
 
         public virtual void Draw(SpriteBatch spriteBatch)
@@ -114,13 +120,16 @@ namespace racegame
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(   texture,   
-                                RealBoundingRectangle,
-                                null,
-                                Color.White, 
-                                Rotation,
-                                Origin,
-                                SpriteEffects.None, 0);
+            if (texture != null)
+            {
+                spriteBatch.Draw(texture,
+                                    RealBoundingRectangle,
+                                    null,
+                                    Color.White,
+                                    Rotation,
+                                    Origin,
+                                    SpriteEffects.None, 0);
+            }
 
         }
     }
