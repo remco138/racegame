@@ -13,6 +13,8 @@ namespace racegame
 {
     class Car : MovableObject
     {
+        Texture2D deathTexture;
+
         public float health;
         public float maxHealth;
         public float fuel;
@@ -28,15 +30,19 @@ namespace racegame
         private bool isOnGrass;
         private bool isOnRoad;
 
+        private bool isDead = false;
+
         public int lapsDriven;
         private int checkpointsSurpassed;
         private Obstacle lastCheckpoint; //index of List<Obstacle> checkpoint in track
 
         Track track;
 
-        public Car(Vector2 position, Texture2D texture, int health, float fuel, int nitro, float maxSpeed, Track track, int player)
+        public Car(Vector2 position, Texture2D texture, Texture2D deathTexture, int health, float fuel, int nitro, float maxSpeed, Track track, int player)
             : base(position, texture)
         {
+            this.deathTexture = deathTexture;
+
             this.health = health;
             this.maxHealth = health;
             this.fuel = fuel;
@@ -66,7 +72,10 @@ namespace racegame
 
             CalculateMovement(gameTime);
 
-            GetInput(gameTime);
+            if (!isDead)
+            {
+                GetInput(gameTime);
+            }
 
             HandleCollisions();
 
@@ -89,6 +98,13 @@ namespace racegame
                 lapsDriven++;
                 checkpointsSurpassed = 0;
                 Console.WriteLine("Laps driven: " + lapsDriven);
+            }
+
+            // Car has suffered too much damage
+            if (health < 0 && !isDead)
+            {
+                isDead = true;
+                texture = deathTexture;
             }
         }
 

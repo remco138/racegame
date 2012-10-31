@@ -39,6 +39,8 @@ namespace racegame
         Texture2D HowToPlay;
         MainMenu mainMenu;
 
+        Texture2D menuBackground;
+
         Track currentTrack;
         Hud hud;
         Car car;
@@ -69,8 +71,8 @@ namespace racegame
             hud = new Hud(Content);
             HowToPlay = Content.Load<Texture2D>("HowToPlay");
             mainMenu = new MainMenu(Content, graphics.GraphicsDevice);
-            
-            
+
+            menuBackground = Content.Load<Texture2D>("MainMenu/Menu_BG");
         }
 
         #endregion
@@ -142,17 +144,18 @@ namespace racegame
                 case GameState.GameSP:
                     currentTrack.Draw(spriteBatch);
                     hud.draw(spriteBatch, currentTrack);
-                    if (currentKeyboardState.IsKeyDown(Keys.Tab)) spriteBatch.Draw(HowToPlay, new Vector2(180.0f, 187.5f), Color.White);
+                    if (currentKeyboardState.IsKeyDown(Keys.Tab)) spriteBatch.Draw(HowToPlay, new Vector2(410.0f, 187.0f), Color.White);
                     break;
 
                 case GameState.GameMP:      
                     currentTrack.Draw(spriteBatch);
                     hud.draw(spriteBatch, currentTrack);
-                    if (currentKeyboardState.IsKeyDown(Keys.Tab)) spriteBatch.Draw(HowToPlay, new Vector2(180.0f, 187.5f), Color.White);
+                    if (currentKeyboardState.IsKeyDown(Keys.Tab)) spriteBatch.Draw(HowToPlay, new Vector2(410.0f, 187.0f), Color.White);
                     break;
 
                 case GameState.HowToPlay:
-                    spriteBatch.Draw(HowToPlay, new Vector2(180.0f, 187.5f), Color.White);
+                    spriteBatch.Draw(menuBackground, new Vector2(0.0f, 0.0f), Color.White);
+                    spriteBatch.Draw(HowToPlay, new Vector2(410.0f, 187.0f), Color.White);
                     break;
 
                 case GameState.Exit:

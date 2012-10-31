@@ -14,7 +14,6 @@ Content\MainMenu\Button_HTP.xnb
 Content\MainMenu\Button_MP.xnb
 Content\MainMenu\Button_SP.xnb
 Content\MainMenu\Car1Right.xnb
-Content\MainMenu\Car2Up.xnb
 Content\MainMenu\Menu_BG.xnb
 Content\HowToPlay.xnb
 Content\Car0.xnb
@@ -24,3 +23,6 @@ Content\Tiles\PitstopHealth.xnb
 Content\Tiles\Finish.xnb
 Content\Tiles\White.xnb
 Content\Fonts\Pericles Light.xnb
+Content\CarDead.xnb
+Content\MainMenu\Car2Left.xnb
+Content\Overlay.xnb
