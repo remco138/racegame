@@ -294,7 +294,7 @@ namespace racegame
                 //
                 if (timeStarted == TimeSpan.Zero) timeStarted = gameTime.TotalGameTime;
                 TimeElapsed = gameTime.TotalGameTime - timeStarted;
-                //Console.WriteLine("{0}, lapsed: {1}", timeStarted, TimeElapsed);  
+                // Console.WriteLine("{0}, lapsed: {1}", timeStarted, TimeElapsed);  
             }
         }
 

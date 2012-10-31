@@ -41,7 +41,7 @@ namespace racegame
             int barLength = 100;
             int barHeight = 10;
 
-            hudLocation = new Vector2[] { new Vector2(10, 10), new Vector2(track.WidthInPixels - 250, 10) };
+            hudLocation = new Vector2[] { new Vector2(18, 18), new Vector2(track.WidthInPixels - 260, 18) };
 
             /*
             Rectangle[] fuelLeft = new Rectangle[track.cars.Count()];
@@ -83,7 +83,7 @@ namespace racegame
             }
 
             String timeString = "Time elapsed: "+track.TimeElapsed.Hours+ ":"+track.TimeElapsed.Minutes+":"+track.TimeElapsed.Seconds;
-            spriteBatch.DrawString(font, timeString, new Vector2(650.0f, 300.0f), Color.Black);
+            spriteBatch.DrawString(font, timeString, new Vector2(640.0f, 300.0f), Color.Black);
         }
 
         void drawText(string text)

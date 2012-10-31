@@ -285,11 +285,13 @@ namespace racegame
                             break;
 
                         case TileCollision.PitstopFuel:
+                            acceleration = 150;
                             increaseFuel(1);
                             break;
 
 
                         case TileCollision.PitstopHealth:
+                            acceleration = 150;
                             increaseHealth(1);
                             break;
 
