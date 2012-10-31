@@ -13,13 +13,15 @@ namespace racegame
 {
     class Car : MovableObject
     {
-        private int health;
-        private float fuel;
+        public float health;
+        public float maxHealth;
+        public float fuel;
+        public float maxFuel;
         private int nitro;
         private int player;
 
         private float maxSpeed;
-        private float acceleration;
+        public float acceleration;
         private float maxAcceleration;
         private float maxDecceleration;
 
@@ -36,7 +38,10 @@ namespace racegame
             : base(position, texture)
         {
             this.health = health;
+            this.maxHealth = health;
             this.fuel = fuel;
+            this.maxFuel = fuel;
+
             this.nitro = nitro;
             this.player = player;
 
@@ -215,6 +220,8 @@ namespace racegame
                         case TileCollision.Grass:
                             isOnRoad = false;
                             isOnGrass = true;
+                            health -= 0.5f;
+
                             break;
 
                         case TileCollision.Strip:
@@ -238,6 +245,7 @@ namespace racegame
                                     acceleration = 05;
                                 }
                             }
+                            health -= 0.05f;
                             break;
 
                         case TileCollision.PitstopFuel:
