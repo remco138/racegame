@@ -207,6 +207,12 @@ namespace racegame
                 for (int x = xLeftTile; x <= xRightTile; ++x)
                 {
                     TileCollision collision = track.GetCollisionOfTile(x, y); // Haal collision-type op van de current Tile
+                    Rectangle tileBoundingBox = new Rectangle(x * Tile.Width, y*Tile.Height, Tile.Width, Tile.Height);
+
+                    if (!tileBoundingBox.Intersects(BoundingRectangle) || !BoundingRectangle.Intersects(tileBoundingBox))
+                    {
+                        break;
+                    }
 
                     switch (collision)
                     {
