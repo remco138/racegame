@@ -32,12 +32,16 @@ namespace racegame
         {
             get { return position + new Vector2(0.0f, bounce); }
         }
+        public Rectangle BouncingRectangle
+        {
+            get { return new Rectangle((int)BouncingPosition.X, (int)BouncingPosition.Y, Width, Height); }
+        }
 
 
         public bool isPickedUp = false;
         public bool isActive = true;
         private float respawnTimer = 0.0f;
-        private const float POWERUP_RESPAWN_TIME = 15.0f;
+        private const float POWERUP_RESPAWN_TIME = 25.0f;
         
         // Base Constructor
         public Powerup(PowerupType powerupType, Vector2 position, Texture2D texture, bool isTilePosition, bool isBouncy)
@@ -51,6 +55,7 @@ namespace racegame
                 this.position = position;
 
             this.isBouncy = isBouncy;
+            this.isBouncy = true;
             this.bounce = 0.0f;
         }
 
@@ -91,7 +96,15 @@ namespace racegame
         {
             if (isActive)
             {
-                base.Draw(spriteBatch);
+               // base.Draw(spriteBatch);
+
+                spriteBatch.Draw(texture,
+                    BouncingRectangle,
+                    null,
+                    Color.White,
+                    Rotation,
+                    Origin,
+                    SpriteEffects.None, 0);
             }
         }
 

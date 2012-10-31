@@ -53,7 +53,6 @@ namespace racegame
                 }
             }
 
-            // Maak een aantal test-objecten aan. (dit is nu nog handmatig, kan later gedaan worden door de trackTexture uit te lezen)
         }
 
         public Tile LoadTile(Texture2D trackTexture, int x, int y)
