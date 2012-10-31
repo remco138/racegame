@@ -13,6 +13,8 @@ namespace racegame
         public Texture2D trackTexture;
         public Tile[,] tiles; //2-dimensionale array van de tiles(op dit moment alleen nog maar een wrapper voor Texture2D...)
 
+        int numberOfPlayers;
+
         public int Width { get { return tiles.GetLength(0); } }
         public int Height { get { return tiles.GetLength(1); } }
         public int WidthInPixels { get { return Width * Tile.Width; } }
@@ -23,11 +25,15 @@ namespace racegame
         List<Obstacle> checkpoints;
         Obstacle finish;
 
-        ContentManager Content;
+        const int MAX_LAPS = 2;
 
-        int numberOfPlayers;
+        ContentManager Content;
+        Game game;
+
+        TimeSpan timeStarted;
+        TimeSpan TimeElapsed;
         
-        public Track(Texture2D trackTexture, ContentManager Content, int numberOfPlayers)
+        public Track(Texture2D trackTexture, ContentManager Content, int numberOfPlayers, Game game)
         {
             //
             // Dit is de constructor, deze voert het volgende uit:
@@ -36,6 +42,7 @@ namespace racegame
             //
             this.Content = Content;
             this.numberOfPlayers = numberOfPlayers;
+            this.game = game;
 
             cars = new List<Car>();
             checkpoints = new List<Obstacle>();
@@ -247,12 +254,23 @@ namespace racegame
                         }
                     }
                 }
+
+                if (car.lapsDriven == MAX_LAPS)
+                {
+                    game.showWinScreen();
+                }
             }
 
             foreach (Powerup powerup in powerups)
             {
                 powerup.Update(gameTime);
             }
+
+            // Set the startTime when game first starts && Calculate the timeElapsed after that.
+            //
+            if (timeStarted == TimeSpan.Zero) timeStarted = gameTime.TotalGameTime;
+            TimeElapsed = gameTime.TotalGameTime - timeStarted;
+            Console.WriteLine("{0}, lapsed: {1}", timeStarted, TimeElapsed);  
         }
 
         public void Draw(SpriteBatch spriteBatch)

@@ -21,6 +21,7 @@ namespace racegame
         GameSP,
         GameMP,
         HowToPlay,
+        WinnerScreen,
         Exit
     }
 
@@ -118,7 +119,13 @@ namespace racegame
 
         public void startGame(int trackNumber, int amountOfPlayers)
         {
-            currentTrack = new Track(Content.Load<Texture2D>("Tracks/" + trackNumber), Content, amountOfPlayers);
+            currentTrack = new Track(Content.Load<Texture2D>("Tracks/" + trackNumber), Content, amountOfPlayers, this);
+        }
+
+        public void showWinScreen()
+        {
+            currentGameState = GameState.WinnerScreen;
+
         }
 
         protected override void Draw(GameTime gameTime)
