@@ -20,7 +20,8 @@ namespace racegame
         Water,
         Strip,
         Checkpoint,
-        Pitstop,
+        PitstopHealth,
+        PitstopFuel,
         StartFinish
     }
 

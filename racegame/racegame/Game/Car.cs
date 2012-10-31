@@ -240,9 +240,14 @@ namespace racegame
                             }
                             break;
 
-                        case TileCollision.Pitstop:
+                        case TileCollision.PitstopFuel:
+                            fuel += 1;
                             break;
 
+
+                        case TileCollision.PitstopHealth:
+                            health += 1;
+                            break;
 
                         case TileCollision.Water:
                             this.position = new Vector2(950, 650);

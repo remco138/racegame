@@ -62,7 +62,9 @@ namespace racegame
 
             if (currentColor.Equals(new Color(255, 127, 39)))
             {
-                //  Only add the amount of cars needed!
+                // Orange = A Car
+
+                // Only add the amount of cars needed!
                 if (cars.Count != numberOfPlayers)
                 {
                     cars.Add(new Car(new Vector2(x * Tile.Width, y * Tile.Height), Content.Load<Texture2D>("Car" + cars.Count), 100, 100, 0, 1000.0f, this, cars.Count));
@@ -92,6 +94,16 @@ namespace racegame
 
                 return new Tile(Content.Load<Texture2D>("Tiles/Road"), TileCollision.Road);
             }
+            else if (currentColor.Equals(new Color(0, 0, 255)))
+            {
+                // Pure Blue = Health Pistop
+                return new Tile(Content.Load<Texture2D>("Tiles/PitstopHealth"), TileCollision.PitstopHealth);
+            }
+            else if (currentColor.Equals(new Color(255, 0, 0)))
+            {
+                // Pure Red = Fuel Pistop
+                return new Tile(Content.Load<Texture2D>("Tiles/PitstopFuel"), TileCollision.PitstopFuel);
+            }
             else if (currentColor.Equals(new Color(163, 073, 164)))
             {
                 // Purple = Strip
@@ -102,7 +114,7 @@ namespace racegame
                 // Black = Finish / Start
 
                 if (finish != null && finish.BoundingRectangle.Contains(new Point(x * Tile.Width, y * Tile.Height)))
-                    return new Tile(Content.Load<Texture2D>("Tiles/Checkpoint"), TileCollision.Checkpoint);
+                    return new Tile(Content.Load<Texture2D>("Tiles/Finish"), TileCollision.Checkpoint);
 
                 Point endFinishTile = getEndTile(x, y, currentColor);
 
@@ -111,7 +123,7 @@ namespace racegame
 
                 finish = new Obstacle(new Rectangle(x * Tile.Width, y * Tile.Height, widthFinish * Tile.Width, heightFinish * Tile.Height));
 
-                return new Tile(Content.Load<Texture2D>("Tiles/Checkpoint"), TileCollision.Checkpoint);
+                return new Tile(Content.Load<Texture2D>("Tiles/Finish"), TileCollision.Checkpoint);
             }
             else if (currentColor.Equals(new Color(255, 255, 255)))
             {
