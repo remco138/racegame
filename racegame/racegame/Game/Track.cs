@@ -25,10 +25,11 @@ namespace racegame
         List<Obstacle> checkpoints;
         Obstacle finish;
 
-        const int MAX_LAPS = 2;
+        const int MAX_LAPS = 1;
 
         ContentManager Content;
-        Game game;
+
+        bool isFinished = false;
 
         TimeSpan timeStarted;
         TimeSpan TimeElapsed;
@@ -42,8 +43,7 @@ namespace racegame
             //
             this.Content = Content;
             this.numberOfPlayers = numberOfPlayers;
-            this.game = game;
-
+ 
             cars = new List<Car>();
             checkpoints = new List<Obstacle>();
             powerups = new List<Powerup>();
@@ -59,7 +59,6 @@ namespace racegame
                     tiles[i, j] = LoadTile(trackTexture, i, j); // Zoek uit wat voor Tile dit is en zet deze in de tiles[] array.
                 }
             }
-
         }
 
         public Tile LoadTile(Texture2D trackTexture, int x, int y)
@@ -96,7 +95,7 @@ namespace racegame
             else if (currentColor.Equals(new Color(185, 122, 87)))
             {
                 // Beige = Powerup
-                powerups.Add(new Powerup(PowerupType.fuel, new Vector2(x * Tile.Width, y * Tile.Height), Content.Load<Texture2D>("Tiles/Powerup"), false, false));
+                powerups.Add(new Powerup(PowerupType.Fuel, new Vector2(x * Tile.Width, y * Tile.Height), Content.Load<Texture2D>("Tiles/Powerup"), false, false));
 
                 return new Tile(Content.Load<Texture2D>("Tiles/Road"), TileCollision.Road);
             }
@@ -237,40 +236,52 @@ namespace racegame
             //          2. check for collision between cars & powerups
             //      - Update all the powerups (used for the respawn timer)
 
-            foreach (Car car in cars)
+            if (!isFinished)
             {
-                car.Update(gameTime, checkpoints, finish);
-                
-                // Check if car has collided with a powerup
-                foreach(Powerup powerup in powerups)
+                foreach (Car car in cars)
                 {
-                    if (powerup.isActive)
+                    car.Update(gameTime, checkpoints, finish);
+
+                    // Check if car has collided with a powerup
+                    foreach (Powerup powerup in powerups)
                     {
-                        if (car.BoundingRectangle.Intersects(powerup.BoundingRectangle))
+                        if (powerup.isActive)
                         {
-                            Console.WriteLine("Picked up fuel powerup");
-                            car.increaseFuel(4);
-                            powerup.isPickedUp = true;
+                            if (car.BoundingRectangle.Intersects(powerup.BoundingRectangle))
+                            {
+                                switch (powerup.PowerupType)
+                                {
+                                    case PowerupType.Fuel:
+                                        Console.WriteLine("Picked up fuel powerup");
+                                        car.increaseFuel(10);
+                                        powerup.isPickedUp = true;
+                                        break;
+
+                                    case PowerupType.Health:
+                                        //  ??
+                                        break;
+                                }
+                            }
                         }
+                    }
+
+                    if (car.lapsDriven == MAX_LAPS)
+                    {
+                        isFinished = true;
                     }
                 }
 
-                if (car.lapsDriven == MAX_LAPS)
+                foreach (Powerup powerup in powerups)
                 {
-                    game.showWinScreen();
+                    powerup.Update(gameTime);
                 }
-            }
 
-            foreach (Powerup powerup in powerups)
-            {
-                powerup.Update(gameTime);
+                // Set the startTime when game first starts && Calculate the timeElapsed after that.
+                //
+                if (timeStarted == TimeSpan.Zero) timeStarted = gameTime.TotalGameTime;
+                TimeElapsed = gameTime.TotalGameTime - timeStarted;
+                Console.WriteLine("{0}, lapsed: {1}", timeStarted, TimeElapsed);  
             }
-
-            // Set the startTime when game first starts && Calculate the timeElapsed after that.
-            //
-            if (timeStarted == TimeSpan.Zero) timeStarted = gameTime.TotalGameTime;
-            TimeElapsed = gameTime.TotalGameTime - timeStarted;
-            Console.WriteLine("{0}, lapsed: {1}", timeStarted, TimeElapsed);  
         }
 
         public void Draw(SpriteBatch spriteBatch)

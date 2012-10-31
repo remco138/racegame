@@ -122,11 +122,6 @@ namespace racegame
             currentTrack = new Track(Content.Load<Texture2D>("Tracks/" + trackNumber), Content, amountOfPlayers, this);
         }
 
-        public void showWinScreen()
-        {
-            currentGameState = GameState.WinnerScreen;
-
-        }
 
         protected override void Draw(GameTime gameTime)
         {

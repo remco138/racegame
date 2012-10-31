@@ -13,8 +13,8 @@ namespace racegame
 {
     enum PowerupType
     {
-        fuel,
-        health
+        Fuel,
+        Health
     }
 
     class Powerup : MovableObject
