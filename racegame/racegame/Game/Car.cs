@@ -90,7 +90,7 @@ namespace racegame
         public void GetInput(GameTime gameTime)
         {
             KeyboardState keyboardState = Keyboard.GetState();
-            if (this.player == 1)
+            if (this.player == 0)
             {
                 if (keyboardState.IsKeyDown(Keys.Up))
                 {
@@ -114,7 +114,7 @@ namespace racegame
                 {
                 }
             }
-            else if (this.player == 2)
+            else if (this.player == 1)
             {
                 if (keyboardState.IsKeyDown(Keys.W))
                 {

@@ -82,15 +82,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Car.png">
-      <Name>Car</Name>
+    <Compile Include="Car0.png">
+      <Name>Car0</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Car2.png">
-      <Name>Car2</Name>
+    <Compile Include="Car1.png">
+      <Name>Car1</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

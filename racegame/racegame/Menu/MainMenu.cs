@@ -83,12 +83,19 @@ namespace racegame
             if (counter == 2)carCursorP = 345;
             if (counter == 3)carCursorP = 434;
             if (counter == 4)carCursorP = 520;
-     
-           
+       
             // Get and respond to user input
             //
-            if (currentKeyboardState.IsKeyDown(Keys.Enter) && counter == 1) game.currentGameState = GameState.GameSP;       
-            if (currentKeyboardState.IsKeyDown(Keys.Enter) && counter == 2) game.currentGameState = GameState.GameMP;     
+            if (currentKeyboardState.IsKeyDown(Keys.Enter) && previousKeyboardState.IsKeyUp(Keys.Enter) && counter == 1)
+            {
+                game.startGame(1, 1);
+                game.currentGameState = GameState.GameSP;             
+            }
+            if (currentKeyboardState.IsKeyDown(Keys.Enter) && counter == 2)
+            {
+                game.startGame(1, 2);
+                game.currentGameState = GameState.GameMP; 
+            }
             if (currentKeyboardState.IsKeyDown(Keys.Enter) && counter == 3) game.currentGameState = GameState.HowToPlay;
             if (currentKeyboardState.IsKeyDown(Keys.Enter) && counter == 4) game.Exit();
 
@@ -106,6 +113,5 @@ namespace racegame
             buttonHTP.Draw(spriteBatch);
             buttonE.Draw(spriteBatch);
         }
-
     }
 }

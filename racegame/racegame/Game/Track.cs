@@ -25,7 +25,9 @@ namespace racegame
 
         ContentManager Content;
 
-        public Track(Texture2D trackTexture, ContentManager Content)
+        int numberOfPlayers;
+        
+        public Track(Texture2D trackTexture, ContentManager Content, int numberOfPlayers)
         {
             //
             // Dit is de constructor, deze voert het volgende uit:
@@ -33,6 +35,8 @@ namespace racegame
             //      - Leest de trackTexture in en laad aan de hand van de (kleur)-codes de verschillende objecten in. (bv een rode pixel = de start positie van een Car)   
             //
             this.Content = Content;
+            this.numberOfPlayers = numberOfPlayers;
+
             cars = new List<Car>();
             checkpoints = new List<Obstacle>();
             powerups = new List<Powerup>();
@@ -56,7 +60,17 @@ namespace racegame
         {
             Color currentColor = GetPixelColor(trackTexture, x, y);
 
-            if (currentColor.Equals(new Color(195, 195, 195)))
+            if (currentColor.Equals(new Color(255, 127, 39)))
+            {
+                //  Only add the amount of cars needed!
+                if (cars.Count != numberOfPlayers)
+                {
+                    cars.Add(new Car(new Vector2(x * Tile.Width, y * Tile.Height), Content.Load<Texture2D>("Car" + cars.Count), 100, 100, 0, 1000.0f, this, cars.Count));
+                }
+                
+                return new Tile(Content.Load<Texture2D>("Tiles/Road"), TileCollision.Road);
+            }
+            else if (currentColor.Equals(new Color(195, 195, 195)))
             {
                 // Grey = the road
                 return new Tile(Content.Load<Texture2D>("Tiles/Road"), TileCollision.Road);

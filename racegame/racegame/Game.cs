@@ -30,7 +30,7 @@ namespace racegame
 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        KeyboardState keyboardState;
+
         KeyboardState currentKeyboardState;
         KeyboardState previousKeyboardState;
 
@@ -68,12 +68,7 @@ namespace racegame
             HowToPlay = Content.Load<Texture2D>("HowToPlay");
             mainMenu = new MainMenu(Content, graphics.GraphicsDevice);
             
-            currentTrack = new Track(Content.Load<Texture2D>("Tracks/1"), Content);
-
-            car = new Car(new Vector2(950.0f, 600.0f), Content.Load<Texture2D>("Car"), 100, 100, 0, 1000.0f, currentTrack, 1);
-            currentTrack.AddCar(car);
-            car2 = new Car(new Vector2(950.0f, 650.0f), Content.Load<Texture2D>("Car2"), 100, 100, 0, 1000.0f, currentTrack, 2);
-            currentTrack.AddCar(car2);
+            
         }
 
         #endregion
@@ -120,9 +115,14 @@ namespace racegame
             previousKeyboardState = currentKeyboardState;
         }
 
+        public void startGame(int trackNumber, int amountOfPlayers)
+        {
+            currentTrack = new Track(Content.Load<Texture2D>("Tracks/" + trackNumber), Content, amountOfPlayers);
+        }
+
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.DeepPink);
+            GraphicsDevice.Clear(Color.White);
 
             spriteBatch.Begin();
            
