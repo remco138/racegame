@@ -43,8 +43,6 @@ namespace racegame
 
         Track currentTrack;
         Hud hud;
-        Car car;
-        Car car2;
 
         public GameState currentGameState = GameState.Intro;
 

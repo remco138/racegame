@@ -65,9 +65,16 @@ namespace racegame
         {
             base.Update(gameTime);
 
+            // Use fuel if acceleration higher or lower than 5.
             if (acceleration > 5 || acceleration < -5)
             {
                 fuel = fuel - 0.05f;
+            }
+
+            // Stop the car if there is no more fuel.
+            if (fuel < 1)
+            {
+                acceleration = 0;
             }
 
             CalculateMovement(gameTime);
