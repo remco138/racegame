@@ -11,153 +11,59 @@ using Microsoft.Xna.Framework.Media;
 
 namespace racegame
 {
-    enum State
-    {
-        Hover,
-        Up,
-        Released,
-        Down
-    }
-
     class Button
     {
-        public Vector2 Position
+        // Creating the Texture's.
+        Texture2D texture;
+
+        // Declaring a variable for the Vector2 and the Rectangle.
+        Vector2 position;
+        Vector2 size;
+
+        public Rectangle Rectangle
         {
-            get;
-            set;
+            get { return new Rectangle((int)position.X, (int)position.Y, (int)size.X, (int)size.Y); }
         }
 
-        String label;
-        Texture2D textureNormal, textureHover, texturePressed;
-        State state;
+        // Declaring a color.
+        Color color = new Color(255, 255, 255, 255);
 
-        public event EventHandler ButtonClicked;
-
-        bool mouse1_was_pressed;
-
-        public bool isEnabled { get; set; }
-        public bool isVisible { get; set; }
-
-        public int Width
+        /// <summary>
+        /// Button will be used for creating the Buttons and give them a size.
+        /// </summary>
+        public Button(Texture2D newTexture, Vector2 size, Vector2 position)
         {
-            get { return textureNormal.Width; }
-        }
-        public int Height
-        {
-            get { return textureNormal.Height; }
-        }
-        public Rectangle buttonRectangle
-        {
-            get { return new Rectangle((int)Position.X, (int)Position.Y, Width, Height); }
+            texture = newTexture;
+            this.size = size;
+            this.position = position;
         }
 
-        private ContentManager Content;
-
-
-
-        public Button(ContentManager Content, String label, String textureFolder)
-            : base()
+        /// <summary>
+        /// Update will be used for the fading of the Button images.
+        /// </summary>
+        /// <param name="mouse"></param>
+        public void Update()
         {
-            this.Content = Content;
-            this.label = label;
-            this.isVisible = true;
-
-            this.isEnabled = true;
-            this.Position = new Vector2(0.1f, 0.1f);
-
-            this.ButtonClicked = empty;
-            getTextures(textureFolder);
+            // De onderstaande regel is niet nodig:  
+            //rectangle = new Rectangle((int)position.X, (int)position.Y, (int)size.X, (int)size.Y);
         }
 
-        public Button(ContentManager Content, String label, String textureFolder, EventHandler evt)
-            : this(Content, label, textureFolder)
+        /// <summary>
+        /// setPosition will be used in Game for setting the position of the Buttons.
+        /// </summary>
+        /// <param name="newPosition"></param>
+        public void setPosition(Vector2 newPosition)
         {
-            this.ButtonClicked = evt;
+            position = newPosition;
         }
 
-        public Button(ContentManager Content, String label, String textureFolder, Vector2 position, bool enabled)
-            : this(Content, label, textureFolder)
-        {
-            this.isEnabled = enabled;
-            this.Position = position;
-        }
-
-        public Button(ContentManager Content, String label, String textureFolder, Vector2 position, bool enabled, EventHandler evt)
-            : this(Content, label, textureFolder, position, enabled)
-        {
-            this.ButtonClicked = evt;
-        }
-
-
-
-        public void getTextures(String folder)
-        {
-            this.textureNormal = Content.Load<Texture2D>(folder + "/normal");
-            this.textureHover = Content.Load<Texture2D>(folder + "/hover");
-            this.texturePressed = Content.Load<Texture2D>(folder + "/pressed");
-        }
-
-        public void Update(Point mousePosition, bool mouse1Pressed)
-        {
-            if (hit_button(buttonRectangle, mousePosition))
-            {
-                state = State.Hover;
-
-                if (mouse1Pressed)
-                {
-                    state = State.Down;
-                }
-                else if (mouse1_was_pressed)
-                {
-                    ButtonClicked(this, new EventArgs());
-                    state = State.Released;
-                }
-            }
-            else
-                state = State.Up;
-
-            mouse1_was_pressed = mouse1Pressed;
-        }
-
-        private Boolean hit_button(Rectangle buttonRectangle, Point mousePos)
-        {
-            return (mousePos.X >= buttonRectangle.Left &&
-                    mousePos.X <= buttonRectangle.Right &&
-                    mousePos.Y >= buttonRectangle.Top &&
-                    mousePos.Y <= buttonRectangle.Bottom);
-        }
-
-
+        /// <summary>
+        /// This is called when the game should draw itself.
+        /// </summary>
+        /// <param name="spriteBatch"></param>
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (isVisible)
-            {
-                switch (state)
-                {
-                    case State.Up:
-                        spriteBatch.Draw(textureNormal, Position, null, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.0f);
-                        break;
-
-                    case State.Down:
-                        spriteBatch.Draw(texturePressed, Position, null, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.0f);
-                        break;
-
-                    case State.Hover:
-                        spriteBatch.Draw(textureHover, Position, null, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.0f);
-                        break;
-
-                    default:
-                        spriteBatch.Draw(textureNormal, Position, null, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.0f);
-                        break;
-                }
-            }
-        }
-
-        private void empty(object sender, EventArgs e)
-        {
-            // No action.
-
-            // Is used for buttons without an eventHandler.
+            spriteBatch.Draw(texture, Rectangle, color);
         }
     }
 }

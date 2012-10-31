@@ -100,7 +100,6 @@ namespace racegame
         }
 
         
-       
 
         public void reverseVelocity()
         {
@@ -127,7 +126,6 @@ namespace racegame
                                     Origin,
                                     SpriteEffects.None, 0);
             }
-
         }
     }
 }

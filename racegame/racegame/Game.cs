@@ -14,9 +14,16 @@ using Microsoft.Xna.Framework.Media;
 
 namespace racegame
 {
-    /// <summary>
-    /// This is the main type for your game
-    /// </summary>
+    public enum GameState
+    {
+        Intro,
+        Menu,
+        GameSP,
+        GameMP,
+        HowToPlay,
+        Exit
+    }
+
     public class Game : Microsoft.Xna.Framework.Game
     {
         #region Variables
@@ -24,10 +31,18 @@ namespace racegame
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         KeyboardState keyboardState;
- 
+        KeyboardState currentKeyboardState;
+        KeyboardState previousKeyboardState;
+
+        Intro intro;
+        Texture2D HowToPlay;
+        MainMenu mainMenu;
+
         Track currentTrack;
         Car car;
         Car car2;
+
+        public GameState currentGameState = GameState.Intro;
 
         #endregion
 
@@ -43,15 +58,16 @@ namespace racegame
             Content.RootDirectory = "Content";
         }
 
-        protected override void Initialize()
-        {
-            base.Initialize();
-        }
-
         protected override void LoadContent()
         {
+            // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            // Load the intro, menu etc.
+            intro = new Intro(Content);
+            HowToPlay = Content.Load<Texture2D>("HowToPlay");
+            mainMenu = new MainMenu(Content, graphics.GraphicsDevice);
+            
             currentTrack = new Track(Content.Load<Texture2D>("Tracks/1"), Content);
 
             car = new Car(new Vector2(950.0f, 600.0f), Content.Load<Texture2D>("Car"), 100, 100, 0, 1000.0f, currentTrack, 1);
@@ -67,22 +83,41 @@ namespace racegame
 
         protected override void Update(GameTime gameTime)
         {
-            GetInput();
-            currentTrack.Update(gameTime);
+            currentKeyboardState = Keyboard.GetState();
 
-            // Allows the game to exit
-            if (Keyboard.GetState().IsKeyDown(Keys.Escape)) this.Exit();
-            base.Update(gameTime);
-        }
-
-        private void GetInput()
-        {
-            keyboardState = Keyboard.GetState();
-
-            if (keyboardState.IsKeyDown(Keys.A))
+            // Here is the order of the GameStates declared + what happens when pressing which button or clicking the mouse.
+            switch (currentGameState)
             {
-                
+                case GameState.Intro:
+                    intro.Update(gameTime);
+                    if (currentKeyboardState.IsKeyDown(Keys.Escape)) currentGameState = GameState.Menu;
+                    if (gameTime.TotalGameTime.Seconds >= 5) currentGameState = GameState.Menu;
+                    break;
+
+                case GameState.Menu:
+                    mainMenu.Update(gameTime, currentKeyboardState, previousKeyboardState, this);
+                    break;
+
+                case GameState.GameSP:
+                    if (currentKeyboardState.IsKeyDown(Keys.Back)) currentGameState = GameState.Menu;
+                    currentTrack.Update(gameTime);
+                    break;
+
+                case GameState.GameMP:
+                    if (currentKeyboardState.IsKeyDown(Keys.Back)) currentGameState = GameState.Menu;
+                    currentTrack.Update(gameTime);
+                    break;
+
+                case GameState.HowToPlay:
+                    if (currentKeyboardState.IsKeyDown(Keys.Back)) currentGameState = GameState.Menu;
+                    break;
+
+                case GameState.Exit:
+                    break;
             }
+
+            // Store the current keyboardstate
+            previousKeyboardState = currentKeyboardState;
         }
 
         protected override void Draw(GameTime gameTime)
@@ -90,10 +125,36 @@ namespace racegame
             GraphicsDevice.Clear(Color.DeepPink);
 
             spriteBatch.Begin();
-            currentTrack.Draw(spriteBatch);
-            spriteBatch.End();
+           
+            switch (currentGameState)
+            {
+                case GameState.Intro:
+                    intro.Draw(gameTime, spriteBatch);
+                    break;
 
-            base.Draw(gameTime);
+                case GameState.Menu:
+                    mainMenu.Draw(spriteBatch);
+                    break;
+
+                case GameState.GameSP:
+                    currentTrack.Draw(spriteBatch);
+                    if (currentKeyboardState.IsKeyDown(Keys.Tab)) spriteBatch.Draw(HowToPlay, new Vector2(180.0f, 187.5f), Color.White);
+                    break;
+
+                case GameState.GameMP:      
+                    currentTrack.Draw(spriteBatch);
+                    if (currentKeyboardState.IsKeyDown(Keys.Tab)) spriteBatch.Draw(HowToPlay, new Vector2(180.0f, 187.5f), Color.White);
+                    break;
+
+                case GameState.HowToPlay:
+                    spriteBatch.Draw(HowToPlay, new Vector2(180.0f, 187.5f), Color.White);
+                    break;
+
+                case GameState.Exit:
+                    break;
+            }
+
+            spriteBatch.End();
         }
 
         #endregion

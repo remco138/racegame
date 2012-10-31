@@ -109,14 +109,14 @@
   <ItemGroup>
     <Compile Include="Game\Car.cs" />
     <Compile Include="Game\HUD.cs" />
-    <Compile Include="Menu\Menu.cs" />
-    <Compile Include="Menu\MenuStart Voorbeeld.cs" />
     <Compile Include="Game\MovableObject.cs" />
     <Compile Include="Game\Obstacle.cs" />
     <Compile Include="Game\Pitstop.cs" />
     <Compile Include="Game\PowerUp.cs" />
     <Compile Include="Game\Tile.cs" />
+    <Compile Include="Intro.cs" />
     <Compile Include="Menu\Button.cs" />
+    <Compile Include="Menu\MainMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Game\Program.cs" />
     <Compile Include="Game.cs" />
