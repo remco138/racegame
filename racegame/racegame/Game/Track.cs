@@ -315,20 +315,42 @@ namespace racegame
             }
 
             // Draw all the objects
-            //
             foreach (Car car in cars)
             {
                 car.Draw(spriteBatch);
             }
+
             foreach (Powerup powerup in powerups)
             {
                 powerup.Draw(spriteBatch);
             }
 
-            if (isFinished)
+            if (cars.Count == 1)
             {
-                spriteBatch.Draw(finishOverlay, new Rectangle(0, 0, 1280, 900), Color.Black);
-                spriteBatch.DrawString(font, "Finished in " + TimeElapsed.Minutes + " Minutes and " + TimeElapsed.Seconds + " Seconds", new Vector2(300, 250), Color.White);
+                if (isFinished)
+                {
+                    spriteBatch.Draw(finishOverlay, new Rectangle(0, 0, 1280, 800), Color.Black);
+                    spriteBatch.DrawString(font, "Finished in " + TimeElapsed.Minutes + " Minutes and " + TimeElapsed.Seconds + " Seconds.", new Vector2(300, 250), Color.White);
+                }
+            }
+            else if (cars.Count == 2)
+            {
+                if (isFinished && cars[0].lapsDriven > cars[1].lapsDriven)
+                {
+                    spriteBatch.Draw(finishOverlay, new Rectangle(0, 0, 1280, 800), Color.Black);
+                    spriteBatch.DrawString(font, "Finished in " + TimeElapsed.Minutes + " Minutes and " + TimeElapsed.Seconds + " Seconds." +
+                                                                                                                    Environment.NewLine +
+                                                                                                                    Environment.NewLine +
+                                                                                                                    Environment.NewLine + "The player of the red car has won.", new Vector2(300, 250), Color.White);
+                }
+                else if (isFinished && cars[0].lapsDriven < cars[1].lapsDriven)
+                {
+                    spriteBatch.Draw(finishOverlay, new Rectangle(0, 0, 1280, 800), Color.Black);
+                    spriteBatch.DrawString(font, "Finished in " + TimeElapsed.Minutes + " Minutes and " + TimeElapsed.Seconds + " Seconds." +
+                                                                                                                        Environment.NewLine +
+                                                                                                                        Environment.NewLine +
+                                                                                                                        Environment.NewLine + "The player of the blue car has won.", new Vector2(300, 250), Color.White);
+                }
             }
         }
 
