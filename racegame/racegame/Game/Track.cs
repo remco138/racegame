@@ -18,7 +18,7 @@ namespace racegame
         public int WidthInPixels { get { return Width * Tile.Width; } }
         public int HeightInPixels { get { return Height * Tile.Height; } }
 
-        List<Car> cars;
+        public List<Car> cars;
         List<MovableObject> worldObjects;
         List<Obstacle> checkpoints;
         Obstacle finish;

@@ -26,6 +26,7 @@ namespace racegame
         KeyboardState keyboardState;
  
         Track currentTrack;
+        Hud hud;
         Car car;
         Car car2;
 
@@ -51,8 +52,8 @@ namespace racegame
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
             currentTrack = new Track(Content.Load<Texture2D>("Tracks/1"), Content);
+            hud = new Hud(Content);
 
             car = new Car(new Vector2(950.0f, 600.0f), Content.Load<Texture2D>("Car"), 100, 100, 0, 1000.0f, currentTrack, 1);
             currentTrack.AddCar(car);
@@ -91,6 +92,7 @@ namespace racegame
 
             spriteBatch.Begin();
             currentTrack.Draw(spriteBatch);
+            hud.draw(spriteBatch, currentTrack);
             spriteBatch.End();
 
             base.Draw(gameTime);
