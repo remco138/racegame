@@ -41,7 +41,7 @@ namespace racegame
             int barLength = 100;
             int barHeight = 10;
 
-            hudLocation = new Vector2[] { new Vector2(10, 10), new Vector2(track.WidthInPixels - 350, 10) };
+            hudLocation = new Vector2[] { new Vector2(10, 10), new Vector2(track.WidthInPixels - 250, 10) };
 
             /*
             Rectangle[] fuelLeft = new Rectangle[track.cars.Count()];
@@ -62,13 +62,17 @@ namespace racegame
                 //Other data which gets printed as text on screen
                 Vector2 currentHeight = new Vector2(0, - 10);
 
-                string speedNotifier = "Speed car " + i + ": " + track.cars[i].acceleration.ToString() + " km/h";
+                string carNotifier = "car " + i;
+                spriteBatch.DrawString(font, carNotifier, hudLocation[i] + currentHeight, Color.BlanchedAlmond);//ADJUST
+                currentHeight.Y += (int)font.MeasureString(carNotifier).Y - 10;
+
+                string speedNotifier = "Speed:  " + track.cars[i].acceleration.ToString();
                 spriteBatch.DrawString(font, speedNotifier, hudLocation[i] + currentHeight, Color.BlanchedAlmond);//ADJUST
                 currentHeight.Y += (int)font.MeasureString(speedNotifier).Y - 10;
 
-                string lapsDriven = "lapsDriven car " + i + ": " + track.cars[i].lapsDriven;
-                spriteBatch.DrawString(font, lapsDriven, hudLocation[i] + currentHeight, Color.BlanchedAlmond);//ADJUST
-                currentHeight.Y += (int)font.MeasureString(lapsDriven).Y - 10;
+                string lapsNotifier = "lapsDriven: " + track.cars[i].lapsDriven;
+                spriteBatch.DrawString(font, lapsNotifier, hudLocation[i] + currentHeight, Color.BlanchedAlmond);//ADJUST
+                currentHeight.Y += (int)font.MeasureString(lapsNotifier).Y - 10;
 
 
                 spriteBatch.Draw(debugTexture, maxFuel[i], Color.Yellow);
