@@ -35,11 +35,9 @@ namespace racegame
             healthLeft = new Rectangle[2];
             maxHealth = new Rectangle[2]; 
         }
-        int temp;
-        bool isAscending;
+
         public void draw(SpriteBatch spriteBatch, Track track)//List<Car> cars)
         {
-
             int barLength = 100;
             int barHeight = 10;
 
@@ -52,7 +50,8 @@ namespace racegame
             Rectangle[] healthLeft = new Rectangle[track.cars.Count()];
             Rectangle[] maxHealth = new Rectangle[track.cars.Count()]; 
             */
-            for(int i = 0; i < track.cars.Count(); i++){
+            for(int i = 0; i < track.cars.Count(); i++)
+            {
                 //fuel and health bars
                 fuelLeft[i] = new Rectangle((int)track.cars[i].position.X - 20, (int)track.cars[i].position.Y - 25, (int)(track.cars[i].fuel / track.cars[0].maxFuel * barLength), barHeight);
                 maxFuel[i] = new Rectangle((int)track.cars[i].position.X - 20, (int)track.cars[i].position.Y - 25, (int)(100f / 100f * barLength), barHeight);
@@ -78,6 +77,9 @@ namespace racegame
                 spriteBatch.Draw(debugTexture, maxHealth[i], Color.Red);
                 spriteBatch.Draw(debugTexture, healthLeft[i], Color.Green);
             }
+
+            String timeString = "Time elapsed: "+track.TimeElapsed.Hours+ ":"+track.TimeElapsed.Minutes+":"+track.TimeElapsed.Seconds;
+            spriteBatch.DrawString(font, timeString, new Vector2(650.0f, 300.0f), Color.Black);
         }
 
         void drawText(string text)

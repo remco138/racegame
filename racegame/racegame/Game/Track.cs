@@ -15,6 +15,8 @@ namespace racegame
 
         int numberOfPlayers;
 
+        private SpriteFont font;
+
         public int Width { get { return tiles.GetLength(0); } }
         public int Height { get { return tiles.GetLength(1); } }
         public int WidthInPixels { get { return Width * Tile.Width; } }
@@ -30,9 +32,10 @@ namespace racegame
         ContentManager Content;
 
         bool isFinished = false;
+        Texture2D finishOverlay;
 
         TimeSpan timeStarted;
-        TimeSpan TimeElapsed;
+        public TimeSpan TimeElapsed;
         
         public Track(Texture2D trackTexture, ContentManager Content, int numberOfPlayers, Game game)
         {
@@ -43,10 +46,13 @@ namespace racegame
             //
             this.Content = Content;
             this.numberOfPlayers = numberOfPlayers;
+            this.finishOverlay = Content.Load<Texture2D>("Overlay");
  
             cars = new List<Car>();
             checkpoints = new List<Obstacle>();
             powerups = new List<Powerup>();
+
+            font = Content.Load<SpriteFont>("Fonts/Pericles Light");
 
             tiles = new Tile[trackTexture.Width, trackTexture.Height];
             this.trackTexture = trackTexture;
@@ -72,7 +78,15 @@ namespace racegame
                 // Only add the amount of cars needed!
                 if (cars.Count != numberOfPlayers)
                 {
-                    cars.Add(new Car(new Vector2(x * Tile.Width, y * Tile.Height), Content.Load<Texture2D>("Car" + cars.Count), 100, 100, 0, 1000.0f, this, cars.Count));
+                    cars.Add(new Car(   new Vector2(x * Tile.Width, y * Tile.Height),
+                                        Content.Load<Texture2D>("Car" + cars.Count),
+                                        Content.Load<Texture2D>("CarDead"),
+                                        100,
+                                        100,
+                                        0,
+                                        1000.0f,
+                                        this,
+                                        cars.Count));
                 }
                 
                 return new Tile(Content.Load<Texture2D>("Tiles/Road"), TileCollision.Road);
@@ -309,6 +323,12 @@ namespace racegame
             foreach (Powerup powerup in powerups)
             {
                 powerup.Draw(spriteBatch);
+            }
+
+            if (isFinished)
+            {
+                spriteBatch.Draw(finishOverlay, new Rectangle(0, 0, 1280, 900), Color.Black);
+                spriteBatch.DrawString(font, "Finished in " + TimeElapsed.Minutes + " Minutes and " + TimeElapsed.Seconds + " Seconds", new Vector2(300, 250), Color.White);
             }
         }
 

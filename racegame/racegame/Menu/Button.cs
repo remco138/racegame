@@ -26,7 +26,7 @@ namespace racegame
         }
 
         // Declaring a color.
-        Color color = new Color(255, 255, 255, 255);
+        Color color = new Color(0, 51, 51, 150);
 
         /// <summary>
         /// Button will be used for creating the Buttons and give them a size.
