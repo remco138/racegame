@@ -23,9 +23,9 @@ namespace racegame
         public int HeightInPixels { get { return Height * Tile.Height; } }
 
         public List<Car> cars;
-        List<Powerup> powerups;
-        List<Obstacle> checkpoints;
-        Obstacle finish;
+        private List<Powerup> powerups;
+        private List<Obstacle> checkpoints;
+        public Obstacle finish;
 
         const int MAX_LAPS = 1;
 

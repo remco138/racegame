@@ -43,6 +43,8 @@ namespace racegame
         {
             this.deathTexture = deathTexture;
 
+            lastCheckpoint = track.finish;
+
             this.health = health;
             this.maxHealth = health;
             this.fuel = fuel;
@@ -85,6 +87,11 @@ namespace racegame
             }
 
             HandleCollisions();
+
+            if (BoundingRectangle.Intersects(track.finish.BoundingRectangle))
+            {
+                lastCheckpoint = track.finish;
+            }
 
             // Check for Checkpoint collision
             foreach (Obstacle checkpoint in checkpoints)
@@ -287,7 +294,11 @@ namespace racegame
                             break;
 
                         case TileCollision.Water:
-                            this.position = new Vector2(950, 650);
+
+                            this.position.X = lastCheckpoint.BoundingRectangle.Location.X;
+                            this.position.Y = lastCheckpoint.BoundingRectangle.Location.Y;
+                            position.X += lastCheckpoint.BoundingRectangle.Width / 2;
+                            position.Y += lastCheckpoint.BoundingRectangle.Height / 2;
                             break;
 
                     }
