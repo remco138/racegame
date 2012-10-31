@@ -96,7 +96,7 @@ namespace racegame
         {
             if (isActive)
             {
-               // base.Draw(spriteBatch);
+                // base.Draw(spriteBatch);
 
                 spriteBatch.Draw(texture,
                     BouncingRectangle,
@@ -107,7 +107,6 @@ namespace racegame
                     SpriteEffects.None, 0);
             }
         }
-
 
 
 
