@@ -39,6 +39,7 @@ namespace racegame
         MainMenu mainMenu;
 
         Track currentTrack;
+        Hud hud;
         Car car;
         Car car2;
 
@@ -62,9 +63,9 @@ namespace racegame
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
             // Load the intro, menu etc.
             intro = new Intro(Content);
+            hud = new Hud(Content);
             HowToPlay = Content.Load<Texture2D>("HowToPlay");
             mainMenu = new MainMenu(Content, graphics.GraphicsDevice);
             
@@ -138,11 +139,13 @@ namespace racegame
 
                 case GameState.GameSP:
                     currentTrack.Draw(spriteBatch);
+                    hud.draw(spriteBatch, currentTrack);
                     if (currentKeyboardState.IsKeyDown(Keys.Tab)) spriteBatch.Draw(HowToPlay, new Vector2(180.0f, 187.5f), Color.White);
                     break;
 
                 case GameState.GameMP:      
                     currentTrack.Draw(spriteBatch);
+                    hud.draw(spriteBatch, currentTrack);
                     if (currentKeyboardState.IsKeyDown(Keys.Tab)) spriteBatch.Draw(HowToPlay, new Vector2(180.0f, 187.5f), Color.White);
                     break;
 
