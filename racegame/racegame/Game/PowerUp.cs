@@ -34,10 +34,10 @@ namespace racegame
         }
 
 
-        public bool isPickedUp = true;
+        public bool isPickedUp = false;
         public bool isActive = true;
         private float respawnTimer = 0.0f;
-        private const float POWERUP_RESPAWN_TIME = 500.0f;
+        private const float POWERUP_RESPAWN_TIME = 15.0f;
         
         // Base Constructor
         public Powerup(PowerupType powerupType, Vector2 position, Texture2D texture, bool isTilePosition, bool isBouncy)
@@ -69,14 +69,18 @@ namespace racegame
                 bounce = (float)Math.Sin(t) * BounceHeight * Height;
             }
 
+            // The timer used to respawn this powerup. It's triggered inside Track.cs by the isPickedUp variable
+            //
             if (isPickedUp || respawnTimer > 0.0f)
             {
                 respawnTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                isActive = false;
 
                 if (respawnTimer > POWERUP_RESPAWN_TIME)
                 {
                     isActive = true;
                     respawnTimer = 0.0f;
+                    Console.WriteLine("Powerup is respawned");
                 }
             }
 

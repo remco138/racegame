@@ -244,7 +244,7 @@ namespace racegame
                         {
                             Console.WriteLine("Picked up fuel powerup");
                             car.increaseFuel(20);
-                            powerup.isActive = false;
+                            powerup.isPickedUp = true;
                         }
                     }
                 }
