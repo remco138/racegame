@@ -242,7 +242,7 @@ namespace racegame
                         if (car.BoundingRectangle.Intersects(powerup.BoundingRectangle))
                         {
                             Console.WriteLine("Picked up fuel powerup");
-                            car.increaseFuel(20);
+                            car.increaseFuel(4);
                             powerup.isPickedUp = true;
                         }
                     }

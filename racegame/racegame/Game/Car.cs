@@ -249,12 +249,12 @@ namespace racegame
                             break;
 
                         case TileCollision.PitstopFuel:
-                            fuel += 1;
+                            increaseFuel(1);
                             break;
 
 
                         case TileCollision.PitstopHealth:
-                            health += 1;
+                            increaseHealth(1);
                             break;
 
                         case TileCollision.Water:
@@ -270,6 +270,13 @@ namespace racegame
         public void increaseFuel(int amount)
         {
             fuel += amount;
+            if (fuel > maxFuel) fuel = maxFuel;
+        }
+
+        public void increaseHealth(int amount)
+        {
+            health += amount;
+            if (health > maxHealth) health = maxHealth;
         }
     }
 }
