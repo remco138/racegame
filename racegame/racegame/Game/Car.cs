@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-namespace racegame
+namespace RetroRacer
 {
     class Car : MovableObject
     {
@@ -29,6 +29,12 @@ namespace racegame
 
         private bool isOnGrass;
         private bool isOnRoad;
+        private bool isOnStrip;
+        private bool isOnPSFuel;
+        private bool isOnPSHealth;
+        /* Y: Could be used if we want Dirt on the map. 
+        private bool isOnDirt; 
+        */
 
         private bool isDead = false;
 
@@ -57,9 +63,6 @@ namespace racegame
 
             this.track = track;
 
-            maxAcceleration = 200;
-            maxDecceleration = -100;
-
             Rotation = 600;
         }
 
@@ -74,7 +77,7 @@ namespace racegame
             }
 
             // Stop the car if there is no more fuel.
-            if (fuel < 0.25f)
+            if (fuel < 1)
             {
                 acceleration = 0;
             }
@@ -127,50 +130,56 @@ namespace racegame
             KeyboardState keyboardState = Keyboard.GetState();
             if (this.player == 0)
             {
-                if (keyboardState.IsKeyDown(Keys.Up))
+                if (keyboardState.IsKeyDown(Keys.Up) && (fuel > 1 && health > 1)) // Y: Fuel en/of health moeten groter zijn dan 1 anders stopt auto
                 {
                     if (acceleration <= maxAcceleration) { acceleration += 5; }
                 }
-                else if (keyboardState.IsKeyDown(Keys.Down))
+                else if (keyboardState.IsKeyDown(Keys.Down) && (fuel > 1 && health > 1)) // Y: Fuel en/of health moeten groter zijn dan 1 anders stopt auto
                 {
                     if (acceleration >= maxDecceleration) { acceleration -= 5; }
                 }
 
-                if (keyboardState.IsKeyDown(Keys.Left) && (acceleration > 5 || acceleration < -5))
+                if (keyboardState.IsKeyDown(Keys.Left) && (acceleration > 50 || acceleration < -50)) // Y: acceleration moet groter of kleiner zijn dan (-)50 om te draaien
                 {
                     Rotation -= (float)(1 * 3.0f * gameTime.ElapsedGameTime.TotalSeconds);
                 }
 
-                else if (keyboardState.IsKeyDown(Keys.Right) && (acceleration > 5 || acceleration < -5))
+                else if (keyboardState.IsKeyDown(Keys.Right) && (acceleration > 50 || acceleration < -50)) // Y: acceleration moet groter of kleiner zijn dan (-)50 om te draaien
                 {
                     Rotation += (float)(1 * 3.0f * gameTime.ElapsedGameTime.TotalSeconds);
                 }
-                if (keyboardState.IsKeyDown(Keys.Space))
+                if (keyboardState.IsKeyDown(Keys.RightShift)) // Y: Cheating, speed goes up, but the health and fuel goes down faster then normal.
                 {
+                    acceleration = 300;
+                    health -= 0.2f;
+                    fuel -= 0.2f;
                 }
             }
             else if (this.player == 1)
             {
-                if (keyboardState.IsKeyDown(Keys.W))
+                if (keyboardState.IsKeyDown(Keys.W) && (fuel > 1 && health > 1)) // Y: Fuel en/of health moeten groter zijn dan 1 anders stopt auto
                 {
                     if (acceleration <= maxAcceleration) { acceleration += 5; }
                 }
-                else if (keyboardState.IsKeyDown(Keys.S))
+                else if (keyboardState.IsKeyDown(Keys.S) && (fuel > 1 && health > 1)) // Y: Fuel en/of health moeten groter zijn dan 1 anders stopt auto
                 {
                     if (acceleration >= maxDecceleration) { acceleration -= 5; }
                 }
 
-                if (keyboardState.IsKeyDown(Keys.A) && (acceleration > 5 || acceleration < -5))
+                if (keyboardState.IsKeyDown(Keys.A) && (acceleration > 50 || acceleration < -50)) // Y: acceleration moet groter of kleiner zijn dan (-)50 om te draaien
                 {
                     Rotation -= (float)(1 * 3.0f * gameTime.ElapsedGameTime.TotalSeconds);
                 }
 
-                else if (keyboardState.IsKeyDown(Keys.D) && (acceleration > 5 || acceleration < -5))
+                else if (keyboardState.IsKeyDown(Keys.D) && (acceleration > 50 || acceleration < -50)) // Y: acceleration moet groter of kleiner zijn dan (-)50 om te draaien
                 {
                     Rotation += (float)(1 * 3.0f * gameTime.ElapsedGameTime.TotalSeconds);
                 }
-                if (keyboardState.IsKeyDown(Keys.Space))
+                if (keyboardState.IsKeyDown(Keys.Q)) // Y: Cheating, speed goes up, but the health and fuel goes down faster then normal.
                 {
+                    acceleration = 300;
+                    health -= 0.2f;
+                    fuel -= 0.2f;
                 }
             }
         }
@@ -184,20 +193,7 @@ namespace racegame
             this.position.X += (float)(aMove * Math.Cos(Rotation));
             this.position.Y += (float)(aMove * Math.Sin(Rotation));
 
-            if (isOnGrass)
-            {
-                maxAcceleration = 100;
-                maxDecceleration = -50;
-                if (acceleration > 0)
-                {
-                    acceleration -= 2;
-                }
-                else if (acceleration < 0)
-                {
-                    acceleration += 2;
-                }
-            }
-            else if (isOnRoad)
+            if (isOnRoad)
             {
                 maxAcceleration = 200;
                 maxDecceleration = -100;
@@ -210,6 +206,73 @@ namespace racegame
                     acceleration++;
                 }
             }
+            else if (isOnGrass)
+            {
+                maxAcceleration = 100;
+                maxDecceleration = -60;
+                if (acceleration > 0)
+                {
+                    acceleration -= 2;
+                }
+                else if (acceleration < 0)
+                {
+                    acceleration += 2;
+                }
+            }
+            else if (isOnStrip)
+            {
+                maxAcceleration = 100;
+                maxDecceleration = -60;
+                if (acceleration > 0)
+                {
+                    acceleration -= 2;
+                }
+                else if (acceleration < 0)
+                {
+                    acceleration += 2;
+                }
+            }
+            else if (isOnPSFuel)
+            {
+                maxAcceleration = 125;
+                maxDecceleration = -75;
+                if (acceleration > 0)
+                {
+                    acceleration -= 2;
+                }
+                else if (acceleration < 0)
+                {
+                    acceleration += 2;
+                }
+            }
+            else if (isOnPSHealth)
+            {
+                maxAcceleration = 125;
+                maxDecceleration = -75;
+                if (acceleration > 0)
+                {
+                    acceleration -= 2;
+                }
+                else if (acceleration < 0)
+                {
+                    acceleration += 2;
+                }
+            }
+            /* Y: Could be used if we want Dirt on the map.
+            else if (isOnDirt)
+            {
+                maxAcceleration = 100;
+                maxDecceleration = -60;
+                if (acceleration > 0)
+                {
+                    acceleration -= 10;
+                }
+                else if (acceleration < 0)
+                {
+                    acceleration += 10;
+                }
+            }
+            */
 
             base.CalculateMovement();
         }
@@ -248,55 +311,90 @@ namespace racegame
                     {
 
                         case TileCollision.Road:
-                            isOnGrass = false;
                             isOnRoad = true;
-
+                            isOnGrass = false;
+                            isOnStrip = false;
+                            isOnPSFuel = false;
+                            isOnPSHealth = false;
+                            /* Y: Could be used if we want Dirt on the map.
+                            isOnDirt = false;
+                            */
                             break;
 
                         case TileCollision.Grass:
                             isOnRoad = false;
                             isOnGrass = true;
-                            health -= 0.5f;
-
-                            break;
-
-                        case TileCollision.Strip:
-
-                            KeyboardState keyboardState = Keyboard.GetState();
-                            if (keyboardState.IsKeyDown(Keys.Up)  && health > 0.25f)
-                            {
-                                if (acceleration > 60)
-                                {
-                                    acceleration -= 50;
-                                }
-                                else if (acceleration < 60)
-                                {
-                                    acceleration += 50;
-                                }
-                            }
-                            if (keyboardState.IsKeyDown(Keys.Down))
-                            {
-                                if (acceleration < 0)
-                                {
-                                    acceleration = 05;
-                                }
-                            }
+                            isOnStrip = false;
+                            isOnPSFuel = false;
+                            isOnPSHealth = false;
+                            /* Y: Could be used if we want Dirt on the map.
+                            isOnDirt = false;
+                            */
                             health -= 0.05f;
                             break;
 
+                        case TileCollision.Strip:
+                            isOnRoad = false;
+                            isOnGrass = false;
+                            isOnStrip = true;
+                            isOnPSFuel = false;
+                            isOnPSHealth = false;
+                            /* Y: Could be used if we want Dirt on the map.
+                            isOnDirt = false;
+                            */                            
+                            health -= 0.05f;
+                            break;
+
+                        case TileCollision.PitstopStrip:
+                            this.position.X = lastCheckpoint.BoundingRectangle.Location.X;
+                            this.position.Y = lastCheckpoint.BoundingRectangle.Location.Y;
+                            position.X += lastCheckpoint.BoundingRectangle.Width / 2;
+                            position.Y += lastCheckpoint.BoundingRectangle.Height / 2;
+                            break;
+
                         case TileCollision.PitstopFuel:
-                            acceleration = 150;
+                            isOnRoad = false;
+                            isOnGrass = false;
+                            isOnStrip = false;
+                            isOnPSFuel = true;
+                            isOnPSHealth = false;
+                            /* Y: Could be used if we want Dirt on the map.
+                            isOnDirt = false;
+                            */
                             increaseFuel(1);
                             break;
 
-
                         case TileCollision.PitstopHealth:
-                            acceleration = 150;
+                            isOnRoad = false;
+                            isOnGrass = false;
+                            isOnStrip = false;
+                            isOnPSFuel = false;
+                            isOnPSHealth = true;
+                            /* Y: Could be used if we want Dirt on the map.
+                            isOnDirt = false;
+                            */
                             increaseHealth(1);
                             break;
 
-                        case TileCollision.Water:
+                        /* Y: Could be used if we want Dirt on the map.
+                        case TileCollision.Dirt:
+                            isOnRoad = false;
+                            isOnGrass = false;
+                            isOnStrip = false;
+                            isOnPSFuel = false;
+                            isOnPSHealth = false;
+                            isOnDirt = true;
+                            break;
+                         */
 
+                        case TileCollision.Water:
+                            this.position.X = lastCheckpoint.BoundingRectangle.Location.X;
+                            this.position.Y = lastCheckpoint.BoundingRectangle.Location.Y;
+                            position.X += lastCheckpoint.BoundingRectangle.Width / 2;
+                            position.Y += lastCheckpoint.BoundingRectangle.Height / 2;
+                            break;
+
+                        case TileCollision.Solid:
                             this.position.X = lastCheckpoint.BoundingRectangle.Location.X;
                             this.position.Y = lastCheckpoint.BoundingRectangle.Location.Y;
                             position.X += lastCheckpoint.BoundingRectangle.Width / 2;

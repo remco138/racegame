@@ -42,13 +42,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Crosshair.png">
-      <Name>Crosshair</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Tiles\Grass.png">
       <Name>Grass</Name>
       <Importer>TextureImporter</Importer>
@@ -103,8 +96,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Tiles\strip.png">
-      <Name>strip</Name>
+    <Compile Include="Tiles\Strip.png">
+      <Name>Strip</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -129,32 +122,32 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="MainMenu\Button_E.png">
+    <Compile Include="Menu\Button_E.png">
       <Name>Button_E</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="MainMenu\Button_HTP.png">
+    <Compile Include="Menu\Button_HTP.png">
       <Name>Button_HTP</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="MainMenu\Button_MP.png">
+    <Compile Include="Menu\Button_MP.png">
       <Name>Button_MP</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="MainMenu\Button_SP.png">
+    <Compile Include="Menu\Button_SP.png">
       <Name>Button_SP</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="MainMenu\Car1Right.png">
+    <Compile Include="Menu\Car1Right.png">
       <Name>Car1Right</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="MainMenu\Menu_BG.png">
+    <Compile Include="Menu\Menu_BG.png">
       <Name>Menu_BG</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -208,7 +201,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainMenu\Car2Left.png">
+    <Compile Include="Menu\Car2Left.png">
       <Name>Car2Left</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -217,6 +210,32 @@
   <ItemGroup>
     <Compile Include="Overlay.png">
       <Name>Overlay</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Menu\Button_FS.png">
+      <Name>Button_FS</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Menu\Button_SS.png">
+      <Name>Button_SS</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Tiles\PitstopStripRed.png">
+      <Name>PitstopStripRed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Tiles\PitstopStripWhite.png">
+      <Name>PitstopStripWhite</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

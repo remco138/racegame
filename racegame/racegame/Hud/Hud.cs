@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace racegame
+namespace RetroRacer
 {
     class Hud
     {
@@ -41,7 +41,7 @@ namespace racegame
             int barLength = 100;
             int barHeight = 10;
 
-            hudLocation = new Vector2[] { new Vector2(18, 18), new Vector2(track.WidthInPixels - 260, 18) };
+            hudLocation = new Vector2[] { new Vector2(18, 18), new Vector2(track.WidthInPixels - 255, 18) };
 
             /*
             Rectangle[] fuelLeft = new Rectangle[track.cars.Count()];
@@ -70,7 +70,7 @@ namespace racegame
                 spriteBatch.DrawString(font, speedNotifier, hudLocation[i] + currentHeight, Color.BlanchedAlmond);//ADJUST
                 currentHeight.Y += (int)font.MeasureString(speedNotifier).Y - 10;
 
-                string lapsNotifier = "lapsDriven: " + track.cars[i].lapsDriven;
+                string lapsNotifier = "Rounds: " + track.cars[i].lapsDriven + "/" + track.MAX_LAPS;
                 spriteBatch.DrawString(font, lapsNotifier, hudLocation[i] + currentHeight, Color.BlanchedAlmond);//ADJUST
                 currentHeight.Y += (int)font.MeasureString(lapsNotifier).Y - 10;
 

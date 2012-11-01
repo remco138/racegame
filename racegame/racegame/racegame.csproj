@@ -114,8 +114,9 @@
     <Compile Include="Game\PowerUp.cs" />
     <Compile Include="Game\Tile.cs" />
     <Compile Include="Hud\Hud.cs" />
-    <Compile Include="Intro.cs" />
+    <Compile Include="Intro\Intro.cs" />
     <Compile Include="Menu\Button.cs" />
+    <Compile Include="Menu\FirstMenu.cs" />
     <Compile Include="Menu\MainMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Game\Program.cs" />

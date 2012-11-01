@@ -1,6 +1,6 @@
 using System;
 
-namespace racegame
+namespace RetroRacer
 {
 #if WINDOWS || XBOX
     static class Program

@@ -1,6 +1,3 @@
-//TEST! :D
-//nog 1tje!!!
-//3RD
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,12 +9,13 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-namespace racegame
+namespace RetroRacer
 {
     public enum GameState
     {
         Intro,
-        Menu,
+        FirstMenu,
+        MainMenu,
         GameSP,
         GameMP,
         HowToPlay,
@@ -29,7 +27,7 @@ namespace racegame
     {
         #region Variables
 
-        GraphicsDeviceManager graphics;
+        public GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
         KeyboardState currentKeyboardState;
@@ -37,7 +35,9 @@ namespace racegame
 
         Intro intro;
         Texture2D HowToPlay;
+        FirstMenu firstMenu;
         MainMenu mainMenu;
+
 
         Texture2D menuBackground;
 
@@ -56,7 +56,8 @@ namespace racegame
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = 1280;
             graphics.PreferredBackBufferHeight = 800;
-
+            graphics.IsFullScreen = false;
+            graphics.ApplyChanges();
             Content.RootDirectory = "Content";
         }
 
@@ -68,9 +69,10 @@ namespace racegame
             intro = new Intro(Content);
             hud = new Hud(Content);
             HowToPlay = Content.Load<Texture2D>("HowToPlay");
+            firstMenu = new FirstMenu(Content, graphics.GraphicsDevice);
             mainMenu = new MainMenu(Content, graphics.GraphicsDevice);
 
-            menuBackground = Content.Load<Texture2D>("MainMenu/Menu_BG");
+            menuBackground = Content.Load<Texture2D>("Menu/Menu_BG");
         }
 
         #endregion
@@ -87,32 +89,35 @@ namespace racegame
             {
                 case GameState.Intro:
                     intro.Update(gameTime);
-                    if (currentKeyboardState.IsKeyDown(Keys.Escape)) currentGameState = GameState.Menu;
-                    if (gameTime.TotalGameTime.Seconds >= 5) currentGameState = GameState.Menu;
+                    if (currentKeyboardState.IsKeyDown(Keys.Escape)) currentGameState = GameState.FirstMenu;
+                    if (gameTime.TotalGameTime.Seconds >= 5) currentGameState = GameState.FirstMenu;
                     break;
 
-                case GameState.Menu:
+                case GameState.FirstMenu:
+                    firstMenu.Update(gameTime, currentKeyboardState, previousKeyboardState, this);
+                    break;
+
+                case GameState.MainMenu:
                     mainMenu.Update(gameTime, currentKeyboardState, previousKeyboardState, this);
                     break;
 
                 case GameState.GameSP:
-                    if (currentKeyboardState.IsKeyDown(Keys.Back)) currentGameState = GameState.Menu;
+                    if (currentKeyboardState.IsKeyDown(Keys.Back)) currentGameState = GameState.MainMenu;
                     currentTrack.Update(gameTime);
                     break;
 
                 case GameState.GameMP:
-                    if (currentKeyboardState.IsKeyDown(Keys.Back)) currentGameState = GameState.Menu;
+                    if (currentKeyboardState.IsKeyDown(Keys.Back)) currentGameState = GameState.MainMenu;
                     currentTrack.Update(gameTime);
                     break;
 
                 case GameState.HowToPlay:
-                    if (currentKeyboardState.IsKeyDown(Keys.Back)) currentGameState = GameState.Menu;
+                    if (currentKeyboardState.IsKeyDown(Keys.Back)) currentGameState = GameState.MainMenu;
                     break;
 
                 case GameState.Exit:
                     break;
             }
-
             // Store the current keyboardstate
             previousKeyboardState = currentKeyboardState;
         }
@@ -135,7 +140,11 @@ namespace racegame
                     intro.Draw(gameTime, spriteBatch);
                     break;
 
-                case GameState.Menu:
+                case GameState.FirstMenu:
+                    firstMenu.Draw(spriteBatch);
+                    break;
+
+                case GameState.MainMenu:
                     mainMenu.Draw(spriteBatch);
                     break;
 
@@ -145,7 +154,7 @@ namespace racegame
                     if (currentKeyboardState.IsKeyDown(Keys.Tab)) spriteBatch.Draw(HowToPlay, new Vector2(410.0f, 187.0f), Color.White);
                     break;
 
-                case GameState.GameMP:      
+                case GameState.GameMP:
                     currentTrack.Draw(spriteBatch);
                     hud.draw(spriteBatch, currentTrack);
                     if (currentKeyboardState.IsKeyDown(Keys.Tab)) spriteBatch.Draw(HowToPlay, new Vector2(410.0f, 187.0f), Color.White);

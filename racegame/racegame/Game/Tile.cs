@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-namespace racegame
+namespace RetroRacer
 {
     enum TileCollision
     {
@@ -19,6 +19,7 @@ namespace racegame
         Dirt,
         Water,
         Strip,
+        PitstopStrip,
         Checkpoint,
         PitstopHealth,
         PitstopFuel,

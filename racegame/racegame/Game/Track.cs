@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace racegame
+namespace RetroRacer
 {
     class Track
     {
@@ -27,11 +27,13 @@ namespace racegame
         private List<Obstacle> checkpoints;
         public Obstacle finish;
 
-        const int MAX_LAPS = 1;
+        public int MAX_LAPS = 1;
 
         ContentManager Content;
 
         bool isFinished = false;
+        bool isGameOverSP = false;
+        bool isGameOverMP = false;
         Texture2D finishOverlay;
 
         TimeSpan timeStarted;
@@ -96,6 +98,13 @@ namespace racegame
                 // Grey = the road
                 return new Tile(Content.Load<Texture2D>("Tiles/Road"), TileCollision.Road);
             }
+            /* Y: Could be used if we want Dirt on the map.
+            else if (currentColor.Equals(new Color(239, 228, 176)))
+            {
+                // Beige = the dirt
+                return new Tile(Content.Load<Texture2D>("Tiles/Dirt"), TileCollision.Road);
+            }
+            */
             else if (currentColor.Equals(new Color(000, 255, 000)))
             {
                 // Green = Grass
@@ -127,6 +136,16 @@ namespace racegame
             {
                 // Purple = Strip
                 return new Tile(Content.Load<Texture2D>("Tiles/Strip"), TileCollision.Strip);
+            }
+            else if (currentColor.Equals(new Color(255, 242, 0)))
+            {
+                // Yellow = Pitstop
+                return new Tile(Content.Load<Texture2D>("Tiles/PitstopStripRed"), TileCollision.PitstopStrip);
+            }
+            else if (currentColor.Equals(new Color(202, 156, 0)))
+            {
+                // Dark Yellow = Pitstop
+                return new Tile(Content.Load<Texture2D>("Tiles/PitstopStripWhite"), TileCollision.PitstopStrip);
             }
             else if (currentColor.Equals(new Color(0, 0, 0)))
             {
@@ -250,7 +269,7 @@ namespace racegame
             //          2. check for collision between cars & powerups
             //      - Update all the powerups (used for the respawn timer)
 
-            if (!isFinished)
+            if (!isFinished && !isGameOverSP && !isGameOverMP)
             {
                 foreach (Car car in cars)
                 {
@@ -282,6 +301,16 @@ namespace racegame
                     if (car.lapsDriven == MAX_LAPS)
                     {
                         isFinished = true;
+                    }
+
+                    if (cars.Count == 1 && (cars[0].fuel < 1 || cars[0].health < 1))
+                    {
+                        isGameOverSP = true;
+                    }
+
+                    if (cars.Count == 2 && (cars[0].fuel < 1 || cars[0].health < 1) && (cars[1].fuel < 1 || cars[1].health < 1))
+                    {
+                        isGameOverMP = true;
                     }
                 }
 
@@ -327,6 +356,11 @@ namespace racegame
 
             if (cars.Count == 1)
             {
+                if (isGameOverSP)
+                {
+                    spriteBatch.Draw(finishOverlay, new Rectangle(0, 0, 1280, 800), Color.Black);
+                    spriteBatch.DrawString(font, "Game Over", new Vector2(370, 350), Color.White);
+                }
                 if (isFinished)
                 {
                     spriteBatch.Draw(finishOverlay, new Rectangle(0, 0, 1280, 800), Color.Black);
@@ -335,6 +369,11 @@ namespace racegame
             }
             else if (cars.Count == 2)
             {
+                if (isGameOverMP)
+                {
+                    spriteBatch.Draw(finishOverlay, new Rectangle(0, 0, 1280, 800), Color.Black);
+                    spriteBatch.DrawString(font, "Game Over", new Vector2(370, 350), Color.White);
+                }
                 if (isFinished && cars[0].lapsDriven > cars[1].lapsDriven)
                 {
                     spriteBatch.Draw(finishOverlay, new Rectangle(0, 0, 1280, 800), Color.Black);

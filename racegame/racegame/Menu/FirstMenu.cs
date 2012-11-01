@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -9,20 +8,18 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
-
 namespace RetroRacer
 {
-    public class MainMenu
+    class FirstMenu
     {
         Texture2D menuBackground;
 
-        Button buttonSP;
-        Button buttonMP;
-        Button buttonHTP;
-        Button buttonE;
+        Button buttonFS;
+        Button buttonSS;
 
         Texture2D CarCursor1;
         Texture2D CarCursor2;
+
 
         float carCursorP1;// Variable for the 'Cursor' position.
         float carCursorP2;// Variable for the 'Cursor' position.
@@ -31,22 +28,20 @@ namespace RetroRacer
         /// <summary>
         /// The Constructor of MainMenu, this code gets executed at the start of making a new object
         /// </summary>
-        public MainMenu(ContentManager Content, GraphicsDevice graphics)
+        public FirstMenu(ContentManager Content, GraphicsDevice graphics)
         {
             menuBackground = Content.Load<Texture2D>("Menu/Menu_BG");
 
 
             CarCursor1 = Content.Load<Texture2D>("Menu/Car1Right");
             CarCursor2 = Content.Load<Texture2D>("Menu/Car2Left");
-
             // Creating and positioning the buttons.
             //
             Vector2 buttonSize = new Vector2(graphics.Viewport.Width / 4, graphics.Viewport.Height / 10);
 
-            buttonSP = new Button(Content.Load<Texture2D>("Menu/Button_SP"), buttonSize, new Vector2(480, 230));
-            buttonMP = new Button(Content.Load<Texture2D>("Menu/Button_MP"), buttonSize, new Vector2(480, 320));
-            buttonHTP = new Button(Content.Load<Texture2D>("Menu/Button_HTP"), buttonSize, new Vector2(480, 410));
-            buttonE = new Button(Content.Load<Texture2D>("Menu/Button_E"), buttonSize, new Vector2(480, 500));
+            buttonFS = new Button(Content.Load<Texture2D>("Menu/Button_SS"), buttonSize, new Vector2(480, 230));
+            buttonSS = new Button(Content.Load<Texture2D>("Menu/Button_FS"), buttonSize, new Vector2(480, 320));
+
         }
 
         public void Update(GameTime gameTime, KeyboardState currentKeyboardState, KeyboardState previousKeyboardState, Game game)
@@ -57,7 +52,7 @@ namespace RetroRacer
             {
                 counter += 1;
             }
-            if (counter > 4)
+            if (counter > 2)
             {
                 counter = 1;
             }
@@ -67,31 +62,26 @@ namespace RetroRacer
             }
             if (counter < 1)
             {
-                counter = 4;
+                counter = 2;
             }
             if (counter == 1) carCursorP1 = 252;
             if (counter == 2) carCursorP1 = 345;
-            if (counter == 3) carCursorP1 = 434;
-            if (counter == 4) carCursorP1 = 520;
             if (counter == 1) carCursorP2 = 252;
             if (counter == 2) carCursorP2 = 345;
-            if (counter == 3) carCursorP2 = 434;
-            if (counter == 4) carCursorP2 = 520;
+
 
             // Get and respond to user input
             //
             if (currentKeyboardState.IsKeyDown(Keys.Enter) && previousKeyboardState.IsKeyUp(Keys.Enter) && counter == 1)
             {
-                game.startGame(1, 1);
-                game.currentGameState = GameState.GameSP;
+                game.currentGameState = GameState.MainMenu;
             }
             if (currentKeyboardState.IsKeyDown(Keys.Enter) && counter == 2)
             {
-                game.startGame(1, 2);
-                game.currentGameState = GameState.GameMP;
+                game.graphics.IsFullScreen = true;
+                game.graphics.ApplyChanges();
+                game.currentGameState = GameState.MainMenu;
             }
-            if (currentKeyboardState.IsKeyDown(Keys.Enter) && counter == 3) game.currentGameState = GameState.HowToPlay;
-            if (currentKeyboardState.IsKeyDown(Keys.Enter) && counter == 4) game.Exit();
 
             if ((currentKeyboardState.IsKeyDown(Keys.Escape) && (previousKeyboardState.IsKeyUp(Keys.Escape)))) game.Exit();
         }
@@ -102,10 +92,9 @@ namespace RetroRacer
             spriteBatch.Draw(CarCursor1, new Vector2(443.0f, carCursorP1), Color.White);
             spriteBatch.Draw(CarCursor2, new Vector2(805.0f, carCursorP2), Color.White);
 
-            buttonSP.Draw(spriteBatch);
-            buttonMP.Draw(spriteBatch);
-            buttonHTP.Draw(spriteBatch);
-            buttonE.Draw(spriteBatch);
+            buttonSS.Draw(spriteBatch);
+            buttonFS.Draw(spriteBatch);
+
         }
     }
 }
