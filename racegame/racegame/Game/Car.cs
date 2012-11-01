@@ -74,7 +74,7 @@ namespace racegame
             }
 
             // Stop the car if there is no more fuel.
-            if (fuel < 1)
+            if (fuel < 0.25f)
             {
                 acceleration = 0;
             }
@@ -115,7 +115,7 @@ namespace racegame
             }
 
             // Car has suffered too much damage
-            if (health < 0 && !isDead)
+            if (health < 1 && !isDead)
             {
                 isDead = true;
                 texture = deathTexture;
@@ -136,12 +136,12 @@ namespace racegame
                     if (acceleration >= maxDecceleration) { acceleration -= 5; }
                 }
 
-                if (keyboardState.IsKeyDown(Keys.Left) && (acceleration > 0 || acceleration < 0))
+                if (keyboardState.IsKeyDown(Keys.Left) && (acceleration > 5 || acceleration < -5))
                 {
                     Rotation -= (float)(1 * 3.0f * gameTime.ElapsedGameTime.TotalSeconds);
                 }
 
-                else if (keyboardState.IsKeyDown(Keys.Right) && (acceleration > 0 || acceleration < 0))
+                else if (keyboardState.IsKeyDown(Keys.Right) && (acceleration > 5 || acceleration < -5))
                 {
                     Rotation += (float)(1 * 3.0f * gameTime.ElapsedGameTime.TotalSeconds);
                 }
@@ -160,12 +160,12 @@ namespace racegame
                     if (acceleration >= maxDecceleration) { acceleration -= 5; }
                 }
 
-                if (keyboardState.IsKeyDown(Keys.A) && (acceleration > 0 || acceleration < 0))
+                if (keyboardState.IsKeyDown(Keys.A) && (acceleration > 5 || acceleration < -5))
                 {
                     Rotation -= (float)(1 * 3.0f * gameTime.ElapsedGameTime.TotalSeconds);
                 }
 
-                else if (keyboardState.IsKeyDown(Keys.D) && (acceleration > 0 || acceleration < 0))
+                else if (keyboardState.IsKeyDown(Keys.D) && (acceleration > 5 || acceleration < -5))
                 {
                     Rotation += (float)(1 * 3.0f * gameTime.ElapsedGameTime.TotalSeconds);
                 }
@@ -263,7 +263,7 @@ namespace racegame
                         case TileCollision.Strip:
 
                             KeyboardState keyboardState = Keyboard.GetState();
-                            if (keyboardState.IsKeyDown(Keys.Up))
+                            if (keyboardState.IsKeyDown(Keys.Up)  && health > 0.25f)
                             {
                                 if (acceleration > 60)
                                 {
