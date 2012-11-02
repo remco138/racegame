@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\HowToPlay.xnb</Output>
-      <Time>2012-11-02T09:03:29.0900664+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\HowToPlay.xnb</Output>
+      <Time>2012-11-01T23:04:47.6742708+01:00</Time>
     </Item>
     <Item>
       <Source>Overlay.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Overlay.xnb</Output>
-      <Time>2012-11-02T09:03:29.2340746+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Overlay.xnb</Output>
+      <Time>2012-11-01T23:04:47.6782711+01:00</Time>
     </Item>
     <Item>
       <Source>Cars\Car0.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Cars\Car0.xnb</Output>
-      <Time>2012-11-02T09:03:29.0640649+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Cars\Car0.xnb</Output>
+      <Time>2012-11-01T23:05:34.9369741+01:00</Time>
     </Item>
     <Item>
       <Source>Cars\Car1.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Cars\Car1.xnb</Output>
-      <Time>2012-11-02T09:03:29.065065+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Cars\Car1.xnb</Output>
+      <Time>2012-11-01T23:05:34.9429744+01:00</Time>
     </Item>
     <Item>
       <Source>Cars\CarDead.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Cars\CarDead.xnb</Output>
-      <Time>2012-11-02T09:03:29.066065+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Cars\CarDead.xnb</Output>
+      <Time>2012-11-01T23:05:34.9479747+01:00</Time>
     </Item>
     <Item>
       <Source>Intro\Splash.png</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Intro\Splash.xnb</Output>
-      <Time>2012-11-02T09:03:29.1230683+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Intro\Splash.xnb</Output>
+      <Time>2012-11-01T23:05:46.3556272+01:00</Time>
     </Item>
     <Item>
       <Source>Menu\Button_E.png</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Menu\Button_E.xnb</Output>
-      <Time>2012-11-02T09:03:29.15307+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Menu\Button_E.xnb</Output>
+      <Time>2012-11-01T23:05:55.8431699+01:00</Time>
     </Item>
     <Item>
       <Source>Menu\Button_FS.png</Source>
@@ -70,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Menu\Button_FS.xnb</Output>
-      <Time>2012-11-02T09:03:29.1550701+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Menu\Button_FS.xnb</Output>
+      <Time>2012-11-01T23:05:55.8491702+01:00</Time>
     </Item>
     <Item>
       <Source>Menu\Button_HTP.png</Source>
@@ -79,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Menu\Button_HTP.xnb</Output>
-      <Time>2012-11-02T09:03:29.1610705+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Menu\Button_HTP.xnb</Output>
+      <Time>2012-11-01T23:05:55.8541705+01:00</Time>
     </Item>
     <Item>
       <Source>Menu\Button_MP.png</Source>
@@ -88,8 +88,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Menu\Button_MP.xnb</Output>
-      <Time>2012-11-02T09:03:29.1650707+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Menu\Button_MP.xnb</Output>
+      <Time>2012-11-01T23:05:55.8701714+01:00</Time>
     </Item>
     <Item>
       <Source>Menu\Button_SP.png</Source>
@@ -97,8 +97,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Menu\Button_SP.xnb</Output>
-      <Time>2012-11-02T09:03:29.1690709+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Menu\Button_SP.xnb</Output>
+      <Time>2012-11-01T23:05:55.8761718+01:00</Time>
     </Item>
     <Item>
       <Source>Menu\Button_SS.png</Source>
@@ -106,8 +106,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Menu\Button_SS.xnb</Output>
-      <Time>2012-11-02T09:03:29.170071+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Menu\Button_SS.xnb</Output>
+      <Time>2012-11-01T23:05:55.881172+01:00</Time>
     </Item>
     <Item>
       <Source>Menu\Car1Right.png</Source>
@@ -115,8 +115,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Menu\Car1Right.xnb</Output>
-      <Time>2012-11-02T09:03:29.171071+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Menu\Car1Right.xnb</Output>
+      <Time>2012-11-01T23:05:55.8871724+01:00</Time>
     </Item>
     <Item>
       <Source>Menu\Car2Left.png</Source>
@@ -124,8 +124,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Menu\Car2Left.xnb</Output>
-      <Time>2012-11-02T09:03:29.1730711+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Menu\Car2Left.xnb</Output>
+      <Time>2012-11-01T23:05:55.8921727+01:00</Time>
     </Item>
     <Item>
       <Source>Menu\Menu_BG.png</Source>
@@ -133,8 +133,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Menu\Menu_BG.xnb</Output>
-      <Time>2012-11-02T09:03:29.2290743+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Menu\Menu_BG.xnb</Output>
+      <Time>2012-11-01T23:05:55.8991731+01:00</Time>
     </Item>
     <Item>
       <Source>Tiles\Checkpoint.png</Source>
@@ -142,8 +142,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\Checkpoint.xnb</Output>
-      <Time>2012-11-02T09:03:29.2740769+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\Checkpoint.xnb</Output>
+      <Time>2012-11-01T23:06:04.4096598+01:00</Time>
     </Item>
     <Item>
       <Source>Tiles\Dirt.png</Source>
@@ -151,8 +151,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\Dirt.xnb</Output>
-      <Time>2012-11-02T09:03:29.275077+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\Dirt.xnb</Output>
+      <Time>2012-11-01T23:06:04.41266+01:00</Time>
     </Item>
     <Item>
       <Source>Tiles\Finish.png</Source>
@@ -160,8 +160,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\Finish.xnb</Output>
-      <Time>2012-11-02T09:03:29.276077+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\Finish.xnb</Output>
+      <Time>2012-11-01T23:06:04.4156602+01:00</Time>
     </Item>
     <Item>
       <Source>Tiles\Grass.png</Source>
@@ -169,8 +169,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\Grass.xnb</Output>
-      <Time>2012-11-02T09:03:29.2970782+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\Grass.xnb</Output>
+      <Time>2012-11-01T23:06:04.4186604+01:00</Time>
     </Item>
     <Item>
       <Source>Tiles\PitstopFuel.png</Source>
@@ -178,8 +178,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\PitstopFuel.xnb</Output>
-      <Time>2012-11-02T09:03:29.2980783+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\PitstopFuel.xnb</Output>
+      <Time>2012-11-01T23:06:04.4726634+01:00</Time>
     </Item>
     <Item>
       <Source>Tiles\PitstopHealth.png</Source>
@@ -187,8 +187,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\PitstopHealth.xnb</Output>
-      <Time>2012-11-02T09:03:29.2990784+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\PitstopHealth.xnb</Output>
+      <Time>2012-11-01T23:06:04.4776637+01:00</Time>
     </Item>
     <Item>
       <Source>Tiles\PitstopStripRed.png</Source>
@@ -196,8 +196,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\PitstopStripRed.xnb</Output>
-      <Time>2012-11-02T09:03:29.3000784+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\PitstopStripRed.xnb</Output>
+      <Time>2012-11-01T23:06:04.4836641+01:00</Time>
     </Item>
     <Item>
       <Source>Tiles\PitstopStripWhite.png</Source>
@@ -205,8 +205,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\PitstopStripWhite.xnb</Output>
-      <Time>2012-11-02T09:03:29.3000784+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\PitstopStripWhite.xnb</Output>
+      <Time>2012-11-01T23:06:04.4886644+01:00</Time>
     </Item>
     <Item>
       <Source>Tiles\Powerup.png</Source>
@@ -214,8 +214,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\Powerup.xnb</Output>
-      <Time>2012-11-02T09:03:29.3020785+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\Powerup.xnb</Output>
+      <Time>2012-11-01T23:06:04.4936646+01:00</Time>
     </Item>
     <Item>
       <Source>Tiles\Road.png</Source>
@@ -223,8 +223,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\Road.xnb</Output>
-      <Time>2012-11-02T09:03:29.3040786+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\Road.xnb</Output>
+      <Time>2012-11-01T23:06:04.4986649+01:00</Time>
     </Item>
     <Item>
       <Source>Tiles\Solid.png</Source>
@@ -232,8 +232,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\Solid.xnb</Output>
-      <Time>2012-11-02T09:03:29.3050787+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\Solid.xnb</Output>
+      <Time>2012-11-01T23:06:04.5026652+01:00</Time>
     </Item>
     <Item>
       <Source>Tiles\Strip.png</Source>
@@ -241,8 +241,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\Strip.xnb</Output>
-      <Time>2012-11-02T09:03:29.3060788+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\Strip.xnb</Output>
+      <Time>2012-11-01T23:06:04.5066654+01:00</Time>
     </Item>
     <Item>
       <Source>Tiles\Water.png</Source>
@@ -250,8 +250,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\Water.xnb</Output>
-      <Time>2012-11-02T09:03:29.3070788+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\Water.xnb</Output>
+      <Time>2012-11-01T23:06:04.5116657+01:00</Time>
     </Item>
     <Item>
       <Source>Tiles\White.png</Source>
@@ -259,8 +259,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\White.xnb</Output>
-      <Time>2012-11-02T09:03:29.3230797+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\White.xnb</Output>
+      <Time>2012-11-01T23:06:04.5156659+01:00</Time>
     </Item>
     <Item>
       <Source>Tracks\1.png</Source>
@@ -268,8 +268,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tracks\1.xnb</Output>
-      <Time>2012-11-02T09:03:29.3240798+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tracks\1.xnb</Output>
+      <Time>2012-11-01T23:06:13.3411707+01:00</Time>
     </Item>
     <Item>
       <Source>Fonts\Pericles Light.spritefont</Source>
@@ -277,8 +277,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Fonts\Pericles Light.xnb</Output>
-      <Time>2012-11-02T09:03:29.0890663+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Fonts\Pericles Light.xnb</Output>
+      <Time>2012-11-01T23:05:40.2142759+01:00</Time>
     </Item>
     <Item>
       <Source>Sounds\GameOverMP.wav</Source>
@@ -286,8 +286,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Sounds\GameOverMP.xnb</Output>
-      <Time>2012-11-02T09:03:29.2420751+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Sounds\GameOverMP.xnb</Output>
+      <Time>2012-11-02T00:08:29.5458694+01:00</Time>
     </Item>
     <Item>
       <Source>Sounds\GameOverSP.wav</Source>
@@ -295,8 +295,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Sounds\GameOverSP.xnb</Output>
-      <Time>2012-11-02T09:03:29.2450753+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Sounds\GameOverSP.xnb</Output>
+      <Time>2012-11-02T00:15:27.2697618+01:00</Time>
     </Item>
     <Item>
       <Source>Sounds\Winner.wav</Source>
@@ -304,8 +304,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Sounds\Winner.xnb</Output>
-      <Time>2012-11-02T09:03:29.2720768+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Sounds\Winner.xnb</Output>
+      <Time>2012-11-02T00:26:18.5660138+01:00</Time>
     </Item>
     <Item>
       <Source>Sounds\Horn.wav</Source>
@@ -313,8 +313,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Sounds\Horn.xnb</Output>
-      <Time>2012-11-02T09:03:29.2490755+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Sounds\Horn.xnb</Output>
+      <Time>2012-11-02T00:38:50.7830382+01:00</Time>
     </Item>
     <Item>
       <Source>Sounds\LetsGetReadyToRumble.wav</Source>
@@ -322,8 +322,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Sounds\LetsGetReadyToRumble.xnb</Output>
-      <Time>2012-11-02T09:03:29.2690766+01:00</Time>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Sounds\LetsGetReadyToRumble.xnb</Output>
+      <Time>2012-11-02T01:37:24.2457929+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -331,10 +331,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro RacerContent\</RootDirectory>
-      <LoggerRootDirectory>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\</LoggerRootDirectory>
-      <IntermediateDirectory>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro RacerContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>D:\User\My Documents\Programmeren\Github Repositories\racegame\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro RacerContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro RacerContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v4\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -363,7 +363,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2012-10-15T18:23:15.0613947+02:00</Value>
+        <Value>2012-10-11T15:21:55.149828+02:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

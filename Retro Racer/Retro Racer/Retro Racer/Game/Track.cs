@@ -427,7 +427,7 @@ namespace RetroRacer
                 if (isGameOverMP)
                 {
                     spriteBatch.Draw(finishOverlay, new Rectangle(0, 0, 1280, 800), Color.Black);
-                    spriteBatch.DrawString(font, "Game Over", new Vector2(370, 350), Color.White);
+                    spriteBatch.DrawString(font, "You guys suck!", new Vector2(370, 350), Color.White);
                 }
                 if (isFinished && cars[0].lapsDriven > cars[1].lapsDriven)
                 {
