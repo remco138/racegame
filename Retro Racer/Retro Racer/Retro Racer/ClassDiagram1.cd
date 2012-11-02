@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="RetroRacer.Car">
+    <Position X="12" Y="14.25" Width="1.5" />
+    <InheritanceLine Type="RetroRacer.MovableObject" FixedToPoint="true">
+      <Path>
+        <Point X="12.75" Y="13.732" />
+        <Point X="12.75" Y="14.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AQwBAAIIEAAAIATgAACAAAAAABDCACQDAAAAQQIAEgg=</HashCode>
+      <FileName>Game\Car.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RetroRacer.MovableObject">
+    <Position X="12" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAIAAAoAAAAAAAAAAAAwAAAAAAAAAAAIkAAA=</HashCode>
+      <FileName>Game\MovableObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RetroRacer.Obstacle">
+    <Position X="10.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAgAAAAAAIEAAAAAAAgAAAAAAAQgAEAA=</HashCode>
+      <FileName>Game\Obstacle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RetroRacer.Powerup">
+    <Position X="10.25" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQACAAgQGAAAgAgAAAAABAAAAAABAAAAAAAAAAQAQA=</HashCode>
+      <FileName>Game\PowerUp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RetroRacer.Program">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Game\Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RetroRacer.Track">
+    <Position X="3" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAYAAQAARqAAQoACAAAAAMAAAgIAAKEAAACBCISBAgA=</HashCode>
+      <FileName>Game\Track.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RetroRacer.Game">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAEgwAAAAAgAAACAAAEAEIAAAEAgAAAAAIABAAAQ=</HashCode>
+      <FileName>Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RetroRacer.Hud">
+    <Position X="0.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAASAIAAAAAgIAAECAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Hud\Hud.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RetroRacer.Intro">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAIAAAAgAAAAAAAAAAAAAAgAAAAAAAAAQAARA=</HashCode>
+      <FileName>Intro\Intro.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RetroRacer.Button">
+    <Position X="3.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAIAAIAACAAAgAgCAAAAAAAAAAAA=</HashCode>
+      <FileName>Menu\Button.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RetroRacer.FirstMenu">
+    <Position X="6.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SIQAABAQAAAAAgAAAAAAAAAAAAAAAAEAAIAAAAAAAEA=</HashCode>
+      <FileName>Menu\FirstMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RetroRacer.MainMenu">
+    <Position X="5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SAQAAACQAAAAAgAAAEAAAAAAAAAAAAEAAICAAAAAIEA=</HashCode>
+      <FileName>Menu\MainMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="RetroRacer.Tile">
+    <Position X="4.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABIAAgAAAAAAAAEAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Game\Tile.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="RetroRacer.PowerupType">
+    <Position X="8.5" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Game\PowerUp.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="RetroRacer.TileCollision">
+    <Position X="6.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAJBAAAgAIIAAAAAAAAAAgIAgIAAAAAAAAAgA=</HashCode>
+      <FileName>Game\Tile.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="RetroRacer.GameState">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEIAAAAQAAAAAAAAAAAAAAAQAABAAAAgIAAAAAAAIAA=</HashCode>
+      <FileName>Game.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

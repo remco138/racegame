@@ -35,7 +35,7 @@ namespace RetroRacer
             maxHealth = new Rectangle[2]; 
         }
 
-        public void draw(SpriteBatch spriteBatch, Track track)//List<Car> cars)
+        public void Draw(SpriteBatch spriteBatch, Track track)//List<Car> cars)
         {
             int barLength = 100;
             int barHeight = 10;

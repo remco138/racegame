@@ -303,7 +303,7 @@ namespace RetroRacer
                                 {
                                     case PowerupType.Fuel:
                                         Console.WriteLine("Picked up fuel powerup");
-                                        car.increaseFuel(10);
+                                        car.IncreaseFuel(10);
                                         powerup.isPickedUp = true;
                                         break;
 

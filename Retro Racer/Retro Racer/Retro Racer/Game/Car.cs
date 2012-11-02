@@ -363,7 +363,7 @@ namespace RetroRacer
                             /* Y: Could be used if we want Dirt on the map.
                             isOnDirt = false;
                             */
-                            increaseFuel(1);
+                            IncreaseFuel(1);
                             break;
 
                         case TileCollision.PitstopHealth:
@@ -375,7 +375,7 @@ namespace RetroRacer
                             /* Y: Could be used if we want Dirt on the map.
                             isOnDirt = false;
                             */
-                            increaseHealth(1);
+                            IncreaseHealth(1);
                             break;
 
                         /* Y: Could be used if we want Dirt on the map.
@@ -409,13 +409,13 @@ namespace RetroRacer
             }
         }
 
-        public void increaseFuel(int amount)
+        public void IncreaseFuel(int amount)
         {
             fuel += amount;
             if (fuel > maxFuel) fuel = maxFuel;
         }
 
-        public void increaseHealth(int amount)
+        public void IncreaseHealth(int amount)
         {
             health += amount;
             if (health > maxHealth) health = maxHealth;

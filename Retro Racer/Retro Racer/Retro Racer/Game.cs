@@ -150,13 +150,13 @@ namespace RetroRacer
 
                 case GameState.GameSP:
                     currentTrack.Draw(spriteBatch);
-                    hud.draw(spriteBatch, currentTrack);
+                    hud.Draw(spriteBatch, currentTrack);
                     if (currentKeyboardState.IsKeyDown(Keys.Tab)) spriteBatch.Draw(HowToPlay, new Vector2(410.0f, 187.0f), Color.White);
                     break;
 
                 case GameState.GameMP:
                     currentTrack.Draw(spriteBatch);
-                    hud.draw(spriteBatch, currentTrack);
+                    hud.Draw(spriteBatch, currentTrack);
                     if (currentKeyboardState.IsKeyDown(Keys.Tab)) spriteBatch.Draw(HowToPlay, new Vector2(410.0f, 187.0f), Color.White);
                     break;
 
