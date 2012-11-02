@@ -53,11 +53,11 @@ namespace RetroRacer
             for(int i = 0; i < track.cars.Count(); i++)
             {
                 //fuel and health bars
-                fuelLeft[i] = new Rectangle((int)track.cars[i].position.X - 20, (int)track.cars[i].position.Y - 25, (int)(track.cars[i].fuel / track.cars[0].maxFuel * barLength), barHeight);
-                maxFuel[i] = new Rectangle((int)track.cars[i].position.X - 20, (int)track.cars[i].position.Y - 25, (int)(100f / 100f * barLength), barHeight);
+                fuelLeft[i] = new Rectangle((int)track.cars[i].position.X - 20, (int)track.cars[i].position.Y - 13, (int)(track.cars[i].fuel / track.cars[0].maxFuel * barLength), barHeight);
+                maxFuel[i] = new Rectangle((int)track.cars[i].position.X - 20, (int)track.cars[i].position.Y - 13, (int)(100f / 100f * barLength), barHeight);
 
-                healthLeft[i] = new Rectangle((int)track.cars[i].position.X - 20, (int)track.cars[i].position.Y - 13, (int)(track.cars[i].health / track.cars[0].maxHealth * barLength), barHeight);
-                maxHealth[i] = new Rectangle((int)track.cars[i].position.X - 20, (int)track.cars[i].position.Y - 13, (int)(100f / 100f * barLength), barHeight);
+                healthLeft[i] = new Rectangle((int)track.cars[i].position.X - 20, (int)track.cars[i].position.Y - 25, (int)(track.cars[i].health / track.cars[0].maxHealth * barLength), barHeight);
+                maxHealth[i] = new Rectangle((int)track.cars[i].position.X - 20, (int)track.cars[i].position.Y - 25, (int)(100f / 100f * barLength), barHeight);
 
                 //Other data which gets printed as text on screen
                 Vector2 currentHeight = new Vector2(0, - 10);
