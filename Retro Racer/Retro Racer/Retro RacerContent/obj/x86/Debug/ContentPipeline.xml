@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>HowToPlay.png</Source>
+      <Name>HowToPlay</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\HowToPlay.xnb</Output>
+      <Time>2012-11-01T23:04:47.6742708+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Overlay.png</Source>
+      <Name>Overlay</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Overlay.xnb</Output>
+      <Time>2012-11-01T23:04:47.6782711+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Cars\Car0.png</Source>
+      <Name>Cars\Car0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Cars\Car0.xnb</Output>
+      <Time>2012-11-01T23:05:34.9369741+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Cars\Car1.png</Source>
+      <Name>Cars\Car1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Cars\Car1.xnb</Output>
+      <Time>2012-11-01T23:05:34.9429744+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Cars\CarDead.png</Source>
+      <Name>Cars\CarDead</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Cars\CarDead.xnb</Output>
+      <Time>2012-11-01T23:05:34.9479747+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Intro\Splash.png</Source>
+      <Name>Intro\Splash</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Intro\Splash.xnb</Output>
+      <Time>2012-11-01T23:05:46.3556272+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\Button_E.png</Source>
+      <Name>Menu\Button_E</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Menu\Button_E.xnb</Output>
+      <Time>2012-11-01T23:05:55.8431699+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\Button_FS.png</Source>
+      <Name>Menu\Button_FS</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Menu\Button_FS.xnb</Output>
+      <Time>2012-11-01T23:05:55.8491702+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\Button_HTP.png</Source>
+      <Name>Menu\Button_HTP</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Menu\Button_HTP.xnb</Output>
+      <Time>2012-11-01T23:05:55.8541705+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\Button_MP.png</Source>
+      <Name>Menu\Button_MP</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Menu\Button_MP.xnb</Output>
+      <Time>2012-11-01T23:05:55.8701714+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\Button_SP.png</Source>
+      <Name>Menu\Button_SP</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Menu\Button_SP.xnb</Output>
+      <Time>2012-11-01T23:05:55.8761718+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\Button_SS.png</Source>
+      <Name>Menu\Button_SS</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Menu\Button_SS.xnb</Output>
+      <Time>2012-11-01T23:05:55.881172+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\Car1Right.png</Source>
+      <Name>Menu\Car1Right</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Menu\Car1Right.xnb</Output>
+      <Time>2012-11-01T23:05:55.8871724+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\Car2Left.png</Source>
+      <Name>Menu\Car2Left</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Menu\Car2Left.xnb</Output>
+      <Time>2012-11-01T23:05:55.8921727+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\Menu_BG.png</Source>
+      <Name>Menu\Menu_BG</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Menu\Menu_BG.xnb</Output>
+      <Time>2012-11-01T23:05:55.8991731+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\Checkpoint.png</Source>
+      <Name>Tiles\Checkpoint</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\Checkpoint.xnb</Output>
+      <Time>2012-11-01T23:06:04.4096598+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\Dirt.png</Source>
+      <Name>Tiles\Dirt</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\Dirt.xnb</Output>
+      <Time>2012-11-01T23:06:04.41266+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\Finish.png</Source>
+      <Name>Tiles\Finish</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\Finish.xnb</Output>
+      <Time>2012-11-01T23:06:04.4156602+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\Grass.png</Source>
+      <Name>Tiles\Grass</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\Grass.xnb</Output>
+      <Time>2012-11-01T23:06:04.4186604+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\PitstopFuel.png</Source>
+      <Name>Tiles\PitstopFuel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\PitstopFuel.xnb</Output>
+      <Time>2012-11-01T23:06:04.4726634+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\PitstopHealth.png</Source>
+      <Name>Tiles\PitstopHealth</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\PitstopHealth.xnb</Output>
+      <Time>2012-11-01T23:06:04.4776637+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\PitstopStripRed.png</Source>
+      <Name>Tiles\PitstopStripRed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\PitstopStripRed.xnb</Output>
+      <Time>2012-11-01T23:06:04.4836641+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\PitstopStripWhite.png</Source>
+      <Name>Tiles\PitstopStripWhite</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\PitstopStripWhite.xnb</Output>
+      <Time>2012-11-01T23:06:04.4886644+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\Powerup.png</Source>
+      <Name>Tiles\Powerup</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\Powerup.xnb</Output>
+      <Time>2012-11-01T23:06:04.4936646+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\Road.png</Source>
+      <Name>Tiles\Road</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\Road.xnb</Output>
+      <Time>2012-11-01T23:06:04.4986649+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\Solid.png</Source>
+      <Name>Tiles\Solid</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\Solid.xnb</Output>
+      <Time>2012-11-01T23:06:04.5026652+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\Strip.png</Source>
+      <Name>Tiles\Strip</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\Strip.xnb</Output>
+      <Time>2012-11-01T23:06:04.5066654+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\Water.png</Source>
+      <Name>Tiles\Water</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\Water.xnb</Output>
+      <Time>2012-11-01T23:06:04.5116657+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\White.png</Source>
+      <Name>Tiles\White</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tiles\White.xnb</Output>
+      <Time>2012-11-01T23:06:04.5156659+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tracks\1.png</Source>
+      <Name>Tracks\1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Tracks\1.xnb</Output>
+      <Time>2012-11-01T23:06:13.3411707+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\Pericles Light.spritefont</Source>
+      <Name>Fonts\Pericles Light</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Fonts\Pericles Light.xnb</Output>
+      <Time>2012-11-01T23:05:40.2142759+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\GameOverMP.wav</Source>
+      <Name>Sounds\GameOverMP</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Sounds\GameOverMP.xnb</Output>
+      <Time>2012-11-02T00:08:29.5458694+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\GameOverSP.wav</Source>
+      <Name>Sounds\GameOverSP</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Sounds\GameOverSP.xnb</Output>
+      <Time>2012-11-02T00:15:27.2697618+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\Winner.wav</Source>
+      <Name>Sounds\Winner</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Sounds\Winner.xnb</Output>
+      <Time>2012-11-02T00:26:18.5660138+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\Horn.wav</Source>
+      <Name>Sounds\Horn</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\Sounds\Horn.xnb</Output>
+      <Time>2012-11-02T00:38:50.7830382+01:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro RacerContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro RacerContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Yme\Desktop\NHL\Projecten\J1    [12-13]\P1P Race Game\Retro Racer\Game\Retro Racer_v2\Retro Racer\Retro Racer\Retro Racer\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T12:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T12:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2012-10-11T15:21:55.149828+02:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
