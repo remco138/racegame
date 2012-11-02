@@ -13,7 +13,7 @@ namespace RetroRacer
 {
     class MovableObject : Obstacle
     {
-        public float Rotation; //doe hier dingen mee
+        public float Rotation; 
 
         public Vector2 Velocity;
         public Vector2 LastPosition

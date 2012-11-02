@@ -14,7 +14,7 @@ namespace RetroRacer
     class Obstacle
     {
         public Vector2 position;
-        protected Texture2D texture; // Or Animation?
+        protected Texture2D texture;
         public int Width;
         public int Height;
 
@@ -31,7 +31,7 @@ namespace RetroRacer
         }
 
         /// <summary>
-        /// This is the Rectangle with the added adjustements fix the origin of rotating (used for the collision)
+        /// This is the Rectangle with the added adjustements to fix the origin of rotating (used for the collision)
         /// </summary>
         public Rectangle RealBoundingRectangle
         {
@@ -59,7 +59,7 @@ namespace RetroRacer
         public Obstacle(Rectangle rectangle)
         {
             this.position = new Vector2(rectangle.X, rectangle.Y);
-            this.texture = null; // Maak hier nieuwe texture2D aan met de width en height van de retangle.
+            this.texture = null;
 
             Width = rectangle.Width;
             Height = rectangle.Height;
@@ -67,7 +67,10 @@ namespace RetroRacer
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, position, Color.White);
+            if (texture != null)
+            {
+                spriteBatch.Draw(texture, position, Color.White);
+            }
         }
     }  
 }

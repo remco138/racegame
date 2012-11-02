@@ -63,6 +63,7 @@ namespace RetroRacer
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
             // Load the intro, menu etc.
             intro = new Intro(Content);
             hud = new Hud(Content);
@@ -116,6 +117,7 @@ namespace RetroRacer
                 case GameState.Exit:
                     break;
             }
+
             // Store the current keyboardstate
             previousKeyboardState = currentKeyboardState;
         }

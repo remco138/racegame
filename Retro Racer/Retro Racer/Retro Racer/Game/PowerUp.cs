@@ -28,10 +28,16 @@ namespace RetroRacer
         private bool isBouncy;
         private float bounce;
 
+        /// <summary>
+        /// The modified position so the powerup 'bounces'
+        /// </summary>
         public Vector2 BouncingPosition
         {
             get { return position + new Vector2(0.0f, bounce); }
         }
+        /// <summary>
+        /// This is the rectangle of the bouncingPosition
+        /// </summary>
         public Rectangle BouncingRectangle
         {
             get { return new Rectangle((int)BouncingPosition.X, (int)BouncingPosition.Y, Width, Height); }
@@ -68,8 +74,7 @@ namespace RetroRacer
                 const float BounceRate = 6.2f;
                 const float BounceSync = -0.75f;
 
-                // Bounce along a sine curve over time.
-                // Include the X coordinate so that neighboring gems bounce in a nice wave pattern.            
+                // Bounce along a sine curve over time.           
                 double t = gameTime.TotalGameTime.TotalSeconds * BounceRate + position.X * BounceSync;
                 bounce = (float)Math.Sin(t) * BounceHeight * Height;
             }

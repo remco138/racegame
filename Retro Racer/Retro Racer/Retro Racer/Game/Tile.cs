@@ -26,7 +26,7 @@ namespace RetroRacer
         StartFinish
     }
 
-    struct Tile // verander naar class? -> gaat null pointer opleveren bij 2dim array
+    struct Tile
     {
         public Texture2D Texture;
         public TileCollision Collision;

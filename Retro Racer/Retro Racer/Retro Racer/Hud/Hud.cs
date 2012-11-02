@@ -21,15 +21,14 @@ namespace RetroRacer
         private Rectangle[] maxHealth;
 
         public Hud(ContentManager content)
-        {
-            
+        {  
             font = content.Load<SpriteFont>("Fonts/Pericles Light");
             debugTexture = content.Load<Texture2D>("Tiles/White");
 
             maxFontHeight  = font.MeasureString("M");
             maxFontHeight.X = 0;
 
-            fuelLeft = new Rectangle[2]; //hardcoded
+            fuelLeft = new Rectangle[2];
             maxFuel = new Rectangle[2];
 
             healthLeft = new Rectangle[2];
@@ -43,16 +42,11 @@ namespace RetroRacer
 
             hudLocation = new Vector2[] { new Vector2(18, 18), new Vector2(track.WidthInPixels - 255, 18) };
 
-            /*
-            Rectangle[] fuelLeft = new Rectangle[track.cars.Count()];
-            Rectangle[] maxFuel = new Rectangle[track.cars.Count()];
-
-            Rectangle[] healthLeft = new Rectangle[track.cars.Count()];
-            Rectangle[] maxHealth = new Rectangle[track.cars.Count()]; 
-            */
+            // This foor loop will draw the health & fuel bar above each car.
+            //
             for(int i = 0; i < track.cars.Count(); i++)
             {
-                //fuel and health bars
+                // Fuel and health bars
                 fuelLeft[i] = new Rectangle((int)track.cars[i].position.X - 20, (int)track.cars[i].position.Y - 25, (int)(track.cars[i].fuel / track.cars[0].maxFuel * barLength), barHeight);
                 maxFuel[i] = new Rectangle((int)track.cars[i].position.X - 20, (int)track.cars[i].position.Y - 25, (int)(100f / 100f * barLength), barHeight);
 
@@ -75,6 +69,7 @@ namespace RetroRacer
                 currentHeight.Y += (int)font.MeasureString(lapsNotifier).Y - 10;
 
 
+                // Finally draw the bars.
                 spriteBatch.Draw(debugTexture, maxFuel[i], Color.Yellow);
                 spriteBatch.Draw(debugTexture, fuelLeft[i], Color.Green);
 
@@ -82,13 +77,9 @@ namespace RetroRacer
                 spriteBatch.Draw(debugTexture, healthLeft[i], Color.Green);
             }
 
+            // Draw the amount of time elapsed on screen.
             String timeString = "Time elapsed: "+track.TimeElapsed.Hours+ ":"+track.TimeElapsed.Minutes+":"+track.TimeElapsed.Seconds;
             spriteBatch.DrawString(font, timeString, new Vector2(640.0f, 300.0f), Color.Black);
-        }
-
-        void drawText(string text)
-        {
-
         }
     }
 }

@@ -13,7 +13,7 @@ namespace RetroRacer
     class Track
     {
         public Texture2D trackTexture;
-        public Tile[,] tiles; //2-dimensionale array van de tiles(op dit moment alleen nog maar een wrapper voor Texture2D...)
+        public Tile[,] tiles;
 
         int numberOfPlayers;
 
@@ -49,11 +49,6 @@ namespace RetroRacer
         
         public Track(Texture2D trackTexture, ContentManager Content, int numberOfPlayers, Game game)
         {
-            //
-            // Dit is de constructor, deze voert het volgende uit:
-            // 
-            //      - Leest de trackTexture in en laad aan de hand van de (kleur)-codes de verschillende objecten in. (bv een rode pixel = de start positie van een Car)   
-            //
             this.Content = Content;
             this.numberOfPlayers = numberOfPlayers;
             this.finishOverlay = Content.Load<Texture2D>("Overlay");
@@ -72,11 +67,18 @@ namespace RetroRacer
             {
                 for (int j = 0; j < Height; j++)
                 {
-                    tiles[i, j] = LoadTile(trackTexture, i, j); // Zoek uit wat voor Tile dit is en zet deze in de tiles[] array.
+                    tiles[i, j] = LoadTile(trackTexture, i, j); // Loads the correct tile into the array with the LoadTile() method.
                 }
             }
         }
 
+        /// <summary>
+        /// Returns different tiles depending on the color.
+        /// </summary>
+        /// <param name="trackTexture"></param>
+        /// <param name="x">X coordinate inside the trackTexture</param>
+        /// <param name="y">Y coordinate inside the trackTexture</param>
+        /// <returns></returns>
         public Tile LoadTile(Texture2D trackTexture, int x, int y)
         {
             Color currentColor = GetPixelColor(trackTexture, x, y);
@@ -200,9 +202,6 @@ namespace RetroRacer
                 Obstacle checkpoint = new Obstacle(new Rectangle(x * Tile.Width, y * Tile.Height, widthCheckpoint * Tile.Width, heightCheckpoint * Tile.Height));
                 checkpoints.Add(checkpoint);
 
-                //
-                // Maak heir het Checkpoint Object aan & de range van deze tiles opslaan zodat dit bij de volgende keer wordt overgeslagen
-                //
 
                 return new Tile(Content.Load<Texture2D>("Tiles/Checkpoint"), TileCollision.Checkpoint);
             }
@@ -214,11 +213,18 @@ namespace RetroRacer
             }
             else
             {
-                //throw new NotSupportedException(String.Format("Unsupported tole Color {0} at position {1}, {2}.", tileColor, x, y));
-                return new Tile(Content.Load<Texture2D>("Tiles/Road"), TileCollision.Road);
+                //throw new NotSupportedException(String.Format("Unsupported tile Color {0} at position {1}, {2}.", tileColor, x, y));
+                return new Tile(Content.Load<Texture2D>("Tiles/Road"), TileCollision.Road); // Instead of throwing an exception we load unknown tiles with a road texture.
             }
         }
 
+        /// <summary>
+        /// Starting from 1 tile: find out where the line of the same colored tiles stop
+        /// </summary>
+        /// <param name="startX">X position of the starting tile</param>
+        /// <param name="startY">Y position of the starting tile</param>
+        /// <param name="colorToTestFor">The color to test for</param>
+        /// <returns>The x and y (Point) of the last tile in the line</returns>
         public Point getEndTile(int startX, int startY, Color colorToTestFor)
         {
             Point endTile = Point.Zero;
@@ -252,8 +258,6 @@ namespace RetroRacer
         {
             cars.Add(car);
         }
-
-
 
         /// <summary>
         /// Returns the color of the pixel located at the given x and y.
@@ -364,18 +368,18 @@ namespace RetroRacer
                     }
                 }
 
-                    foreach (Powerup powerup in powerups)
-                    {
-                        powerup.Update(gameTime);
-                    }
-
-                    // Set the startTime when game first starts && Calculate the timeElapsed after that.
-                    //
-                    if (timeStarted == TimeSpan.Zero) timeStarted = gameTime.TotalGameTime;
-                    TimeElapsed = gameTime.TotalGameTime - timeStarted;
-                    // Console.WriteLine("{0}, lapsed: {1}", timeStarted, TimeElapsed);  
+                foreach (Powerup powerup in powerups)
+                {
+                    powerup.Update(gameTime);
                 }
+
+                // Set the startTime when game first starts && Calculate the timeElapsed after that.
+                //
+                if (timeStarted == TimeSpan.Zero) timeStarted = gameTime.TotalGameTime;
+                TimeElapsed = gameTime.TotalGameTime - timeStarted;
+                // Console.WriteLine("{0}, lapsed: {1}", timeStarted, TimeElapsed);  
             }
+        }
         
 
         public void Draw(SpriteBatch spriteBatch)

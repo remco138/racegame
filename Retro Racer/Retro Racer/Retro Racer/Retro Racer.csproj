@@ -110,7 +110,6 @@
     <Compile Include="Game\Car.cs" />
     <Compile Include="Game\MovableObject.cs" />
     <Compile Include="Game\Obstacle.cs" />
-    <Compile Include="Game\Pitstop.cs" />
     <Compile Include="Game\PowerUp.cs" />
     <Compile Include="Game\Program.cs" />
     <Compile Include="Game\Tile.cs" />

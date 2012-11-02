@@ -84,6 +84,7 @@ namespace RetroRacer
 
             CalculateMovement(gameTime);
 
+            // Don't respond to user input when the car is dead
             if (!isDead)
             {
                 GetInput(gameTime);
@@ -91,6 +92,7 @@ namespace RetroRacer
 
             HandleCollisions();
 
+            // Check if the car has reached the finish
             if (BoundingRectangle.Intersects(track.finish.BoundingRectangle))
             {
                 lastCheckpoint = track.finish;
@@ -109,7 +111,7 @@ namespace RetroRacer
                 }
             }
 
-            // Check for finish collision
+            // Check if the car has collided with the finish & if it has been to all the checkpoints.
             if (BoundingRectangle.Intersects(finish.BoundingRectangle) && checkpointsSurpassed >= checkpoints.Count() && checkpointsSurpassed != 0)
             {
                 lapsDriven++;
@@ -130,21 +132,21 @@ namespace RetroRacer
             KeyboardState keyboardState = Keyboard.GetState();
             if (this.player == 0)
             {
-                if (keyboardState.IsKeyDown(Keys.Up) && (fuel > 1 && health > 1)) // Y: Fuel en/of health moeten groter zijn dan 1 anders stopt auto
+                if (keyboardState.IsKeyDown(Keys.Up) && (fuel > 1 && health > 1)) // Y: Fuel and/or health must be greater than 1 so the car stops
                 {
                     if (acceleration <= maxAcceleration) { acceleration += 5; }
                 }
-                else if (keyboardState.IsKeyDown(Keys.Down) && (fuel > 1 && health > 1)) // Y: Fuel en/of health moeten groter zijn dan 1 anders stopt auto
+                else if (keyboardState.IsKeyDown(Keys.Down) && (fuel > 1 && health > 1)) //
                 {
                     if (acceleration >= maxDecceleration) { acceleration -= 5; }
                 }
 
-                if (keyboardState.IsKeyDown(Keys.Left) && (acceleration > 50 || acceleration < -50)) // Y: acceleration moet groter of kleiner zijn dan (-)50 om te draaien
+                if (keyboardState.IsKeyDown(Keys.Left) && (acceleration > 50 || acceleration < -50)) // Y: Acceleration must be greater than (-)50 to be able to turn the car
                 {
                     Rotation -= (float)(1 * 3.0f * gameTime.ElapsedGameTime.TotalSeconds);
                 }
 
-                else if (keyboardState.IsKeyDown(Keys.Right) && (acceleration > 50 || acceleration < -50)) // Y: acceleration moet groter of kleiner zijn dan (-)50 om te draaien
+                else if (keyboardState.IsKeyDown(Keys.Right) && (acceleration > 50 || acceleration < -50)) //
                 {
                     Rotation += (float)(1 * 3.0f * gameTime.ElapsedGameTime.TotalSeconds);
                 }
@@ -157,21 +159,21 @@ namespace RetroRacer
             }
             else if (this.player == 1)
             {
-                if (keyboardState.IsKeyDown(Keys.W) && (fuel > 1 && health > 1)) // Y: Fuel en/of health moeten groter zijn dan 1 anders stopt auto
+                if (keyboardState.IsKeyDown(Keys.W) && (fuel > 1 && health > 1)) // Y: Fuel and/or health must be greater than 1 so the car stops
                 {
                     if (acceleration <= maxAcceleration) { acceleration += 5; }
                 }
-                else if (keyboardState.IsKeyDown(Keys.S) && (fuel > 1 && health > 1)) // Y: Fuel en/of health moeten groter zijn dan 1 anders stopt auto
+                else if (keyboardState.IsKeyDown(Keys.S) && (fuel > 1 && health > 1)) //
                 {
                     if (acceleration >= maxDecceleration) { acceleration -= 5; }
                 }
 
-                if (keyboardState.IsKeyDown(Keys.A) && (acceleration > 50 || acceleration < -50)) // Y: acceleration moet groter of kleiner zijn dan (-)50 om te draaien
+                if (keyboardState.IsKeyDown(Keys.A) && (acceleration > 50 || acceleration < -50)) // Y: Acceleration must be greater than (-)50 to be able to turn the car
                 {
                     Rotation -= (float)(1 * 3.0f * gameTime.ElapsedGameTime.TotalSeconds);
                 }
 
-                else if (keyboardState.IsKeyDown(Keys.D) && (acceleration > 50 || acceleration < -50)) // Y: acceleration moet groter of kleiner zijn dan (-)50 om te draaien
+                else if (keyboardState.IsKeyDown(Keys.D) && (acceleration > 50 || acceleration < -50)) // 
                 {
                     Rotation += (float)(1 * 3.0f * gameTime.ElapsedGameTime.TotalSeconds);
                 }
@@ -187,11 +189,12 @@ namespace RetroRacer
         protected void CalculateMovement(GameTime gameTime)
         {
             // Use a smooth-curve for acceleration & deceleration of the car
-            //Setup the Movement increment.
-            int aMove = (int)(acceleration * gameTime.ElapsedGameTime.TotalSeconds);
 
-            this.position.X += (float)(aMove * Math.Cos(Rotation));
-            this.position.Y += (float)(aMove * Math.Sin(Rotation));
+            //Setup the Movement increment.
+            int moveAmount = (int)(acceleration * gameTime.ElapsedGameTime.TotalSeconds);
+
+            this.position.X += (float)(moveAmount * Math.Cos(Rotation));
+            this.position.Y += (float)(moveAmount * Math.Sin(Rotation));
 
             if (isOnRoad)
             {
@@ -304,12 +307,11 @@ namespace RetroRacer
 
                     if (!tileBoundingBox.Intersects(BoundingRectangle) || !BoundingRectangle.Intersects(tileBoundingBox))
                     {
-                        break;
+                        break; // ?
                     }
 
                     switch (collision)
                     {
-
                         case TileCollision.Road:
                             isOnRoad = true;
                             isOnGrass = false;
