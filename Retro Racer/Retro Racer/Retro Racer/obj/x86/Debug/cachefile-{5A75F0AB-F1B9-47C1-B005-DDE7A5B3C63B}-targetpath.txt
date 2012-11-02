@@ -33,3 +33,4 @@ Content\Sounds\GameOverMP.xnb
 Content\Sounds\GameOverSP.xnb
 Content\Sounds\Winner.xnb
 Content\Sounds\Horn.xnb
+Content\Sounds\LetsGetReadyToRumble.xnb

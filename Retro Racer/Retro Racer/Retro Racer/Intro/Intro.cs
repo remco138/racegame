@@ -22,11 +22,13 @@ namespace RetroRacer
         int fadeIncrement = 3;
         double fadeDelay = 1;
 
+        SoundEffect letsGetReadyToRumble;
 
         public Intro(ContentManager Content)
         {
             // Use the ContentManager to load the the Splash image into the Texture2D object
             Splash = Content.Load<Texture2D>("Intro/Splash");
+            letsGetReadyToRumble = Content.Load<SoundEffect>("Sounds/LetsGetReadyToRumble"); // Loading the LetsGetReadyToRumble sound
         }
 
         /// <summary>
@@ -34,6 +36,11 @@ namespace RetroRacer
         /// </summary>
         public void Update(GameTime gameTime)
         {
+            if (gameTime.ElapsedGameTime.Milliseconds < 1)
+            {
+                letsGetReadyToRumble.Play(); // Play the LetsGetReadyToRumble sound
+            }
+
             // Here the image will fade in. 
             fadeDelay -= gameTime.ElapsedGameTime.TotalSeconds;
             if (fadeDelay <= 0) // fadeDelay starts with value 1.
